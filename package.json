@@ -1,0 +1,17 @@
+{
+  "name": "monitor-sdk",
+  "private": true,
+  "scripts": {
+    "release": "run-s build releaseOnly",
+    "releaseOnly": "changeset publish",
+    "install": "pnpm install"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "lerna": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  }
+}

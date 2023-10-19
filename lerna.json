@@ -1,0 +1,5 @@
+{
+    "npmClient": "pnpm",
+    "useWorkspaces": true,
+    "prefer-workspace-packages": true
+}

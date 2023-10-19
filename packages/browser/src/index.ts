@@ -1,0 +1,1 @@
+export const hasConsole = ():boolean => typeof console !== 'undefined'
