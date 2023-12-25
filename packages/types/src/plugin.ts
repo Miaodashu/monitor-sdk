@@ -1,14 +1,5 @@
-import { EventTypes } from './constant';
-import { BreadcrumbPushData } from './stack';
 import { CallBack } from './common'
-
-export interface ReportDataType<T> {
-    id: string;
-    time: string;
-    type: EventTypes;
-    data: T;
-    breadcrumb?: BreadcrumbPushData[];
-}
+import { ReportDataType } from './base';
 
 
 export interface BasePluginType {

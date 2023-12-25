@@ -1,5 +1,4 @@
-import { StackLevel } from '../types/constant';
-import { StackPushData } from '../types/stack';
+import { StackLevel,  StackPushData } from '@monitor-sdk/types';
 // 创建一个栈结构进行 行为管理
 
 export class Stack {

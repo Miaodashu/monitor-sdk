@@ -8,10 +8,11 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
-    "lerna": "^4.0.0"
+    "lerna": "^8.0.1"
   },
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
-  }
+  },
+  "dependencies": {}
 }

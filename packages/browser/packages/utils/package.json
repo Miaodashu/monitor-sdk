@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"@monitor-sdk/types": "workspace:^"
+	}
+}

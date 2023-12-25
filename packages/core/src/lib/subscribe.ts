@@ -1,4 +1,4 @@
-import { CallBack } from '../types/common'
+import { CallBack } from '@monitor-sdk/types'
 export class PubSub {
     private events: Map<string, CallBack[]> = new Map();
 
@@ -12,13 +12,13 @@ export class PubSub {
         this.events.get(event)?.push(callback);
     }
 
-    publish(event: string, ...args: any[]) {
+    publish<T = any>(event: string, data: T) {
         if (!this.hasEvent(event)) {
             return;
         }
 
         this.events.get(event)?.forEach((callback) => {
-            callback(...args);
+            callback(data);
         });
     }
 

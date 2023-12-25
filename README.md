@@ -15,5 +15,7 @@
 执行 `npx changeset version`
 
 3 将改动合并到主分支
+`git checkout master`
+`git merge feature_your_branch`
 
 4 发布 `npx changeset publish`

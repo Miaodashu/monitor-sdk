@@ -1,21 +1,23 @@
 // 创建一个队列结构进行 行为管理
 
-import { QueueData } from "../types/queue";
-import { Recordable } from "../types/common";
+import { BaseOptionsType, QueueData, Recordable } from "@monitor-sdk/types";
 
-export class Queue {
+export class Queue<O extends BaseOptionsType> {
     private readonly maxQueueLength: number
     private queue: Recordable
     private count: number;
     private lowestCount: number;
-    constructor() {
-        // this.maxQueueLength = option?.maxQueueLength || 10;
+    constructor(options: Partial<O> = {}) {
         this.count = 0;
         this.lowestCount = 0
         this.queue = {}
+        this.maxQueueLength = options?.maxQueueLength || 10;
     }
     // 向队列尾部添加一个新的项。
     enqueue(data: QueueData) {
+        if (this.size() >= this.maxQueueLength) {
+            this.dequeue()
+        }
         this.queue[this.count] = data
         this.count ++
     }
