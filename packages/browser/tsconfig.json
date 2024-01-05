@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "es6",
+    "outDir": "esm",
+    "paths": {
+      "@monitor-sdk/core": ["../core/src"],
+      "@monitor-sdk/types": ["../types/src"],
+      "@monitor-sdk/utils": ["../utils/src"],
+    }
+  },
+  "include": ["src/**/*", "global.d.ts"]
+}

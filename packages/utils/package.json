@@ -5,19 +5,23 @@
   "author": "pengpeng.zhao <pengpeng.zhao@ly.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "src/index.ts",
+  "main": "dist/core.umd.js",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "esm"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "run-p build:bundle build:esm",
+    "build:bundle": "rimraf dist && rollup --config",
+    "build:esm": "rimraf esm && tsc -p tsconfig.json"
   },
   "dependencies": {
     "@monitor-sdk/types": "workspace:^"

@@ -1,0 +1,32 @@
+{
+    "name": "@monitor-sdk/webpack-plugin-sourcemap-upload",
+    "version": "0.0.0",
+    "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+    "keywords": [],
+    "author": "peng <847880603@qq.com>",
+    "license": "ISC",
+    "main": "dist/webpack-plugin-sourcemap-upload.umd.js",
+    "module": "esm/index.js",
+    "types": "esm/index.d.ts",
+    "files": [
+        "dist",
+        "esm"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://Miaodashu@github.com/Miaodashu/monitor-sdk.git"
+    },
+    "scripts": {
+        "build": "run-p build:bundle build:esm",
+        "build:bundle": "rimraf dist && rollup --config",
+        "build:esm": "rimraf esm && tsc -p tsconfig.json"
+    },
+    "bugs": {
+        "url": "https://github.com/Miaodashu/monitor-sdk/issues"
+    },
+    "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
+    "devDependencies": {
+        "axios": "^1.6.4",
+        "form-data": "^4.0.0"
+    }
+}
