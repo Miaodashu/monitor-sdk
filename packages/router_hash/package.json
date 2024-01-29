@@ -1,0 +1,31 @@
+{
+  "name": "@monitor-sdk/router-hash",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "peng <847880603@qq.com>",
+  "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
+  "license": "ISC",
+  "main": "dist/router_hash.umd.js",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
+  "files": [
+    "dist",
+    "esm"
+  ],
+  "scripts": {
+    "build": "run-p build:bundle build:esm",
+    "build:bundle": "rimraf dist && rollup --config",
+    "build:esm": "rimraf esm && tsc -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Miaodashu@github.com/Miaodashu/monitor-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Miaodashu/monitor-sdk/issues"
+  },
+  "dependencies": {
+    "@monitor-sdk/types": "workspace:^",
+    "@monitor-sdk/utils": "workspace:^"
+  }
+}

@@ -1,19 +1,13 @@
-# `@monitor-sdk/utils`
+# @monitor-sdk/hash
 
-> 浏览器监控基座， 内置了错误手机捕获以及页面load和unload钩子捕获
-
-可捕获的错误类型
-
-- js错误
-- 资源加载错误
-- promise错误
-
+> 捕获路由中的hash更改
 
 ## Usage
 
 ### cdn
 
 ```html
+<script src="[hash-dist]/router_hash.iife.js"></script>
 <script>
     window.__MONITOR_OPTIONS__ = {
         dsn: {
@@ -25,10 +19,9 @@
             leader: 'test',
             desc: 'test proj'
         },
-        userIdentify: {
-            name: '__state__.a.0.user.id', // window.__state__ = { a: [{ user: { id:'123' } }] }
-            position: 'global'
-        }
+        plugins: [
+            HEIMDALLR_HASH(),
+        ]
     };
 </script>
 <script async src="/browser-dist/browser.iife.js"></script>
@@ -37,8 +30,9 @@
 ### npm
 
 ```js
-import heimdallr from "@monitor-sdk/browser";
-heimdallr({
+import monitor from "@monitor-sdk/browser";
+import hashPlugin from "@monitor-sdk/router-hash";
+monitor({
     dsn: {
         projectID: 'dsdsdsdsdd5d5s5ds5ds5',
         reportUrl: 'localhost:8888/log/upload'
@@ -46,11 +40,10 @@ heimdallr({
     app: {
         name: 'playgroundAPP',
         leader: 'test',
-        desc: 'test project'
+        desc: 'test proj'
     },
-    userIdentify: {
-        name: '__state__.a.0.user.id', // window.__state__ = { a: [{ user: { id:'123' } }] }
-        position: 'global'
-    }
+    plugins: [
+        hashPlugin(),
+    ]
 });
 ```

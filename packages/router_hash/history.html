@@ -1,0 +1,32 @@
+<body>
+    <h3>history路由变化实例</h3>
+    <div id="routerView"></div>
+    <hr>
+    <ul>
+        <li><a href="/home">home</a></li>
+        <li><a href="/about">about</a></li>
+    </ul>
+</body>
+<script>
+    const state = { page_id: 1, user_id: 5 };
+    window.addEventListener('DOMContentLoaded', () => {
+        routerView.innerHTML = location.pathname;
+        const linkList = document.querySelectorAll('a[href]');
+        linkList.forEach(el => {
+            el.addEventListener('click', e => {
+                e.preventDefault();
+                history.pushState(state,'', el.getAttribute('href'));
+                routerView.innerHTML = location.pathname;
+            })
+        })
+    });
+    window.addEventListener('popstate', () => {
+        routerView.innerHTML = location.pathname;
+    })
+
+    
+const url = "hello-world.html";
+
+history.pushState(state, "", url);
+
+</script>

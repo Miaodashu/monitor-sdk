@@ -21,6 +21,8 @@ const packageDirDist = `${packageDir}/dist`;
 
 const name = path.basename(packageDir);
 
+
+
 // 基础配置
 export const common = {
     input: `${packageDir}/src/index.ts`,

@@ -20,14 +20,10 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         this.options = options;
         this.taskQueue = [];
         this.bindOptions();
-        this.initApp().then((id) => {
-            if (id) {
-                this.appID = id;
-            }
-            // 开始执行上报
-            this.isReady = true;
-            this.executeTaskQueue();
-        });
+        // 原先的初始化去掉，暂时不需要。init().then(// 初始化成功后执行上报)
+        // 开始执行上报
+        this.isReady = true;
+        this.executeTaskQueue();
     }
 
     // 引用插件
@@ -78,13 +74,13 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         if (!app || !dsn) {
             this.log('配置项: app || dsn 必须配置');
         }
-        const { host, initUrl, reportUrl = '' } = dsn;
+        const { initUrl, reportUrl = '', projectID } = dsn;
         // 这里可以设置一些参数初始化得东西
         const uploadUrl = reportUrl; // 上传的地址
+        this.appID = projectID;
         this.context = {
             app,
             uploadUrl,
-            initUrl,
             debuge,
             enabled
         };
@@ -102,9 +98,6 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
             this.nextTick(this.report, this, this.context.uploadUrl, { app_id: this.appID, ...task });
         }
     }
-
-    // 注册/初始化应用
-    abstract initApp(): Promise<string>;
 
     /**
      * @description: 抽象方法，nextTick

@@ -81,6 +81,17 @@ importers:
         specifier: workspace:^
         version: link:../utils
 
+  packages/router-hash:
+    dependencies:
+      '@monitor-sdk/types':
+        specifier: workspace:^
+        version: link:../types
+      '@monitor-sdk/utils':
+        specifier: workspace:^
+        version: link:../utils
+
+  packages/router_history: {}
+
   packages/types: {}
 
   packages/utils:

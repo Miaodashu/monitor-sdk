@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>hash路由变化实例</h3>
+    <div id="routerView"></div>
+    <hr>
+    <ul>
+        <li><a href="#/home">home</a></li>
+        <li><a href="#/about">about</a></li>
+    </ul>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!location.hash) {
+                location.hash = '/';
+            } else {
+                routerView.innerHTML = location.hash;
+            }
+        });
+        window.addEventListener('hashchange', function (e) {
+            console.log(e)
+        })
+    </script>
+</body>
+
+</html>
