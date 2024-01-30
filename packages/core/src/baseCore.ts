@@ -74,10 +74,10 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         if (!app || !dsn) {
             this.log('配置项: app || dsn 必须配置');
         }
-        const { initUrl, reportUrl = '', projectID } = dsn;
+        const { initUrl, reportUrl = '', projectId } = dsn;
         // 这里可以设置一些参数初始化得东西
         const uploadUrl = reportUrl; // 上传的地址
-        this.appID = projectID;
+        this.appID = projectId;
         this.context = {
             app,
             uploadUrl,
