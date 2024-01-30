@@ -24,6 +24,9 @@
   "bugs": {
     "url": "https://github.com/Miaodashu/monitor-sdk/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@monitor-sdk/types": "workspace:^",
     "@monitor-sdk/utils": "workspace:^"

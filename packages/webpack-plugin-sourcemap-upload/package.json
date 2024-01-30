@@ -24,6 +24,9 @@
     "bugs": {
         "url": "https://github.com/Miaodashu/monitor-sdk/issues"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
     "devDependencies": {
         "axios": "1.6.2",
