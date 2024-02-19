@@ -8,14 +8,27 @@
 
 # 发布
 
+使用changeset/cli来进行发布管理
+
 1 生成发布包版本信息
-执行 `npx changeset`
+- 执行 `npx changeset`
+- 选择对应的包， 按照交互next
+- 完成后，提交变更文件。push到git
 
-2 更新包版本并生成changelog
-执行 `npx changeset version`
+2 发布版本
 
-3 将改动合并到主分支
-`git checkout master`
-`git merge feature_your_branch`
+- 如果是发布测试版本
+    - `pnpm changeset pre enter alpha   # 发布 alpha 版本`
+      `pnpm changeset pre enter beta    # 发布 beta 版本`
+      `pnpm changeset pre enter rc      # 发布 rc 版本`
+    - 然后执行 `pnpm changeset version` 修改包的版本：
+    - 执行 `pnpm run build && pnpm changeset publish` 发布 beta 版本
+    - 完成版本发布之后，退出 Prereleases 模式 `pnpm changeset pre exit`
+    - 然后把变更的内容提交到远程仓库中
 
-4 发布 `npx changeset publish`
+
+- 发布正式版本
+    - 执行 `pnpm changeset version`
+    - 执行 `pnpm run build && pnpm changeset publish`
+    - 然后把变更的内容提交到远程仓库中
+
