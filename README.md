@@ -8,7 +8,7 @@
 
 # 发布
 
-使用changeset/cli来进行发布管理
+使用changeset/cli来进行发布管理, 发布前进行build操作， 后续的build操作就可省略
 
 1 生成发布包版本信息
 - 执行 `npx changeset`
@@ -28,7 +28,8 @@
 
 
 - 发布正式版本
+    - 提起打包 `pnpm run build`
     - 执行 `pnpm changeset version`
-    - 执行 `pnpm run build && pnpm changeset publish`
+    - 执行 `pnpm changeset publish`
     - 然后把变更的内容提交到远程仓库中
 
