@@ -19,17 +19,15 @@ interface ResourceTarget {
     currentSrc?: string;
     localName?: string;
 }
+
+
 const errorPlugin: BasePluginType = {
     name: 'jsErrorPlugin',
-    monitor: (publish: (data: CollectedType) => void) => {
+    monitor(publish: (data: CollectedType) => void) {
         window.addEventListener(
             'error',
             (e) => {
                 e.preventDefault();
-                // 插件的this已经指向到对应的平台类了，所以可以直接调用log方法
-                // 这里报this为undefinde 不知道咋解决， 先忽略点
-                // @ts-ignore
-                this.log(e, ConsoleTypes.ERROR);
                 publish({
                     category: EventTypes.ERROR,
                     data: e
@@ -38,10 +36,12 @@ const errorPlugin: BasePluginType = {
             true
         );
     },
-    beforeReport: (collectedData: CollectedType): ReportDataType<ReportDataMsgType> => {
+    beforeReport(collectedData: CollectedType): ReportDataType<ReportDataMsgType> {
         const { category, data } = collectedData;
         var isElementTarget =
-            data.target instanceof HTMLScriptElement || data.target instanceof HTMLLinkElement || data.target instanceof HTMLImageElement;
+            data.target instanceof HTMLScriptElement ||
+            data.target instanceof HTMLLinkElement ||
+            data.target instanceof HTMLImageElement;
         const id = generateUUID();
         const time = formatDate();
         // 判断是否是资源类型报错
@@ -52,7 +52,6 @@ const errorPlugin: BasePluginType = {
                 source_type: localName,
                 src: src || currentSrc
             };
-            // @ts-ignore
             this.queue.enqueue({
                 eventId: id,
                 type: BrowserStackTypes.RESOURCE,
@@ -96,6 +95,5 @@ const errorPlugin: BasePluginType = {
             }
         };
     }
-};
-
+}
 export default errorPlugin;

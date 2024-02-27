@@ -1,4 +1,4 @@
-import { Recordable } from "@monitor-sdk/types";
+import { Recordable } from '@monitor-sdk/types';
 
 /**
  * 生成UUID
@@ -41,7 +41,6 @@ export const formatDate = (format = 'Y-M-D h:m:s', timestamp: number = Date.now(
     return res;
 };
 
-
 /**
  * 重写对象上面的某个属性
  *
@@ -54,10 +53,30 @@ export const formatDate = (format = 'Y-M-D h:m:s', timestamp: number = Date.now(
 export function replaceOld(source: Recordable, name: string, replacement: (...args: any[]) => any, isForced?: boolean): void {
     if (source === undefined) return;
     if (name in source || isForced) {
-      const original = source[name];
-      const wrapped = replacement(original);
-      if (typeof wrapped === 'function') {
-        source[name] = wrapped;
-      }
+        const original = source[name];
+        const wrapped = replacement(original);
+        if (typeof wrapped === 'function') {
+            source[name] = wrapped;
+        }
     }
-  }
+}
+
+/**
+ * 保留指定位数的小数
+ * @param num 原数据
+ * @param decimal 小数位数
+ * @returns
+ */
+export function formatDecimal(num: number, decimal: number): number {
+    if (!num) {
+        return num;
+    }
+    let str = num.toString();
+    const index = str.indexOf('.');
+    if (index !== -1) {
+        str = str.substring(0, decimal + index + 1);
+    } else {
+        str = str.substring(0);
+    }
+    return parseFloat(str);
+}

@@ -17,6 +17,7 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
     return {
         name: 'lifecyclePlugin',
         monitor: (publish: (data: LifecycleDataType) => void) => {
+            
             const { name: userPath, postion: userPosi } = userIdentify;
             this.sessionID = generateUUID();
             window.addEventListener('load', () => {

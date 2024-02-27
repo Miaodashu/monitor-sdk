@@ -41,7 +41,7 @@ export default function vuePlugin(options: VueOptions = {}): BasePluginType {
                 eventId: id,
                 type: BrowserStackTypes.FRAMEWORK,
                 level: StackQueueLevel.FATAL,
-                message: `Error in Vue/${hook}: "${stack && stack.toString()}"`
+                message: `Error in Vue/n${hook}: "${stack && stack.toString()}"`
             })
             const queueList = this.queue.queueValue();
 

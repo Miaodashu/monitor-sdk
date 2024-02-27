@@ -20,6 +20,7 @@
     "access": "public"
   },
   "scripts": {
+    "dev": "rollup --config rollup.config.dev.mjs -w",
     "build": "run-p build:bundle build:esm",
     "build:bundle": "rimraf dist && rollup --config",
     "build:esm": "rimraf esm && tsc -p tsconfig.json"

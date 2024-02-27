@@ -34,17 +34,19 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
             plugin.monitor.call(this, pubSub.publish.bind(pubSub, plugin.name));
             const callback = (...args: any[]) => {
                 const pluginData = plugin.beforeReport?.apply(this, args);
-                if (!pluginData) {
+                
+                const datas = this.transform(pluginData);
+                if (!datas) {
                     return;
                 }
                 if (!enabled) {
                     return;
                 }
                 if (!this.isReady) {
-                    this.taskQueue.push(pluginData);
+                    this.taskQueue.push(datas);
                     return;
                 }
-                this.nextTick(this.report, this, uploadUrl, { app_id: this.appID, ...pluginData });
+                this.nextTick(this.report, this, uploadUrl, { app_id: this.appID, ...datas });
             };
             pubSub.subscribe(plugin.name, callback);
         });
@@ -57,7 +59,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
      * @return {*} void
      */
     log(message: any, type: ConsoleTypes = ConsoleTypes.LOG): void {
-        const { debuge } = this.context;
+        const { debuge } = this.options;
         if (!hasConsole() || !debuge) {
             return;
         }
@@ -74,7 +76,10 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         if (!app || !dsn) {
             this.log('配置项: app || dsn 必须配置');
         }
-        const { initUrl, reportUrl = '', projectId } = dsn;
+        const { reportUrl = '', projectId } = dsn;
+        if (!projectId) {
+            this.log('配置项: projectId 必须配置');
+        }
         // 这里可以设置一些参数初始化得东西
         const uploadUrl = reportUrl; // 上传的地址
         this.appID = projectId;
@@ -117,6 +122,6 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
      */
     abstract report(url: string, data: IAnyObject, type?: any): void;
 
-    // 抽象方法  处理各个端的数据
+    // 抽象方法  处理各个端的上报数据
     abstract transform(data: IAnyObject): IAnyObject;
 }

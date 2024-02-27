@@ -11,6 +11,22 @@
 
 ## Usage
 
+
+### app
+
+|名称|类型|描述|可选值|
+|-|-|-|-|
+|name|String|应用名称|-|
+|leader|String|负责人|-|
+|desc|String|应用描述|-|
+
+### userIdentify
+
+|名称|类型|描述|可选值|
+|-|-|-|-|
+|name|string|业务字段名称（支持点运算符读取，cookie除外）|-|
+|postion|string|存储位置|local/session/cookie/global|
+
 ### cdn
 
 ```html
@@ -37,10 +53,10 @@
 ### npm
 
 ```js
-import heimdallr from "@monitor-sdk/browser";
-heimdallr({
+import monitor from "@monitor-sdk/browser";
+monitor({
     dsn: {
-        projectID: 'dsdsdsdsdd5d5s5ds5ds5',
+        projectId: 'dsdsdsdsdd5d5s5ds5ds5',
         reportUrl: 'localhost:8888/log/upload'
     },
     app: {

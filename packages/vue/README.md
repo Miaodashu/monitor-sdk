@@ -1,5 +1,6 @@
 # @monitor-sdk/vue
 
+[English](./README_en.md)
 
 > 捕获 vue 框架抛出的错误
 
@@ -18,8 +19,9 @@
 <script>
     window.__MONITOR_OPTIONS__ = {
         dsn: {
-            projectID: 'dsdsdsdsdd5d5s5ds5ds5',
-            reportUrl: 'localhost:8888/log/upload'
+            host: 'localhost:8888',
+            init: '/project/init',
+            upload: '/log/upload'
         },
         app: {
             name: 'playgroundAPP',
@@ -27,7 +29,7 @@
             desc: 'test proj'
         },
         plugins: [
-            HEIMDALLR_VUE({
+            MONITOR_VUE({
                 vue: VueInstance
             }),
         ],
@@ -43,8 +45,9 @@ import monitor from "@monitor-sdk/browser";
 import vuePlugin from "@monitor-sdk/vue";
 monitor({
     dsn: {
-        projectID: 'dsdsdsdsdd5d5s5ds5ds5',
-        reportUrl: 'localhost:8888/log/upload'
+        host: 'localhost:8888',
+        init: '/project/init',
+        upload: '/log/upload'
     },
     app: {
         name: 'playgroundAPP',

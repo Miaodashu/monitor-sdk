@@ -33,6 +33,7 @@ export function beacon(url: string, data: IAnyObject): boolean {
         }
         formData.append(key, value);
     });
+    
     return navigator.sendBeacon(url, formData);
 }
 

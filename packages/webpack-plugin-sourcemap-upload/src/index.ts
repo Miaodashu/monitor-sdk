@@ -1,9 +1,13 @@
 import path from 'path';
 import fs from 'fs';
-import FormData from 'form-data';
-import axios from 'axios';
+import request from 'request';
 
 const TAG = '[webpack-plugin-sourcemap-upload]: ';
+
+export interface ResponseType {
+    code: number;
+    msg: string;
+}
 
 class UploadSourceMapPlugin {
     private readonly options;
@@ -23,7 +27,10 @@ class UploadSourceMapPlugin {
             }
             for (const file of list) {
                 try {
-                    await this.upload(path.join(outputPath, file));
+                    const { code, msg } = await this.upload(path.join(outputPath, file));
+                    if (code !== 0) {
+                        console.error(TAG, msg);
+                    }
                 } catch (err) {
                     console.error(TAG, err);
                 }
@@ -42,30 +49,50 @@ class UploadSourceMapPlugin {
 
             const fileStream = fs.createReadStream(filePath);
             const filename = path.basename(filePath);
-            const formData = new FormData();
-            formData.append('file', fileStream);
-            formData.append('dirname', appname);
-            formData.append('filename', filename);
-            const headers = formData.getHeaders();
 
-            //获取form-data长度
-            formData.getLength(async function (err, length) {
+            const config = {
+                method: 'POST',
+                url,
+                headers: {},
+                formData: {
+                    file: {
+                        value: fileStream,
+                        options: {
+                            filename: filePath,
+                            contentType: null
+                        }
+                    },
+                    dirname: appname,
+                    filename
+                }
+            };
+
+            request(config, function (err, { body }) {
                 if (err) {
+                    rejected({
+                        code: -1,
+                        msg: err.message || err
+                    });
                     return;
                 }
-                //设置长度，important!!!
-                headers['content-length'] = length;
-
-                await axios
-                    .post(url, formData, { headers })
-                    .then((res) => {
-                        console.log('上传成功', res.data);
-                        resolve(res.data);
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                        rejected(err)
+                try {
+                    const data = JSON.parse(body);
+                    const code = data[errcode];
+                    const result = {
+                        code: code || code === 0 ? code : -1,
+                        msg: data[errmsg] || '未知错误'
+                    };
+                    if (result.code === 0) {
+                        resolve(result);
+                    } else {
+                        rejected(result);
+                    }
+                } catch (error) {
+                    rejected({
+                        code: -1,
+                        msg: error.message || error
                     });
+                }
             });
         });
     }

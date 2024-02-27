@@ -1,7 +1,7 @@
 import { Core, Queue } from '@monitor-sdk/core';
 import { BrowserOptionType, BrowserReportPayloadDataType } from './types';
 import { IAnyObject, BrowserReportType, PlatformTypes, BaseOptionsType } from '@monitor-sdk/types';
-import { beacon, generateUUID, get, imgRequest, post } from '@monitor-sdk/utils';
+import { beacon, generateUUID, get, imgRequest, post, DeviceInfo } from '@monitor-sdk/utils';
 import { nextTick } from './lib/nextTick';
 import jsErrorPlugin from './plugins/jsErrorPlugin';
 import promiseErrorPlugin from './plugins/promiseErrorPlugin';
@@ -34,7 +34,7 @@ class BrowserClient extends Core<BrowserOptionType> {
      * @param type - 上报类型，默认为BEACON
      */
     report(url: string, data: IAnyObject, type: BrowserReportType = BrowserReportType.BEACON) {
-        this.log('上报数据' + data);
+        this.log(data);
         if (type === BrowserReportType.BEACON && !!navigator.sendBeacon) {
             beacon(url, data);
             return;
@@ -56,17 +56,20 @@ class BrowserClient extends Core<BrowserOptionType> {
 
     // 处理浏览器端的上报数据
     transform(data: IAnyObject): BrowserReportPayloadDataType {
-        const { userAgent, language } = navigator;
+        if (!data) {
+            return null;
+        }
         const { title } = document;
         const { href } = window.location;
-        // 在这里一会进行 公共部分的数据处理， 后续把navigation和location里面的东西解析一下
+        let deviceInfo = DeviceInfo.getDeviceInfo();
+        let deviceInfoStr = JSON.stringify(deviceInfo);
+        // 在这里一会进行 公共部分的数据处理
         return {
             session_id: this.sessionID,
             page_title: title,
-            language,
             path: href,
-            user_agent: userAgent,
-            platform: PlatformTypes.BROWSER,
+            app: this.context.app,
+            deviceInfo: deviceInfoStr,
             ...data
         };
     }
@@ -75,7 +78,7 @@ class BrowserClient extends Core<BrowserOptionType> {
 const init = (options: BrowserOptionType) => {
     const client = new BrowserClient(options);
     const { plugins = [] } = options;
-    client.use([jsErrorPlugin, promiseErrorPlugin, lifecyclePlugin.call(client, options),  ...plugins]);
+    client.use([jsErrorPlugin, promiseErrorPlugin.call(client), lifecyclePlugin.call(client, options), ...plugins]);
 };
 
 export default init;

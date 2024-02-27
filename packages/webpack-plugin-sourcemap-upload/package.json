@@ -17,7 +17,8 @@
         "url": "git+https://Miaodashu@github.com/Miaodashu/monitor-sdk.git"
     },
     "scripts": {
-        "build": "run-p build:bundle build:esm",
+        "build": "rimraf dist",
+        "build1": "run-p build:bundle build:esm",
         "build:bundle": "rimraf dist && rollup --config",
         "build:esm": "rimraf esm && tsc -p tsconfig.json"
     },
@@ -28,8 +29,7 @@
         "access": "public"
     },
     "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
-    "devDependencies": {
-        "axios": "1.6.2",
-        "form-data": "^4.0.0"
+    "dependencies": {
+        "request": "^2.88.2"
     }
 }

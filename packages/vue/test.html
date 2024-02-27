@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+
+</head>
+
+<body>
+    <div id="app">
+        <img src="./aaa.jpg" alt="">
+        <p>{{ message }}</p>
+        <button @click="clickFn">点击触发错误</button>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!'
+                }
+            },
+            methods: {
+                clickFn() {
+                    this.message = name
+                }
+            },
+        }).mount('#app')
+    </script>
+    <script src="./dist/vue.iife.js"></script>
+    <script>
+        // debugger
+        window.__MONITOR_OPTIONS__ = {
+            dsn: {
+                projectId: 'dsdsdsdsdd5d5s5ds5ds5',
+                reportUrl: 'http://localhost:8888/log/upload'
+            },
+            debuge: true,
+            app: {
+                name: 'playgroundAPP',
+                leader: 'test',
+                desc: 'test proj'
+            },
+            plugins: [
+                MONITOR_VUE({
+                    vue: Vue
+                }),
+            ],
+        };
+    </script>
+
+    <script async src="../browser/dist/browser.iife.js"></script>
+</body>
+
+</html>

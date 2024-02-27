@@ -3,7 +3,7 @@ import { BasePluginType } from './plugin';
 import { QueueData } from './queue';
 
 export interface AppInfoType {
-    name: string;
+    name: string; // 项目名称
     leader: string;
     desc?: string;
 }
@@ -12,15 +12,16 @@ export interface DSN {
     /**
      * 上报的域名地址
      */
-    host: string;
-    /**
-     * 应用初始化接口地址
-     */
-    initUrl: string;
+    // host: string;
+    // /**
+    //  * 应用初始化接口地址
+    //  */
+    // initUrl: string;
     /**
      * 信息上报接口地址
      */
     reportUrl: string;
+    projectId: string;
 }
 
 // 供基类和子类获取核心配置使用， 也可直接使用 option: BaseOptionsType
@@ -50,7 +51,7 @@ export interface BaseOptionsType {
 
 // 事件上报的数据格式  客户端 浏览器端会上报的格式，
 export interface ClientInfoType {
-    platform: PlatformTypes; // 平台类型
+    deviceInfo: string; // json字符串  平台信息， 包含设备类型，网络，系统等信息
     app_id?: string; // 应用id
     session_id?: string; // 会话id
     page_title?: string; // 页面标题
