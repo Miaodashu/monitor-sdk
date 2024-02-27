@@ -33,3 +33,5 @@
     - 执行 `pnpm changeset publish`
     - 然后把变更的内容提交到远程仓库中
 
+如果某个包发布失败 就先在此重试发布命令`pnpm changeset publis`
+或者到单独的子包文件夹下执行 `pnpm publish`
