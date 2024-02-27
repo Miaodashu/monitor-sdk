@@ -1,5 +1,11 @@
 # @monitor-sdk/fetch
 
+## 0.0.2
+
+### Patch Changes
+
+-   变更 package 的相关发布配置
+
 ## 0.0.1
 
 ### Patch Changes
