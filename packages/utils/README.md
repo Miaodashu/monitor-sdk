@@ -7,5 +7,5 @@
 ```
 const utils = require('@monitor-sdk/utils');
 
-// TODO: DEMONSTRATE API
+sdk的工具集
 ```

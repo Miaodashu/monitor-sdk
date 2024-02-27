@@ -1,5 +1,12 @@
 # @monitor-sdk/router-hash
 
+## 1.0.2
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/utils@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

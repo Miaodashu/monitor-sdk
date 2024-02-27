@@ -1,5 +1,12 @@
 # @monitor-sdk/core
 
+## 1.0.4
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/utils@1.0.2
+
 ## 1.0.3
 
 ### Patch Changes

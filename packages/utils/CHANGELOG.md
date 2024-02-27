@@ -1,5 +1,11 @@
 # @monitor-sdk/utils
 
+## 1.0.2
+
+### Patch Changes
+
+-   重新打包和增加 md 说明
+
 ## 1.0.1
 
 ### Patch Changes
