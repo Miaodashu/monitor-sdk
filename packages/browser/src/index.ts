@@ -10,6 +10,7 @@ import lifecyclePlugin from './plugins/lifecyclePlugin';
 class BrowserClient extends Core<BrowserOptionType> {
     private readonly queue: Queue<BaseOptionsType>;
     protected sessionID: string;
+    protected userID: string;
     constructor(options) {
         super(options);
         // 初始化队列, 用于储存上报数据结构
@@ -66,6 +67,7 @@ class BrowserClient extends Core<BrowserOptionType> {
         // 在这里一会进行 公共部分的数据处理
         return {
             session_id: this.sessionID,
+            user_id: this.userID,
             page_title: title,
             path: href,
             app: this.context.app,

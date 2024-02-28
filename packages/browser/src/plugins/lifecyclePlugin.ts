@@ -25,6 +25,7 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
                 if (userPath && userPosi && !user_id) {
                     this.log(`${userPath} does not exist on ${userPosi}`);
                 }
+                this.userID = user_id
                 publish({
                     type: PageLifeType.LOAD,
                     session_id: this.sessionID,

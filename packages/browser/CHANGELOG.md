@@ -1,5 +1,11 @@
 # @monitor-sdk/browser
 
+## 1.0.5
+
+### Patch Changes
+
+-   新增 userID 提出到外层
+
 ## 1.0.4
 
 ### Patch Changes

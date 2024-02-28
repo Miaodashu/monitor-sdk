@@ -36,8 +36,8 @@
         // debugger
         window.__MONITOR_OPTIONS__ = {
             dsn: {
-                projectId: 'dsdsdsdsdd5d5s5ds5ds5',
-                reportUrl: 'http://localhost:8888/log/upload'
+                projectId: '65b6a10a-7d1a-4a98-bc76-e5c71d5df65c',
+                reportUrl: 'http://localhost:3000/api/log/upload'
             },
             debuge: true,
             app: {
@@ -46,7 +46,7 @@
                 desc: 'test proj'
             },
             plugins: [
-                MONITOR_FETCH({reportResponds: true}),
+                MONITOR_FETCH({ reportResponds: true }),
             ],
         };
     </script>
@@ -54,8 +54,11 @@
     <script async src="../browser/dist/browser.iife.js"></script>
 </body>
 <script>
+    let age = name
     const dom = document.querySelector('#fetchDom');
     dom.addEventListener('click', () => {
+        age = sexdddddd
+        return
         fetch('http://localhost:3000/api/site/test', {
             method: 'GET',
             headers: {
@@ -69,6 +72,134 @@
             return response.json();
         })
     });
+</script>
+
+
+<script>
+    let list = [
+        {
+            "id": "145eb0ef-7982-4d18-95dc-6d0637e43659",
+            "ctime": "2024-02-27T04:22:33.418Z",
+            "type": "error",
+            "queue": "[\"d143d2c6-9e20-405a-b9c1-8cefc5c29226\",\"f6f7a8f1-a2f3-4210-8244-e4db92f52ea3\",\"185550ce-0e6e-4e48-a191-09d9f059ece0\",\"145eb0ef-7982-4d18-95dc-6d0637e43659\"]",
+            "data": "{\"message\":\"Uncaught ReferenceError: sexdddddd is not defined\",\"lineno\":60,\"colno\":9,\"filename\":\"file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html\"}",
+            "path": "file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html",
+            "deviceInfo": "{\"deviceType\":\"Mobile\",\"OS\":\"iOS\",\"OSVersion\":\"13.2.3\",\"screenHeight\":667,\"screenWidth\":375,\"language\":\"zh_CN\",\"netWork\":\"4g\",\"orientation\":\"竖屏\",\"browserInfo\":\"Safari（版本: 13.0.3&nbsp;&nbsp;内核: WebKit）\",\"fingerprint\":\"ef795dd2\",\"userAgent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1\"}",
+            "pageTitle": "Document",
+            "sessionId": "f4d35e14-220c-41ff-b6d8-8d906765f9f7",
+            "subType": "code",
+            "ascriptionId": "65b6a10a-7d1a-4a98-bc76-e5c71d5df65c",
+            "otime": "2024-02-27T04:22:33.000Z",
+            "appInfo": null,
+            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
+        },
+        {
+            "id": "185550ce-0e6e-4e48-a191-09d9f059ece0",
+            "ctime": "2024-02-27T04:22:32.868Z",
+            "type": "error",
+            "queue": "[\"d143d2c6-9e20-405a-b9c1-8cefc5c29226\",\"f6f7a8f1-a2f3-4210-8244-e4db92f52ea3\",\"185550ce-0e6e-4e48-a191-09d9f059ece0\"]",
+            "data": "{\"message\":\"Uncaught ReferenceError: sexdddddd is not defined\",\"lineno\":60,\"colno\":9,\"filename\":\"file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html\"}",
+            "path": "file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html",
+            "deviceInfo": "{\"deviceType\":\"Mobile\",\"OS\":\"iOS\",\"OSVersion\":\"13.2.3\",\"screenHeight\":667,\"screenWidth\":375,\"language\":\"zh_CN\",\"netWork\":\"4g\",\"orientation\":\"竖屏\",\"browserInfo\":\"Safari（版本: 13.0.3&nbsp;&nbsp;内核: WebKit）\",\"fingerprint\":\"ef795dd2\",\"userAgent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1\"}",
+            "pageTitle": "Document",
+            "sessionId": "f4d35e14-220c-41ff-b6d8-8d906765f9f7",
+            "subType": "code",
+            "ascriptionId": "65b6a10a-7d1a-4a98-bc76-e5c71d5df65c",
+            "otime": "2024-02-27T04:22:32.000Z",
+            "appInfo": null,
+            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
+        },
+        {
+            "id": "5196cd0a-c3f3-4a16-b4d5-5458890b565f",
+            "ctime": "2024-02-27T04:22:34.177Z",
+            "type": "error",
+            "queue": "[\"d143d2c6-9e20-405a-b9c1-8cefc5c29226\",\"f6f7a8f1-a2f3-4210-8244-e4db92f52ea3\",\"185550ce-0e6e-4e48-a191-09d9f059ece0\",\"145eb0ef-7982-4d18-95dc-6d0637e43659\",\"5196cd0a-c3f3-4a16-b4d5-5458890b565f\"]",
+            "data": "{\"message\":\"Uncaught ReferenceError: sexdddddd is not defined\",\"lineno\":60,\"colno\":9,\"filename\":\"file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html\"}",
+            "path": "file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html",
+            "deviceInfo": "{\"deviceType\":\"Mobile\",\"OS\":\"iOS\",\"OSVersion\":\"13.2.3\",\"screenHeight\":667,\"screenWidth\":375,\"language\":\"zh_CN\",\"netWork\":\"4g\",\"orientation\":\"竖屏\",\"browserInfo\":\"Safari（版本: 13.0.3&nbsp;&nbsp;内核: WebKit）\",\"fingerprint\":\"ef795dd2\",\"userAgent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1\"}",
+            "pageTitle": "Document",
+            "sessionId": "f4d35e14-220c-41ff-b6d8-8d906765f9f7",
+            "subType": "code",
+            "ascriptionId": "65b6a10a-7d1a-4a98-bc76-e5c71d5df65c",
+            "otime": "2024-02-27T04:22:33.000Z",
+            "appInfo": null,
+            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
+        },
+        {
+            "id": "a2341a5b-34cf-4f07-8871-3a997ec69421",
+            "ctime": "2024-02-27T04:17:53.500Z",
+            "type": "vue",
+            "queue": "[\"a5343d0c-8b02-440b-855b-ec05ec1d9a6a\",\"0ca83771-b30c-4c8f-a4b8-93ca9d7f16b1\",\"33d2cb35-4b6a-4a27-9f22-ee07ee10ec77\",\"a2341a5b-34cf-4f07-8871-3a997ec69421\"]",
+            "data": "{\"name\":\"ReferenceError\",\"message\":\"sign is not defined\",\"hook\":\"native event handler\",\"stack\":\"ReferenceError: sign is not defined\\n    at handleClick (http://127.0.0.1:5173/src/App.vue:14:20)\\n    at callWithErrorHandling (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-PD2AWGJV.js?v=89ecf0df:1652:19)\\n    at callWithAsyncErrorHandling (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-PD2AWGJV.js?v=89ecf0df:1659:17)\\n    at HTMLButtonElement.invoker (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-PD2AWGJV.js?v=89ecf0df:10271:5)\"}",
+            "path": "http://127.0.0.1:5173/#/about",
+            "deviceInfo": "{\"deviceType\":\"Mobile\",\"OS\":\"iOS\",\"OSVersion\":\"13.2.3\",\"screenHeight\":667,\"screenWidth\":375,\"language\":\"zh_CN\",\"netWork\":\"4g\",\"orientation\":\"竖屏\",\"browserInfo\":\"Safari（版本: 13.0.3&nbsp;&nbsp;内核: WebKit）\",\"fingerprint\":\"b4d08ad5\",\"userAgent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1\"}",
+            "pageTitle": "Vite App",
+            "sessionId": "42452438-8604-49b5-8bbf-dabfa9d9e49e",
+            "subType": "error",
+            "ascriptionId": "65b6a10a-7d1a-4a98-bc76-e5c71d5df65c",
+            "otime": "2024-02-27T04:17:53.000Z",
+            "appInfo": null,
+            "msgKey": "sign is not defined"
+        },
+        {
+            "id": "a33f7bae-4ac7-4f16-9fa0-3d9eda28fd3f",
+            "ctime": "2024-02-27T04:17:54.120Z",
+            "type": "error",
+            "queue": "[\"a5343d0c-8b02-440b-855b-ec05ec1d9a6a\",\"0ca83771-b30c-4c8f-a4b8-93ca9d7f16b1\",\"33d2cb35-4b6a-4a27-9f22-ee07ee10ec77\",\"a2341a5b-34cf-4f07-8871-3a997ec69421\",\"a33f7bae-4ac7-4f16-9fa0-3d9eda28fd3f\"]",
+            "data": "{\"message\":\"Some error occurred\"}",
+            "path": "http://127.0.0.1:5173/#/about",
+            "deviceInfo": "{\"deviceType\":\"Mobile\",\"OS\":\"iOS\",\"OSVersion\":\"13.2.3\",\"screenHeight\":667,\"screenWidth\":375,\"language\":\"zh_CN\",\"netWork\":\"4g\",\"orientation\":\"竖屏\",\"browserInfo\":\"Safari（版本: 13.0.3&nbsp;&nbsp;内核: WebKit）\",\"fingerprint\":\"b4d08ad5\",\"userAgent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1\"}",
+            "pageTitle": "Vite App",
+            "sessionId": "42452438-8604-49b5-8bbf-dabfa9d9e49e",
+            "subType": "unhandledrejection",
+            "ascriptionId": "65b6a10a-7d1a-4a98-bc76-e5c71d5df65c",
+            "otime": "2024-02-27T04:17:53.000Z",
+            "appInfo": null,
+            "msgKey": "Some error occurred"
+        },
+        {
+            "id": "d7916491-5f96-4ad5-9191-fe4a389714af",
+            "ctime": "2024-02-27T04:22:34.550Z",
+            "type": "error",
+            "queue": "[\"d143d2c6-9e20-405a-b9c1-8cefc5c29226\",\"f6f7a8f1-a2f3-4210-8244-e4db92f52ea3\",\"185550ce-0e6e-4e48-a191-09d9f059ece0\",\"145eb0ef-7982-4d18-95dc-6d0637e43659\",\"5196cd0a-c3f3-4a16-b4d5-5458890b565f\",\"d7916491-5f96-4ad5-9191-fe4a389714af\"]",
+            "data": "{\"message\":\"Uncaught ReferenceError: sexdddddd is not defined\",\"lineno\":60,\"colno\":9,\"filename\":\"file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html\"}",
+            "path": "file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html",
+            "deviceInfo": "{\"deviceType\":\"Mobile\",\"OS\":\"iOS\",\"OSVersion\":\"13.2.3\",\"screenHeight\":667,\"screenWidth\":375,\"language\":\"zh_CN\",\"netWork\":\"4g\",\"orientation\":\"竖屏\",\"browserInfo\":\"Safari（版本: 13.0.3&nbsp;&nbsp;内核: WebKit）\",\"fingerprint\":\"ef795dd2\",\"userAgent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1\"}",
+            "pageTitle": "Document",
+            "sessionId": "f4d35e14-220c-41ff-b6d8-8d906765f9f7",
+            "subType": "code",
+            "ascriptionId": "65b6a10a-7d1a-4a98-bc76-e5c71d5df65c",
+            "otime": "2024-02-27T04:22:34.000Z",
+            "appInfo": null,
+            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
+        },
+        {
+            "id": "f6f7a8f1-a2f3-4210-8244-e4db92f52ea3",
+            "ctime": "2024-02-27T04:22:23.804Z",
+            "type": "error",
+            "queue": "[\"d143d2c6-9e20-405a-b9c1-8cefc5c29226\",\"f6f7a8f1-a2f3-4210-8244-e4db92f52ea3\"]",
+            "data": "{\"message\":\"Uncaught ReferenceError: sexdddddd is not defined\",\"lineno\":60,\"colno\":9,\"filename\":\"file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html\"}",
+            "path": "file:///Users/zpp/project/monitor-sdk/packages/fetch/test.html",
+            "deviceInfo": "{\"deviceType\":\"Mobile\",\"OS\":\"iOS\",\"OSVersion\":\"13.2.3\",\"screenHeight\":667,\"screenWidth\":375,\"language\":\"zh_CN\",\"netWork\":\"4g\",\"orientation\":\"竖屏\",\"browserInfo\":\"Safari（版本: 13.0.3&nbsp;&nbsp;内核: WebKit）\",\"fingerprint\":\"ef795dd2\",\"userAgent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1\"}",
+            "pageTitle": "Document",
+            "sessionId": "f4d35e14-220c-41ff-b6d8-8d906765f9f7",
+            "subType": "code",
+            "ascriptionId": "65b6a10a-7d1a-4a98-bc76-e5c71d5df65c",
+            "otime": "2024-02-27T04:22:23.000Z",
+            "appInfo": null,
+            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
+        }
+    ]
+
+
+    let countMap = list.reduce((pre, cur) => {
+        pre[cur.msgKey] = 1 + (pre[cur.msgKey] || 0)
+        return pre
+    }, {})
+    let countList = Object.entries(countMap).map(([msgKey, count]) => ({
+        msgKey, count
+    }))
+    console.log(countList);
 </script>
 
 
