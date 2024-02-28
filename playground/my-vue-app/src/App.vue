@@ -12,6 +12,8 @@ const handleClick = () => {
     name.value = sign;
 };
 const handleClick2 = () => {
+    name.value = name;
+    
     Promise.reject('Some error occurred');
 };
 const handleClick3 = () => {
