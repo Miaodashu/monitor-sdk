@@ -11,7 +11,7 @@ export class Queue<O extends BaseOptionsType> {
         this.count = 0;
         this.lowestCount = 0
         this.queue = {}
-        this.maxQueueLength = options?.maxQueueLength || 200;
+        this.maxQueueLength = options?.maxQueueLength || 8;
     }
     // 向队列尾部添加一个新的项。
     enqueue(data: QueueData) {

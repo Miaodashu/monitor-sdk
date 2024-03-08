@@ -530,7 +530,11 @@ export var DeviceInfo = (function() {
                     _this.engine = 'Blink'
                 }
 
-                return _this.browser + '（版本: ' + _this.browserVersion + '&nbsp;&nbsp;内核: ' + _this.engine + '）'
+                return {
+                    browser: _this.browser,
+                    version: _this.browserVersion,
+                    engine: _this.engine
+                }
             }
         }
     })()

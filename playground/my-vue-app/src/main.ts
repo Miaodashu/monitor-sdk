@@ -28,10 +28,10 @@ monitor({
         name: 'vue-test-demo',
         leader: '赵鹏鹏'
     },
-    userIdentify: {
-        name: 'access_token',
-        postion: 'cookie'
-    },
+    // userIdentify: {
+    //     name: 'access_token',
+    //     postion: 'cookie'
+    // },
     debuge: true,
     plugins: [
         performancePlugin(),

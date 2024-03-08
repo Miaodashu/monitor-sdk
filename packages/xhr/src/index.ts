@@ -39,13 +39,16 @@ export default function XHRPlugin(options: RequestOptions = {}): BasePluginType 
                         const isHasIgnore = ignore.includes(getUrlPath(url));
                         if (isHasIgnore) return;
                         this.httpCollect.response.status = this.status
+                        request.data = args[0];
                         if (reportResponds) {
                             this.httpCollect.response.data = typeof this.response === 'object' ? JSON.stringify(this.response) : this.response;
                         }
                         const eTime = Date.now();
+
                         this.httpCollect.elapsedTime = eTime - this.httpCollect.time;
                         publish(this.httpCollect)
                     });
+                    
                     originFn.apply(this, args);
                 }
             })

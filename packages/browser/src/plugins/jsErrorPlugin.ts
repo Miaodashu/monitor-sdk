@@ -50,6 +50,7 @@ const errorPlugin: BasePluginType = {
             // 资源加载错误，上报类型和链接
             const resourceData = {
                 source_type: localName,
+                message: `加载 ${localName} 资源错误, 地址："${src || currentSrc} "`,
                 src: src || currentSrc
             };
             this.queue.enqueue({

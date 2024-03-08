@@ -19,6 +19,7 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                     const httpCollect: HttpCollectDataType = {
                         request: {
                             url,
+                            data: config && config.body,
                             method: config.method ? config.method.toUpperCase() : MethodTypes.GET
                         },
                         response: {},

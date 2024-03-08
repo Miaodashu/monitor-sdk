@@ -12,14 +12,17 @@ const handleClick = () => {
     name.value = sign;
 };
 const handleClick2 = () => {
-    name.value = name;
     
     Promise.reject('Some error occurred');
 };
 const handleClick3 = () => {
+    // name.value = name;
+
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:3000/api/site/test');
-    xhr.send();
+    xhr.open('POST', 'http://localhost:3000/api/site/test');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({name:'张三',age:12}));
+
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 获取服务器响应的数据

@@ -33,7 +33,7 @@
 <script>
     window.__MONITOR_OPTIONS__ = {
         dsn: {
-            projectID: 'dsdsdsdsdd5d5s5ds5ds5',
+            projectId: 'dsdsdsdsdd5d5s5ds5ds5',
             reportUrl: 'localhost:8888/log/upload'
         },
         app: {

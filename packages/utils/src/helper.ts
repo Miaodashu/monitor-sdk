@@ -20,24 +20,29 @@ export function generateUUID(): string {
  * @param {number} timestamp - 时间戳
  * @return {string}
  */
-export const formatDate = (format = 'Y-M-D h:m:s', timestamp: number = Date.now()): string => {
+export const formatDate = (format = 'YYYY-MM-DD hh:mm:ss', timestamp: number = Date.now()): string => {
     const date = new Date(timestamp || Date.now());
-    const dateInfo = {
-        Y: `${date.getFullYear()}`,
-        M: `${date.getMonth() + 1}`,
-        D: `${date.getDate()}`,
-        h: date.getHours(),
-        m: date.getMinutes(),
-        s: date.getSeconds()
-    };
     const formatNumber = (n) => (n >= 10 ? n : '0' + n);
-    const res = (format || 'Y-M-D h:m:s')
-        .replace('Y', dateInfo.Y)
-        .replace('M', dateInfo.M)
-        .replace('D', dateInfo.D)
-        .replace('h', formatNumber(dateInfo.h))
-        .replace('m', formatNumber(dateInfo.m))
-        .replace('s', formatNumber(dateInfo.s));
+
+    const dateInfo = {
+        YYYY: date.getFullYear().toString(), // 获取完整年份
+        YY: date.getFullYear().toString().slice(-2), // 获取年份的后两位
+        MM: formatNumber(date.getMonth() + 1),
+        DD: formatNumber(date.getDate()),
+        hh: formatNumber(date.getHours()),
+        mm: formatNumber(date.getMinutes()),
+        ss: formatNumber(date.getSeconds())
+    };
+    
+    
+    const res = (format || 'YYYY-MM-DD hh:mm:ss')
+        .replace('YYYY', dateInfo.YYYY)
+        .replace('MM', dateInfo.MM)
+        .replace('DD', dateInfo.DD)
+        .replace('hh', dateInfo.hh)
+        .replace('mm', dateInfo.mm)
+        .replace('ss', dateInfo.ss);
+    
     return res;
 };
 
