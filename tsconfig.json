@@ -20,7 +20,7 @@
     "paths": {
       "@monitor-sdk/*": ["packages/*/src"]
     },
-    "types": [],
+    "types": ["node"],
     "target": "ES5", // 编译成什么版本
     "module": "CommonJS", // 当前代码语法
     // "outDir": "./dist/", // 输出目录
