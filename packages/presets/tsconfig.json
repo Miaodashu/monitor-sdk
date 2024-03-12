@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "es6",
+    "outDir": "esm",
+    "paths": {
+      "@monitor-sdk/types": ["../types/src"],
+      "@monitor-sdk/utils": ["../utils/src"],
+      "@monitor-sdk/vue": ["../vue/src"],
+      "@monitor-sdk/xhr": ["../xhr/src"],
+      "@monitor-sdk/fetch": ["../fetch/src"],
+      "@monitor-sdk/performance": ["../performance/src"],
+      "@monitor-sdk/router-hash": ["../router_hash/src"],
+      "@monitor-sdk/router-history": ["../router_history/src"],
+    }
+  },
+  "include": ["src/**/*"]
+}

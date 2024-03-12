@@ -1,5 +1,14 @@
 # @monitor-sdk/router-hash
 
+## 1.0.3
+
+### Patch Changes
+
+-   功能调整
+-   Updated dependencies
+    -   @monitor-sdk/types@1.0.2
+    -   @monitor-sdk/utils@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

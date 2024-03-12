@@ -1,5 +1,15 @@
 # @monitor-sdk/browser
 
+## 1.0.6
+
+### Patch Changes
+
+-   功能调整
+-   Updated dependencies
+    -   @monitor-sdk/core@1.0.5
+    -   @monitor-sdk/types@1.0.2
+    -   @monitor-sdk/utils@1.0.3
+
 ## 1.0.5
 
 ### Patch Changes
