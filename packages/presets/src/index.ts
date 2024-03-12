@@ -17,11 +17,12 @@ export enum PerformanceFeat {
 interface presetsOption {
     vue?: VueInstance; // vue实例
     reportResponds?: boolean; // 是否上报响应数据
+    ignoreUrls?: string[]; // 忽略上报的url
     performancOff?: PerformanceFeat[]; // 性能监控黑名单
 }
 
 export default function (options: presetsOption = {}) {
-    const { vue, reportResponds = true, performancOff = [] } = options;
+    const { vue, ignoreUrls = [], reportResponds = true, performancOff = [] } = options;
     return [
         performancePlugin({
             performancOff: performancOff
@@ -33,8 +34,9 @@ export default function (options: presetsOption = {}) {
         hashPlugin(),
         historyPlugin(),
         xhrPlugin({
-            reportResponds: reportResponds
+            reportResponds: reportResponds,
+            ignoreUrls
         }),
-        fetchPlugin({ reportResponds: reportResponds })
+        fetchPlugin({ reportResponds: reportResponds, ignoreUrls })
     ];
 }
