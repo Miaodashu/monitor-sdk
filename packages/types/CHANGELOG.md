@@ -1,5 +1,11 @@
 # @monitor-sdk/types
 
+## 1.0.3
+
+### Patch Changes
+
+-   packages 变更 files 字段配置
+
 ## 1.0.2
 
 ### Patch Changes

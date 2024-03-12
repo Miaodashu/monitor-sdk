@@ -1,5 +1,13 @@
 # @monitor-sdk/utils
 
+## 1.0.4
+
+### Patch Changes
+
+-   packages 变更 files 字段配置
+-   Updated dependencies
+    -   @monitor-sdk/types@1.0.3
+
 ## 1.0.3
 
 ### Patch Changes

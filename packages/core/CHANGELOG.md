@@ -1,5 +1,14 @@
 # @monitor-sdk/core
 
+## 1.0.6
+
+### Patch Changes
+
+-   packages 变更 files 字段配置
+-   Updated dependencies
+    -   @monitor-sdk/types@1.0.3
+    -   @monitor-sdk/utils@1.0.4
+
 ## 1.0.5
 
 ### Patch Changes

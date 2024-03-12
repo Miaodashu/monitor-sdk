@@ -1,5 +1,14 @@
 # @monitor-sdk/fetch
 
+## 0.0.5
+
+### Patch Changes
+
+-   packages 变更 files 字段配置
+-   Updated dependencies
+    -   @monitor-sdk/types@1.0.3
+    -   @monitor-sdk/utils@1.0.4
+
 ## 0.0.4
 
 ### Patch Changes
