@@ -1,5 +1,11 @@
 # @monitor-sdk/presets
 
+## 0.0.3
+
+### Patch Changes
+
+-   更新子依赖
+
 ## 0.0.2
 
 ### Patch Changes

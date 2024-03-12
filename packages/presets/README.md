@@ -5,7 +5,18 @@
 ## Usage
 
 ```
-const presets = require('@monitor-sdk/presets');
+export enum PerformanceFeat {
+    BASIC = 'basic',
+    RESOURCE = 'resource',
+    FMP = 'fmp',
+    FPS = 'fps',
+    VITALS = 'vitals'
+}
 
-// TODO: DEMONSTRATE API
+interface presetsOption {
+    vue?: VueInstance; // vue实例
+    reportResponds?: boolean; // 是否上报响应数据
+    ignoreUrls?: string[]; // 忽略上报的url
+    performancOff?: PerformanceFeat[]; // 性能监控黑名单
+}
 ```
