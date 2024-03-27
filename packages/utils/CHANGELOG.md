@@ -1,5 +1,16 @@
 # @monitor-sdk/utils
 
+## 1.1.0
+
+### Minor Changes
+
+-   去除 app 配置，改为非必填
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/types@1.1.0
+
 ## 1.0.4
 
 ### Patch Changes

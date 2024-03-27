@@ -1,5 +1,11 @@
 # @monitor-sdk/vue
 
+## 1.1.0
+
+### Minor Changes
+
+-   去除 app 配置，改为非必填
+
 ## 1.0.3
 
 ### Patch Changes
