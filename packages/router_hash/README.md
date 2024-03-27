@@ -14,11 +14,6 @@
             projectID: 'dsdsdsdsdd5d5s5ds5ds5',
             reportUrl: 'localhost:8888/log/upload'
         },
-        app: {
-            name: 'playgroundAPP',
-            leader: 'test',
-            desc: 'test proj'
-        },
         plugins: [
             HEIMDALLR_HASH(),
         ]
@@ -36,11 +31,6 @@ monitor({
     dsn: {
         projectID: 'dsdsdsdsdd5d5s5ds5ds5',
         reportUrl: 'localhost:8888/log/upload'
-    },
-    app: {
-        name: 'playgroundAPP',
-        leader: 'test',
-        desc: 'test proj'
     },
     plugins: [
         hashPlugin(),

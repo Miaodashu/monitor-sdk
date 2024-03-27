@@ -18,10 +18,9 @@ class BrowserClient extends Core<BrowserOptionType> {
     }
     // 初始化应用， 后期看是否需要， 因为许多参数都是传进来的， 没必要初始化， 先留个口
     async initApp() {
-        const { uploadUrl, app } = this.context;
+        const { uploadUrl } = this.context;
         const params = {
             id: generateUUID(),
-            ...app,
             createTime: new Date().getTime()
         };
         const { data = {} } = await this.report(uploadUrl, params, BrowserReportType.GET);
@@ -70,7 +69,6 @@ class BrowserClient extends Core<BrowserOptionType> {
             user_id: this.userID,
             page_title: title,
             path: href,
-            app: this.context.app,
             deviceInfo: deviceInfoStr,
             ...data
         };

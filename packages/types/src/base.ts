@@ -26,7 +26,7 @@ export interface DSN {
 
 // 供基类和子类获取核心配置使用， 也可直接使用 option: BaseOptionsType
 export interface CoreContextType {
-    app: AppInfoType;
+    app?: AppInfoType;
     uploadUrl: string;
     initUrl?: string;
     debuge: boolean;
@@ -38,7 +38,7 @@ export interface BaseOptionsType {
     // 上报的接口信息
     dsn: DSN;
     // 应用信息
-    app: AppInfoType;
+    app?: AppInfoType;
     // 是否开启debuge模式
     debuge?: boolean;
     // 是否应激活并向后台发送事件

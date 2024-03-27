@@ -72,9 +72,9 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
 
     // 初始化配置项
     private bindOptions() {
-        const { debuge = false, enabled = true, dsn, app } = this.options;
-        if (!app || !dsn) {
-            this.log('配置项: app || dsn 必须配置');
+        const { debuge = false, enabled = true, dsn } = this.options;
+        if (!dsn) {
+            this.log('配置项: dsn 必须配置');
         }
         const { reportUrl = '', projectId } = dsn;
         if (!projectId) {
@@ -84,7 +84,6 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         const uploadUrl = reportUrl; // 上传的地址
         this.appID = projectId;
         this.context = {
-            app,
             uploadUrl,
             debuge,
             enabled

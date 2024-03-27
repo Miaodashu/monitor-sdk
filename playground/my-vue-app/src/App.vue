@@ -31,7 +31,13 @@ const handleClick3 = () => {
     };
 }
 const handleClick4 = () => {
-    fetch('http://localhost:3000/api/site/test', {
+    fetch('http://localhost:3000/api/site/demo', {
+            method: 'GET',
+            headers: {
+                'name': 'hello'
+            }
+        })
+        fetch('http://localhost:3000/api/site/demo22', {
             method: 'GET',
             headers: {
                 'name': 'hello'

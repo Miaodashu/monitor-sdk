@@ -18,12 +18,8 @@ import router from './router';
 const app = createApp(App);
 monitor({
     dsn: {
-        reportUrl: 'http://localhost:5555/api/log/upload',
+        reportUrl: 'http://localhost:3000/api/log/upload',
         projectId: '65b6a10a-7d1a-4a98-bc76-e5c71d5df65c'
-    },
-    app: {
-        name: 'vue-test-demo',
-        leader: '赵鹏鹏'
     },
     // userIdentify: {
     //     name: 'access_token',
@@ -31,7 +27,7 @@ monitor({
     // },
     debuge: true,
     plugins: [
-        ...presets({ vue: app, ignoreUrls: ['http://localhost:5555/api/log/upload'] })
+        ...presets({ vue: app, ignoreUrls: ['http://localhost:3000/api/log/upload'] })
         // performancePlugin(),
         // vuePlugin({
         //     vue: app

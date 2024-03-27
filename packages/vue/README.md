@@ -23,11 +23,6 @@
             init: '/project/init',
             upload: '/log/upload'
         },
-        app: {
-            name: 'playgroundAPP',
-            leader: 'test',
-            desc: 'test proj'
-        },
         plugins: [
             MONITOR_VUE({
                 vue: VueInstance
@@ -48,11 +43,6 @@ monitor({
         host: 'localhost:8888',
         init: '/project/init',
         upload: '/log/upload'
-    },
-    app: {
-        name: 'playgroundAPP',
-        leader: 'test',
-        desc: 'test proj'
     },
     plugins: [
         vuePlugin({

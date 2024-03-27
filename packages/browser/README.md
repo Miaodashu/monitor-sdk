@@ -50,6 +50,36 @@
 <script async src="/browser-dist/browser.iife.js"></script>
 ```
 
+
+```js
+(function () {
+    var script = document.createElement('script');
+    script.text = `
+        window.__MONITOR_OPTIONS__ = {
+            dsn: {
+                projectId: 'dsdsdsdsdd5d5s5ds5ds5',
+                reportUrl: 'localhost:8888/log/upload'
+            },
+            app: {
+                name: 'playgroundAPP',
+                leader: 'test',
+                desc: 'test proj'
+            },
+            userIdentify: {
+                name: '__state__.a.0.user.id', // window.__state__ = { a: [{ user: { id:'123' } }] }
+                position: 'global'
+            }
+        };
+    `;
+    document.head.appendChild(script);
+
+    script = document.createElement('script');
+    script.src = '/browser-dist/browser.iife.js';
+    script.async = true;
+    document.head.appendChild(script);
+})();
+```
+
 ### npm
 
 ```js

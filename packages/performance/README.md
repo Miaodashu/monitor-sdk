@@ -52,11 +52,6 @@
             projectId: 'dsdsdsdsdd5d5s5ds5ds5',
             reportUrl: 'localhost:8888/log/upload'
         },
-        app: {
-            name: 'playgroundAPP',
-            leader: 'test',
-            desc: 'test proj'
-        },
         plugins: [
             MONITOR_PERFORMANCE(),
         ]
@@ -75,11 +70,6 @@ monitor({
         host: 'localhost:8888',
         init: '/project/init',
         upload: '/log/upload'
-    },
-    app: {
-        name: 'playgroundAPP',
-        leader: 'test',
-        desc: 'test proj'
     },
     plugins: [
         performancePlugin(),
