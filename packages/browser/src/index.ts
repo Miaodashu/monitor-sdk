@@ -76,9 +76,14 @@ class BrowserClient extends Core<BrowserOptionType> {
 }
 
 const init = (options: BrowserOptionType) => {
-    const client = new BrowserClient(options);
-    const { plugins = [] } = options;
-    client.use([jsErrorPlugin, promiseErrorPlugin.call(client), lifecyclePlugin.call(client, options), ...plugins]);
+    try {
+        const client = new BrowserClient(options);
+        const { plugins = [] } = options;
+        client.use([jsErrorPlugin, promiseErrorPlugin.call(client), lifecyclePlugin.call(client, options), ...plugins]);
+    } catch (error) {
+        console.log('===@monitor-sdk===', error);
+    }
+    
 };
 
 export default init;

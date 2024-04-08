@@ -23,14 +23,10 @@ interface presetsOption {
 
 export default function (options: presetsOption = {}) {
     const { vue, ignoreUrls = [], reportResponds = true, performancOff = [] } = options;
-    return [
+    const plugins = [
         performancePlugin({
             performancOff: performancOff
         }),
-        vue &&
-            vuePlugin({
-                vue: vue
-            }),
         hashPlugin(),
         historyPlugin(),
         xhrPlugin({
@@ -39,4 +35,10 @@ export default function (options: presetsOption = {}) {
         }),
         fetchPlugin({ reportResponds: reportResponds, ignoreUrls })
     ];
+    if (vue) {
+        plugins.push(vuePlugin({
+            vue: vue
+        }))
+    }
+    return plugins;
 }

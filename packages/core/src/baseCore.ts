@@ -31,24 +31,30 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         let { uploadUrl, enabled } = this.context;
         const pubSub = new PubSub();
         plugins.forEach((plugin) => {
-            plugin.monitor.call(this, pubSub.publish.bind(pubSub, plugin.name));
-            const callback = (...args: any[]) => {
-                const pluginData = plugin.beforeReport?.apply(this, args);
-                
-                const datas = this.transform(pluginData);
-                if (!datas) {
-                    return;
-                }
-                if (!enabled) {
-                    return;
-                }
-                if (!this.isReady) {
-                    this.taskQueue.push(datas);
-                    return;
-                }
-                this.nextTick(this.report, this, uploadUrl, { app_id: this.appID, ...datas });
-            };
-            pubSub.subscribe(plugin.name, callback);
+            if (!plugin) return
+            try {
+                plugin.monitor.call(this, pubSub.publish.bind(pubSub, plugin.name));
+                const callback = (...args: any[]) => {
+                    const pluginData = plugin.beforeReport?.apply(this, args);
+
+                    const datas = this.transform(pluginData);
+                    if (!datas) {
+                        return;
+                    }
+                    if (!enabled) {
+                        return;
+                    }
+                    if (!this.isReady) {
+                        this.taskQueue.push(datas);
+                        return;
+                    }
+                    this.nextTick(this.report, this, uploadUrl, { app_id: this.appID, ...datas });
+                };
+                pubSub.subscribe(plugin.name, callback);
+            } catch (error) {
+                // throw Error('插件注册报错：' + error);
+                this.log('插件注册报错：-----' + error + ((plugin && plugin.name) || '-未知插件'));
+            }
         });
     }
 
@@ -67,6 +73,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         if (typeof fn !== 'function') {
             throw Error('console type 不被支持');
         }
+
         fn(TAG, message);
     }
 
