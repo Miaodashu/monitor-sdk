@@ -1,5 +1,12 @@
 # @monitor-sdk/webpack-plugin-sourcemap-upload
 
+## 1.1.1
+
+### Patch Changes
+
+-   异常机制处理和预设包插件的 bug 修复
+-   异常机制处理和预设包 bug 处理
+
 ## 1.1.0
 
 ### Minor Changes

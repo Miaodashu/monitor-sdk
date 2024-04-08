@@ -1,5 +1,17 @@
 # @monitor-sdk/browser
 
+## 1.1.1
+
+### Patch Changes
+
+-   异常机制处理和预设包插件的 bug 修复
+-   异常机制处理和预设包 bug 处理
+-   Updated dependencies
+-   Updated dependencies
+    -   @monitor-sdk/core@1.1.1
+    -   @monitor-sdk/types@1.1.1
+    -   @monitor-sdk/utils@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes
