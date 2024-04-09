@@ -1,5 +1,15 @@
 # @monitor-sdk/browser
 
+## 1.1.2
+
+### Patch Changes
+
+-   1. jserror 新增报错堆栈；2.resource 新增类型；3.promiseErrorPlugin 的异常修复
+-   Updated dependencies
+    -   @monitor-sdk/core@1.1.2
+    -   @monitor-sdk/types@1.1.2
+    -   @monitor-sdk/utils@1.1.2
+
 ## 1.1.1
 
 ### Patch Changes
