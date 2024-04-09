@@ -36,7 +36,7 @@ export default function promiseError(): BasePluginType {
             let message;
             if (typeof reason === 'string') {
                 message = reason;
-            } else if (typeof reason === 'object' && reason.stack) {
+            } else if (typeof reason === 'object' && reason !== null && reason.stack) {
                 message = reason.stack;
             }
             const id = generateUUID();

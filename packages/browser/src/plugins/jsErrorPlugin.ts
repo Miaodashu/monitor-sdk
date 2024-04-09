@@ -73,7 +73,7 @@ const errorPlugin: BasePluginType = {
             };
         }
         // 代码错误
-        const { message, lineno, colno, filename } = data as ErrorEvent;
+        const { message, lineno, colno, filename, error } = data as ErrorEvent;
         // 上报用户行为栈
         (this as any).queue.enqueue({
             eventId: id,
@@ -92,6 +92,7 @@ const errorPlugin: BasePluginType = {
                 message,
                 lineno,
                 colno,
+                stack: error ? error?.stack : '',
                 filename
             }
         };

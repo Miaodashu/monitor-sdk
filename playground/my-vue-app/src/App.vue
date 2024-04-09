@@ -6,7 +6,7 @@ let name = ref('hello');
 onMounted(() => {
     // throw new Error('示例错误：这是一个未被捕获的错误！');
 });
-
+const info = ref()
 const handleClick = () => {
     name.value = '123';
     name.value = sign;
@@ -17,18 +17,18 @@ const handleClick2 = () => {
 };
 const handleClick3 = () => {
     // name.value = name;
+    info.value.name = 888
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'http://localhost:3000/api/site/test');
+    // xhr.setRequestHeader('Content-Type', 'application/json');
+    // xhr.send(JSON.stringify({name:'张三',age:12}));
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:3000/api/site/test');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({name:'张三',age:12}));
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // 获取服务器响应的数据
-            console.log(xhr.responseText);
-        }
-    };
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState === 4 && xhr.status === 200) {
+    //         // 获取服务器响应的数据
+    //         console.log(xhr.responseText);
+    //     }
+    // };
 }
 const handleClick4 = () => {
     fetch('http://localhost:3000/api/site/demo', {
