@@ -1,5 +1,11 @@
 # @monitor-sdk/performance
 
+## 0.1.3
+
+### Patch Changes
+
+-   调整 resource 的数据结构以及修复 promise 监控插件的 message 默认值问题
+
 ## 0.1.2
 
 ### Patch Changes

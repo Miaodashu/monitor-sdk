@@ -33,7 +33,7 @@ export default function promiseError(): BasePluginType {
                 category,
                 data: { reason }
             } = collectedData;
-            let message;
+            let message = 'Unknown Promise rejection';
             if (typeof reason === 'string') {
                 message = reason;
             } else if (typeof reason === 'object' && reason !== null && reason.stack) {
