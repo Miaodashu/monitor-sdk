@@ -30,8 +30,9 @@
 - 发布正式版本
     - 提起打包 `pnpm run build`
     - 执行 `pnpm changeset version`
-    - 执行 `pnpm changeset publish`
     - 然后把变更的内容提交到远程仓库中
+    - 执行 `pnpm changeset publish`
+    - 它会根据版本打tag
 
 如果某个包发布失败 就先在此重试发布命令`pnpm changeset publis`
 或者到单独的子包文件夹下执行 `pnpm publish`
