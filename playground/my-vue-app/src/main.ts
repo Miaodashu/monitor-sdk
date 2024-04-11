@@ -18,8 +18,8 @@ import router from './router';
 const app = createApp(App);
 monitor({
     dsn: {
-        reportUrl: 'http://localhost:3000/api/log/upload',
-        projectId: '65b6a10a-7d1a-4a98-bc76-e5c71d5df65c'
+        reportUrl: 'http://localhost:3000/monitor/server/api/log/upload',
+        projectId: '0d71313f-2a65-4746-b50f-83fe0883434b'
     },
     // userIdentify: {
     //     name: 'access_token',

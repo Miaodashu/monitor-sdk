@@ -56,7 +56,7 @@ const errorPlugin: BasePluginType = {
             this.queue.enqueue({
                 eventId: id,
                 type: BrowserStackTypes.RESOURCE,
-                message: `加载 ${resourceData.source_type} 资源错误, 地址："${resourceData.src} "`,
+                message: `加载 ${resourceData.source_type} 资源错误, 地址："${resourceData.src || '--'} "`,
                 level: StackQueueLevel.ERROR,
                 time
             });

@@ -1,5 +1,11 @@
 # @monitor-sdk/browser
 
+## 1.1.4
+
+### Patch Changes
+
+-   增加 src 没有值的时候默认值
+
 ## 1.1.3
 
 ### Patch Changes
