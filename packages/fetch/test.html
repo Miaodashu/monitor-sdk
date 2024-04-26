@@ -15,7 +15,6 @@
     </div>
     <script src="./dist/fetch.iife.js"></script>
     <script>
-        // debugger
         window.__MONITOR_OPTIONS__ = {
             dsn: {
                 projectId: '65b6a10a-7d1a-4a98-bc76-e5c71d5df65c',
@@ -31,87 +30,42 @@
     <script src="../browser/dist/browser.iife.js"></script>
 </body>
 <script>
-    let obj = {}
-    let age = obj.nameaaaaa || gbbbb
     const dom = document.querySelector('#fetchDom');
-    dom.addEventListener('click', () => {
-        age = sexdddddd
-        return
-        fetch('http://localhost:3000/api/site/test', {
-            method: 'GET',
+    dom.addEventListener('click', async () => {
+        // age = sexdddddd
+        // return
+        // fetch('http://localhost:3000/api/site/test', {
+        //     method: 'GET',
+        //     headers: {
+        //         'name': 'hello'
+        //     }
+        // }).then(response => {
+        //     if (!response.ok) {
+        //         throw new Error('Network response was not ok');
+        //     }
+        //     console.log(response);
+        //     return response.json();
+        // })
+        const res = await fetch('https://tcwlservice.17usoft.com/interserver/corpus/exportCorpus', {
+            method: 'POST',
+            body: JSON.stringify({
+                timestamp: new Date().getTime(),
+                caller: 'inter.platform.web',
+                params: {
+                    corpusPackageId: "cp_6da30efe8c0c437d8da0639cfe491704",
+                    projectId: "project_9080858e198746ffa2e9667a0e316512",
+                    corpusIds: [],
+                    targetLanguages: ["zh-cn", "en-us"]
+                }
+            }),
             headers: {
-                'name': 'hello'
+                'Content-Type': 'application/json',
+                'Cookie': '__tctmu=102596417.0.0; __tctmz=102596417.1705541473410.35.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); __tctrack=0; longKey=1707026539695527; businessLine=15f444cf8755447ea4fd58a7a6ac0a93; route=d8e740f212b6a2469f16a4ee9e17745a; prod_apitable_xsrf_token=6d7fcabe-5c54-4822-a268-99563a3b1c20; lang=zh-CN; prod_apitable_token=MDRmYWMyMGMtMzAxOC00OGIzLTlkMGEtYThiNGJmNzlkNTMy; __tctmc=102596417.93733272; __tctmd=102596417.128401801; __tctma=102596417.1707026539695527.1707026539774.1712557365956.1712902450502.19; __tccgd=102596417.0; access_token=e19e116b512de0ef8f6a60a5f463d8c8'
             }
-        }).then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            console.log(response);
-            return response.json();
-        })
+        });
+        console.log(res.headers.get('Content-Disposition')?.split('=')[1]);
     });
-</script>
-
-
-<script>
-    let list = [
-        {
-            "id": "145eb0ef-7982-4d18-95dc-6d0637e43659",
-            ip: 1,
-            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
-        },
-        {
-            "id": "185550ce-0e6e-4e48-a191-09d9f059ece0",
-            ip: 1,
-            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
-        },
-        {
-            "id": "5196cd0a-c3f3-4a16-b4d5-5458890b565f",
-            ip: 2,
-            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
-        },
-        {
-            "id": "a2341a5b-34cf-4f07-8871-3a997ec69421",
-            ip: 2,
-            "msgKey": "sign is not defined"
-        },
-        {
-            "id": "a33f7bae-4ac7-4f16-9fa0-3d9eda28fd3f",
-            ip: 2,
-            "msgKey": "Some error occurred"
-        },
-        {
-            "id": "d7916491-5f96-4ad5-9191-fe4a389714af",
-            ip: 2,
-            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
-        },
-        {
-            "id": "f6f7a8f1-a2f3-4210-8244-e4db92f52ea3",
-            ip: 3,
-            "msgKey": "Uncaught ReferenceError: sexdddddd is not defined"
-        }
-    ]
-
-
-    let result = {};
-    list.forEach(item => {
-        const { msgKey, ip } = item;
-        if (!result[msgKey]) {
-            result[msgKey] = { count: 1, ips: new Set([ip]) };
-        } else {
-            result[msgKey].count++;
-            result[msgKey].ips.add(ip);
-        }
-    });
-console.log(result);
-    let finalResult = Object.keys(result).map(msgKey => ({
-        sign: msgKey,
-        count: result[msgKey].count,
-        ipCount: result[msgKey].ips.size
-    }));
-
-    console.log(finalResult);
-</script>
+</script>`
 
 
 </html>

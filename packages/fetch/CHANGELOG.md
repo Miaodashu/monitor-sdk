@@ -1,5 +1,11 @@
 # @monitor-sdk/fetch
 
+## 0.1.3
+
+### Patch Changes
+
+-   修复调用原生的 fecth 方法参数位置异常问题
+
 ## 0.1.2
 
 ### Patch Changes

@@ -8,7 +8,7 @@ import monitor from '../../../packages/browser/esm';
 // // import hashPlugin from '../../../packages/router_hash/esm'
 // // import historyPlugin from '../../../packages/router_history/esm'
 // // import xhrPlugin from '../../../packages/xhr/esm'
-// // import fetchPlugin from '../../../packages/fetch/esm'
+import fetchPlugin from '../../../packages/fetch/esm';
 import presets from '../../../packages/presets/esm';
 // import monitor from "@monitor-sdk/browser";
 // import presets from "@monitor-sdk/presets";
@@ -27,7 +27,7 @@ monitor({
     // },
     debuge: true,
     plugins: [
-        ...presets()
+        // ...presets()
         // performancePlugin(),
         // vuePlugin({
         //     vue: app
@@ -35,7 +35,7 @@ monitor({
         // hashPlugin(),
         // historyPlugin(),
         // xhrPlugin(),
-        // fetchPlugin()
+        fetchPlugin()
     ]
 });
 app.use(createPinia());

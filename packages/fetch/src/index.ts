@@ -34,8 +34,7 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                         ...config,
                         headers
                     };
-                    return (
-                        originFn.apply(window, [url, config]).then((response) => {
+                    return originFn.apply(window, [url, config]).then((response) => {
                             const resClone = response.clone();
                             const eTime = Date.now();
                             httpCollect.elapsedTime = eTime - sTime;
@@ -48,8 +47,10 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                                 publish(httpCollect);
                             });
                             return response;
-                        }),
+                        },
                         (err: Error) => {
+                            this.log('err----', err);
+                            
                             if (isBlock) return;
                             const eTime = Date.now();
                             httpCollect.elapsedTime = eTime - sTime;
@@ -57,7 +58,7 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                             publish(httpCollect);
                             throw err;
                         }
-                    );
+                    )
                 };
             });
         },

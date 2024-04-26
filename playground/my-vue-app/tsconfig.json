@@ -12,6 +12,10 @@
     }
   ],
   "compilerOptions": {
-    "module": "NodeNext"
+      "module": "NodeNext",
+      "baseUrl": ".",
+      "paths": {
+          "@monitor-sdk/*": ["packages/*/src"]
+      }
   }
 }

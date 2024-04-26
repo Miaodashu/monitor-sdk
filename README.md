@@ -34,5 +34,5 @@
     - 执行 `pnpm changeset publish`
     - 它会根据版本打tag
 
-如果某个包发布失败 就先在此重试发布命令`pnpm changeset publis`
+如果某个包发布失败 就先在此重试发布命令`pnpm changeset publish`
 或者到单独的子包文件夹下执行 `pnpm publish`

@@ -9,7 +9,7 @@ onMounted(() => {
 const info = ref()
 const handleClick = () => {
     name.value = '123';
-    name.value = sign;
+    // name.value = sign;
 };
 const handleClick2 = () => {
     
@@ -30,31 +30,50 @@ const handleClick3 = () => {
     //     }
     // };
 }
-const handleClick4 = () => {
-    fetch('http://localhost:3000/api/site/demo', {
-            method: 'GET',
+const handleClick4 = async () => {
+    const res = await fetch('https://tcwlservice.17usoft.com/interserver/corpus/exportCorpus', {
+            method: 'POST',
+            body: JSON.stringify({
+                timestamp: new Date().getTime(),
+                caller: 'inter.platform.web',
+                params: {
+                    corpusPackageId: "cp_6da30efe8c0c437d8da0639cfe491704",
+                    projectId: "project_9080858e198746ffa2e9667a0e316512",
+                    corpusIds:  [],
+                    targetLanguages: ["zh-cn", "en-us"]
+                }
+            }),
             headers: {
-                'name': 'hello'
+                'Content-Type': 'application/json',
+                'Cookie': '__tctmu=102596417.0.0; __tctmz=102596417.1705541473410.35.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); __tctrack=0; longKey=1707026539695527; businessLine=15f444cf8755447ea4fd58a7a6ac0a93; route=d8e740f212b6a2469f16a4ee9e17745a; prod_apitable_xsrf_token=6d7fcabe-5c54-4822-a268-99563a3b1c20; lang=zh-CN; prod_apitable_token=MDRmYWMyMGMtMzAxOC00OGIzLTlkMGEtYThiNGJmNzlkNTMy; __tctmc=102596417.93733272; __tctmd=102596417.128401801; __tctma=102596417.1707026539695527.1707026539774.1712557365956.1712902450502.19; __tccgd=102596417.0; access_token=e19e116b512de0ef8f6a60a5f463d8c8'
             }
-        })
-        fetch('http://localhost:3000/api/site/demo22', {
-            method: 'GET',
-            headers: {
-                'name': 'hello'
-            }
-        })
+        });
+        console.log(res);
+        
+    // fetch('http://localhost:3000/api/site/demo', {
+    //         method: 'GET',
+    //         headers: {
+    //             'name': 'hello'
+    //         }
+    //     })
+    //     // fetch('http://localhost:3000/api/site/demo22', {
+    //     //     method: 'GET',
+    //     //     headers: {
+    //     //         'name': 'hello'
+    //     //     }
+    //     // })
 }
 </script>
 
 <template>
     <header>
-        <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+        <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
         <button @click="handleClick">点击vue错误</button>
         <button @click="handleClick2">点击promise错误</button>
         <button @click="handleClick3">XHR发送请求</button>
         <button @click="handleClick4">FETCH发送请求</button>
         <div class="wrapper">
-            <img src="./aaa.png" alt="ddddd" />
+            <!-- <img src="./aaa.png" alt="ddddd" /> -->
             <HelloWorld msg="You did it!" />
             {{ name }}
             <nav>
