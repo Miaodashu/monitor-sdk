@@ -1,4 +1,5 @@
 import { Recordable } from '@monitor-sdk/types';
+import { MinimatchOptions, minimatch } from 'minimatch';
 
 /**
  * 生成UUID
@@ -84,4 +85,9 @@ export function formatDecimal(num: number, decimal: number): number {
         str = str.substring(0);
     }
     return parseFloat(str);
+}
+
+
+export function minimatchFn(p: string, pattern: string, options?: MinimatchOptions) {
+    return minimatch(p, pattern, options);
 }

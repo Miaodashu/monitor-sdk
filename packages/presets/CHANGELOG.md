@@ -1,5 +1,17 @@
 # @monitor-sdk/presets
 
+## 0.1.6
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/fetch@0.2.0
+    -   @monitor-sdk/xhr@0.2.0
+    -   @monitor-sdk/performance@0.1.5
+    -   @monitor-sdk/router-hash@1.1.4
+    -   @monitor-sdk/router-history@1.1.4
+    -   @monitor-sdk/vue@1.1.3
+
 ## 0.1.5
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-import { formatDate, generateUUID, getUrlPath, replaceOld } from '@monitor-sdk/utils';
+import { formatDate, generateUUID, getUrlPath, replaceOld, minimatchFn } from '@monitor-sdk/utils';
 import {
     BasePluginType,
     ReportDataType,
@@ -10,7 +10,6 @@ import {
     EventTypes,
     HttpTypes
 } from '@monitor-sdk/types';
-import { minimatch } from 'minimatch';
 
 interface RequestOptions {
     ignoreUrls?: string[]; // 忽略的请求
@@ -38,7 +37,7 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                         time: sTime
                     };
                     const isBlock = ignore.some((ignoreUrl) => {
-                        let result = minimatch(getUrlPath(url), ignoreUrl);
+                        let result = minimatchFn(getUrlPath(url), ignoreUrl);
                         return result;
                     });
                     // const isBlock = ignore.includes(getUrlPath(url));

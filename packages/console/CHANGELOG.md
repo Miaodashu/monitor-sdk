@@ -1,5 +1,12 @@
 # @monitor-sdk/console
 
+## 0.0.2
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/utils@1.2.0
+
 ## 0.0.1
 
 ### Patch Changes

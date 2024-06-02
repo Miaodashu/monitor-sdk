@@ -1,6 +1,5 @@
 import { HttpCollectDataType, HttpCollectType, BasePluginType, IAnyObject, ReportDataType, StackQueueLevel, BrowserStackTypes, EventTypes, HttpTypes } from '@monitor-sdk/types';
-import { formatDate, generateUUID, getUrlPath, replaceOld } from '@monitor-sdk/utils';
-import { minimatch } from 'minimatch';
+import { formatDate, generateUUID, getUrlPath, replaceOld, minimatchFn } from '@monitor-sdk/utils';
 
 
 interface RequestOptions {
@@ -40,7 +39,7 @@ export default function XHRPlugin(options: RequestOptions = {}): BasePluginType 
                     this.addEventListener("loadend", function(this) {
                         // const isHasIgnore = ignore.includes(getUrlPath(url));
                         const isHasIgnore = ignore.some((ignoreUrl) => {
-                            let result = minimatch(getUrlPath(url), ignoreUrl);
+                            let result = minimatchFn(getUrlPath(url), ignoreUrl);
                             return result;
                         });
                         if (isHasIgnore) return;

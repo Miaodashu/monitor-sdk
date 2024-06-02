@@ -1,5 +1,11 @@
 # @monitor-sdk/utils
 
+## 1.2.0
+
+### Minor Changes
+
+-   新增 minimatchFn 工具方法
+
 ## 1.1.3
 
 ### Patch Changes

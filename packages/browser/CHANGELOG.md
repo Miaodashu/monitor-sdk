@@ -1,5 +1,13 @@
 # @monitor-sdk/browser
 
+## 1.1.6
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/utils@1.2.0
+    -   @monitor-sdk/core@1.1.4
+
 ## 1.1.5
 
 ### Patch Changes

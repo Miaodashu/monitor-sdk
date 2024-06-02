@@ -1,5 +1,16 @@
 # @monitor-sdk/fetch
 
+## 0.2.0
+
+### Minor Changes
+
+-   新增 minimatchFn 工具方法
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/utils@1.2.0
+
 ## 0.1.4
 
 ### Patch Changes
