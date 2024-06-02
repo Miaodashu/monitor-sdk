@@ -43,7 +43,9 @@ export enum ConsoleTypes {
     LOG = 'log',
     INFO = 'info',
     WARN = 'warn',
-    ERROR = 'error'
+    ERROR = 'error',
+    DIR = 'dir',
+    DEBUG = 'debug'
 }
 
 // 浏览器端上报数据中子类型

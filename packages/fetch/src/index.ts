@@ -1,5 +1,16 @@
 import { formatDate, generateUUID, getUrlPath, replaceOld } from '@monitor-sdk/utils';
-import { BasePluginType, ReportDataType, HttpCollectDataType, HttpCollectType, MethodTypes, BrowserStackTypes, StackQueueLevel, EventTypes, HttpTypes } from '@monitor-sdk/types';
+import {
+    BasePluginType,
+    ReportDataType,
+    HttpCollectDataType,
+    HttpCollectType,
+    MethodTypes,
+    BrowserStackTypes,
+    StackQueueLevel,
+    EventTypes,
+    HttpTypes
+} from '@monitor-sdk/types';
+import { minimatch } from 'minimatch';
 
 interface RequestOptions {
     ignoreUrls?: string[]; // 忽略的请求
@@ -12,6 +23,7 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
         name: 'fetchPlugin',
         monitor(publish: (data: HttpCollectDataType) => void) {
             const { reportUrl } = this.context;
+            const that = this;
             const ignore = [...ignoreUrls, reportUrl].map((url) => getUrlPath(url));
             replaceOld(window, 'fetch', (originFn) => {
                 return function (url: string, config: Partial<Request> = {}) {
@@ -25,7 +37,11 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                         response: {},
                         time: sTime
                     };
-                    const isBlock = ignore.includes(getUrlPath(url));
+                    const isBlock = ignore.some((ignoreUrl) => {
+                        let result = minimatch(getUrlPath(url), ignoreUrl);
+                        return result;
+                    });
+                    // const isBlock = ignore.includes(getUrlPath(url));
                     const headers = new Headers(config.headers || {});
                     Object.assign(headers, {
                         setRequestHeader: headers.set
@@ -34,7 +50,8 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                         ...config,
                         headers
                     };
-                    return originFn.apply(window, [url, config]).then((response) => {
+                    return originFn.apply(window, [url, config]).then(
+                        (response) => {
                             const resClone = response.clone();
                             const eTime = Date.now();
                             httpCollect.elapsedTime = eTime - sTime;
@@ -49,8 +66,6 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                             return response;
                         },
                         (err: Error) => {
-                            this.log('err----', err);
-                            
                             if (isBlock) return;
                             const eTime = Date.now();
                             httpCollect.elapsedTime = eTime - sTime;
@@ -58,7 +73,7 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                             publish(httpCollect);
                             throw err;
                         }
-                    )
+                    );
                 };
             });
         },
@@ -68,13 +83,13 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                 request: { method, url },
                 elapsedTime = 0,
                 response: { status }
-              } = collectData;
+            } = collectData;
             this.queue.enqueue({
                 eventId: id,
                 type: BrowserStackTypes.FETCH,
                 level: status != 200 ? StackQueueLevel.WARN : StackQueueLevel.INFO,
                 message: `${method} "${url}" 耗时 ${elapsedTime / 1000} 秒`
-            })
+            });
             return {
                 id,
                 type: EventTypes.API,
@@ -83,7 +98,7 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                     ...collectData,
                     sub_type: HttpTypes.FETCH
                 }
-            }
+            };
         }
     };
 }

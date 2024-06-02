@@ -31,7 +31,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         let { uploadUrl, enabled } = this.context;
         const pubSub = new PubSub();
         plugins.forEach((plugin) => {
-            if (!plugin) return
+            if (!plugin) return;
             try {
                 plugin.monitor.call(this, pubSub.publish.bind(pubSub, plugin.name));
                 const callback = (...args: any[]) => {
@@ -64,7 +64,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
      * @param type - 打印类型，默认为LOG
      * @return {*} void
      */
-    log(message: any, type: ConsoleTypes = ConsoleTypes.LOG): void {
+    log(message: any, type: ConsoleTypes = ConsoleTypes.DEBUG): void {
         const { debuge } = this.options;
         if (!hasConsole() || !debuge) {
             return;
@@ -73,8 +73,11 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         if (typeof fn !== 'function') {
             throw Error('console type 不被支持');
         }
-
+        // fn(TAG + 'start');
+        // console.group(TAG);
         fn(TAG, message);
+        // fn(TAG + 'end');
+        // console.groupEnd();
     }
 
     // 初始化配置项

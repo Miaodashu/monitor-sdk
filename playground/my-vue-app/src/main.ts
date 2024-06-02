@@ -10,12 +10,18 @@ import monitor from '../../../packages/browser/esm';
 // // import xhrPlugin from '../../../packages/xhr/esm'
 import fetchPlugin from '../../../packages/fetch/esm';
 import presets from '../../../packages/presets/esm';
+import consolePlugin from '../../../packages/console/esm';
 // import monitor from "@monitor-sdk/browser";
 // import presets from "@monitor-sdk/presets";
 import App from './App.vue';
 import router from './router';
-
+import { minimatchFn } from './text';
 const app = createApp(App);
+const result = minimatchFn('//crm-hd.elong.com/workbenchapi/form/list-field-v2', '**/workbenchapi/**');
+const result1 = minimatchFn('//crm-hd.elong.com/workbenchapi/form/list-field-v2', '//crm-hd.elong.com/workbenchapi/form/list-field-v2');
+console.log('result1, ', result1);
+
+
 monitor({
     dsn: {
         reportUrl: 'http://localhost:3000/monitor/server/api/log/upload',
@@ -25,9 +31,14 @@ monitor({
     //     name: 'access_token',
     //     postion: 'cookie'
     // },
-    debuge: true,
+    // enabled: true,
+    // debuge: true,
     plugins: [
-        // ...presets()
+        ...presets({
+            vue: app,
+            ignoreUrls: ['**/workbenchapi/**']
+        }),
+        consolePlugin()
         // performancePlugin(),
         // vuePlugin({
         //     vue: app
@@ -35,11 +46,10 @@ monitor({
         // hashPlugin(),
         // historyPlugin(),
         // xhrPlugin(),
-        fetchPlugin()
+        // fetchPlugin()
     ]
 });
 app.use(createPinia());
 app.use(router);
 
 app.mount('#app');
-

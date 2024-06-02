@@ -35,6 +35,9 @@ importers:
       lerna:
         specifier: ^8.0.1
         version: 8.1.2
+      minimatch:
+        specifier: ^9.0.4
+        version: 9.0.4
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
@@ -78,6 +81,15 @@ importers:
         specifier: workspace:^
         version: link:../utils
 
+  packages/console:
+    dependencies:
+      '@monitor-sdk/types':
+        specifier: workspace:^
+        version: link:../types
+      '@monitor-sdk/utils':
+        specifier: workspace:^
+        version: link:../utils
+
   packages/core:
     dependencies:
       '@monitor-sdk/types':
@@ -105,7 +117,29 @@ importers:
         specifier: workspace:^
         version: link:../utils
 
-  packages/presets: {}
+  packages/presets:
+    dependencies:
+      '@monitor-sdk/fetch':
+        specifier: workspace:^
+        version: link:../fetch
+      '@monitor-sdk/performance':
+        specifier: workspace:^
+        version: link:../performance
+      '@monitor-sdk/router-hash':
+        specifier: workspace:^
+        version: link:../router_hash
+      '@monitor-sdk/router-history':
+        specifier: workspace:^
+        version: link:../router_history
+      '@monitor-sdk/types':
+        specifier: workspace:^
+        version: link:../types
+      '@monitor-sdk/vue':
+        specifier: workspace:^
+        version: link:../vue
+      '@monitor-sdk/xhr':
+        specifier: workspace:^
+        version: link:../xhr
 
   packages/router_hash:
     dependencies:
@@ -247,7 +281,7 @@ packages:
       '@babel/traverse': 7.23.9
       '@babel/types': 7.23.9
       convert-source-map: 2.0.0
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -495,7 +529,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.9
       '@babel/types': 7.23.9
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -2049,7 +2083,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       '@tufjs/canonical-json': 1.0.0
-      minimatch: 9.0.3
+      minimatch: 9.0.4
     dev: true
 
   /@tufjs/models@2.0.0:
@@ -2057,7 +2091,7 @@ packages:
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
       '@tufjs/canonical-json': 2.0.0
-      minimatch: 9.0.3
+      minimatch: 9.0.4
     dev: true
 
   /@types/estree@1.0.5:
@@ -4123,7 +4157,7 @@ packages:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.3.6
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       minipass: 7.0.4
       path-scurry: 1.10.1
     dev: true
@@ -4441,7 +4475,7 @@ packages:
     resolution: {integrity: sha512-t7sv42WkwFkyKbivUCglsQW5YWMskWtbEf4MNKX5u/CCWHKSPzN4FtBQGsQZgCLbxOzpVlcbWVK5KB3auIOjSw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
-      minimatch: 9.0.3
+      minimatch: 9.0.4
     dev: true
 
   /ignore@5.3.1:
@@ -5438,6 +5472,13 @@ packages:
       brace-expansion: 2.0.1
     dev: true
 
+  /minimatch@9.0.4:
+    resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
+    engines: {node: '>=16 || 14 >=14.17'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
   /minimist-options@4.1.0:
     resolution: {integrity: sha512-Q4r8ghd80yhO/0j1O3B2BjweX3fiHg9cdOwjJd2J76Q135c+NDxGCqdYKQ1SKBuFfgWbAUzBfvYjPUEeNgqN1A==}
     engines: {node: '>= 6'}
@@ -5574,7 +5615,7 @@ packages:
       array-differ: 3.0.0
       array-union: 2.1.0
       arrify: 2.0.1
-      minimatch: 3.0.5
+      minimatch: 3.1.2
     dev: true
 
   /mute-stream@0.0.8:

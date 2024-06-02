@@ -1,5 +1,7 @@
 import { HttpCollectDataType, HttpCollectType, BasePluginType, IAnyObject, ReportDataType, StackQueueLevel, BrowserStackTypes, EventTypes, HttpTypes } from '@monitor-sdk/types';
 import { formatDate, generateUUID, getUrlPath, replaceOld } from '@monitor-sdk/utils';
+import { minimatch } from 'minimatch';
+
 
 interface RequestOptions {
     ignoreUrls?: string[]; // 忽略的请求
@@ -36,7 +38,11 @@ export default function XHRPlugin(options: RequestOptions = {}): BasePluginType 
                     const { request } = this.httpCollect
                     const { url } = request
                     this.addEventListener("loadend", function(this) {
-                        const isHasIgnore = ignore.includes(getUrlPath(url));
+                        // const isHasIgnore = ignore.includes(getUrlPath(url));
+                        const isHasIgnore = ignore.some((ignoreUrl) => {
+                            let result = minimatch(getUrlPath(url), ignoreUrl);
+                            return result;
+                        });
                         if (isHasIgnore) return;
                         this.httpCollect.response.status = this.status
                         request.data = args[0];
