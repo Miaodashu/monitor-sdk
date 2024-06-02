@@ -1,5 +1,19 @@
 # @monitor-sdk/presets
 
+## 0.1.5
+
+### Patch Changes
+
+-   增强 fetch 和 xhr 的忽略匹配模式以及新增 console 插件
+-   Updated dependencies
+    -   @monitor-sdk/fetch@0.1.4
+    -   @monitor-sdk/performance@0.1.4
+    -   @monitor-sdk/router-hash@1.1.3
+    -   @monitor-sdk/router-history@1.1.3
+    -   @monitor-sdk/types@1.1.3
+    -   @monitor-sdk/vue@1.1.3
+    -   @monitor-sdk/xhr@0.1.3
+
 ## 0.1.4
 
 ### Patch Changes

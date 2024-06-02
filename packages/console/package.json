@@ -1,6 +1,6 @@
 {
     "name": "@monitor-sdk/console",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "console日志输出监控",
     "keywords": [
         "console"
