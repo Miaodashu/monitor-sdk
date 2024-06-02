@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
       "module": "es6",
-      "target": "ES2016",
       "outDir": "esm",
       "paths": {
           "@monitor-sdk/types": ["../types/src"],

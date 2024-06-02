@@ -1,5 +1,14 @@
 # @monitor-sdk/fetch
 
+## 0.2.2
+
+### Patch Changes
+
+-   变更编译 es 版本 。es2015
+-   Updated dependencies
+    -   @monitor-sdk/types@1.1.5
+    -   @monitor-sdk/utils@1.2.2
+
 ## 0.2.1
 
 ### Patch Changes

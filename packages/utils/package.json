@@ -1,6 +1,6 @@
 {
     "name": "@monitor-sdk/utils",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "> TODO: description",
     "author": "pengpeng.zhao <pengpeng.zhao@ly.com>",
     "homepage": "",
@@ -26,6 +26,6 @@
     },
     "dependencies": {
         "@monitor-sdk/types": "workspace:^",
-        "minimatch": "^9.0.4"
+        "minimatch": "^8.0.4"
     }
 }

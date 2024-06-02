@@ -21,7 +21,7 @@
       "@monitor-sdk/*": ["packages/*/src"]
     },
     "types": ["node"],
-    "target": "ES2016", // 编译成什么版本
+    "target": "ES2015", // 编译成什么版本
     "module": "CommonJS", // 当前代码语法
     // "outDir": "./dist/", // 输出目录
     "declaration": true, // 是否自动创建类型声明文件

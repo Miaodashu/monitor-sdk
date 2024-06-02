@@ -1,5 +1,19 @@
 # @monitor-sdk/presets
 
+## 0.1.8
+
+### Patch Changes
+
+-   变更编译 es 版本 。es2015
+-   Updated dependencies
+    -   @monitor-sdk/fetch@0.2.2
+    -   @monitor-sdk/xhr@0.2.2
+    -   @monitor-sdk/performance@0.1.7
+    -   @monitor-sdk/router-hash@1.1.6
+    -   @monitor-sdk/router-history@1.1.6
+    -   @monitor-sdk/types@1.1.5
+    -   @monitor-sdk/vue@1.1.5
+
 ## 0.1.7
 
 ### Patch Changes

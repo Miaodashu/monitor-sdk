@@ -1,5 +1,11 @@
 # @monitor-sdk/types
 
+## 1.1.5
+
+### Patch Changes
+
+-   变更编译 es 版本 。es2015
+
 ## 1.1.4
 
 ### Patch Changes
