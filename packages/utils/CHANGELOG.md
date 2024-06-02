@@ -1,5 +1,13 @@
 # @monitor-sdk/utils
 
+## 1.2.1
+
+### Patch Changes
+
+-   调整编译版本
+-   Updated dependencies
+    -   @monitor-sdk/types@1.1.4
+
 ## 1.2.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @monitor-sdk/browser
 
+## 1.1.7
+
+### Patch Changes
+
+-   调整编译版本
+-   Updated dependencies
+    -   @monitor-sdk/core@1.1.5
+    -   @monitor-sdk/types@1.1.4
+    -   @monitor-sdk/utils@1.2.1
+
 ## 1.1.6
 
 ### Patch Changes

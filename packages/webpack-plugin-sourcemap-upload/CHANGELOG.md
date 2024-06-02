@@ -1,5 +1,11 @@
 # @monitor-sdk/webpack-plugin-sourcemap-upload
 
+## 1.1.4
+
+### Patch Changes
+
+-   调整编译版本
+
 ## 1.1.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @monitor-sdk/vue
 
+## 1.1.4
+
+### Patch Changes
+
+-   调整编译版本
+
 ## 1.1.3
 
 ### Patch Changes

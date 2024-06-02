@@ -8,7 +8,7 @@ import monitor from '../../../packages/browser/esm';
 // // import hashPlugin from '../../../packages/router_hash/esm'
 // // import historyPlugin from '../../../packages/router_history/esm'
 // // import xhrPlugin from '../../../packages/xhr/esm'
-import fetchPlugin from '../../../packages/fetch/esm';
+// import fetchPlugin from '../../../packages/fetch/esm';
 import presets from '../../../packages/presets/esm';
 import consolePlugin from '../../../packages/console/esm';
 // import monitor from "@monitor-sdk/browser";
