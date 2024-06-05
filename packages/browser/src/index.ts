@@ -81,7 +81,7 @@ const init = (options: BrowserOptionType) => {
         const { plugins = [] } = options;
         client.use([jsErrorPlugin, promiseErrorPlugin.call(client), lifecyclePlugin.call(client, options), ...plugins]);
     } catch (error) {
-        console.log('===@monitor-sdk===', error);
+        console.debug('===@monitor-sdk error===', error);
     }
     
 };

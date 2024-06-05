@@ -31,8 +31,8 @@ monitor({
     //     name: 'access_token',
     //     postion: 'cookie'
     // },
-    // enabled: true,
-    // debuge: true,
+    enabled: false,
+    debuge: true,
     plugins: [
         ...presets({
             vue: app,

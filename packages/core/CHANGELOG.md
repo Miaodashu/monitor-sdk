@@ -1,5 +1,11 @@
 # @monitor-sdk/core
 
+## 1.1.8
+
+### Patch Changes
+
+-   更改 enabled 作用权限， 设置为 false 则不进行收集和上报
+
 ## 1.1.7
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @monitor-sdk/browser
 
+## 1.1.10
+
+### Patch Changes
+
+-   更改 enabled 作用权限， 设置为 false 则不进行收集和上报
+-   Updated dependencies
+    -   @monitor-sdk/core@1.1.8
+
 ## 1.1.9
 
 ### Patch Changes

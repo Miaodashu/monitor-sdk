@@ -20,15 +20,18 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         this.options = options;
         this.taskQueue = [];
         this.bindOptions();
-        // 原先的初始化去掉，暂时不需要。init().then(// 初始化成功后执行上报)
         // 开始执行上报
         this.isReady = true;
         this.executeTaskQueue();
     }
 
+
     // 引用插件
     use(plugins: BasePluginType[]) {
         let { uploadUrl, enabled } = this.context;
+        if (!enabled) {
+            return;
+        }
         const pubSub = new PubSub();
         plugins.forEach((plugin) => {
             if (!plugin) return;

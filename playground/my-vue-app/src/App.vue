@@ -19,7 +19,8 @@ const handleClick2 = () => {
 };
 const handleClick3 = () => {
     // name.value = name;
-    // info.value.name = 888
+    info.value.name = 888
+    return
     // var xhr = new XMLHttpRequest();
     // xhr.open('POST', 'http://localhost:3000/api/site/test');
     // xhr.setRequestHeader('Content-Type', 'application/json');
@@ -91,7 +92,7 @@ const handleClick4 = async () => {
         <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
         <button @click="handleClick">点击vue错误</button>
         <button @click="handleClick2">点击promise错误</button>
-        <button @click="handleClick3">XHR发送请求 fetch1</button>
+        <button @click="handleClick3">33XHR发送请求 fetch1</button>
         <button @click="handleClick4">FETCH发送请求 fetch1</button>
         <div class="wrapper">
             <!-- <img src="./aaa.png" alt="ddddd" /> -->
