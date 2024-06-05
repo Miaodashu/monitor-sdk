@@ -1,5 +1,12 @@
 # @monitor-sdk/performance
 
+## 0.1.8
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/utils@1.2.3
+
 ## 0.1.7
 
 ### Patch Changes

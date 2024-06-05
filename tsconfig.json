@@ -21,6 +21,7 @@
       "@monitor-sdk/*": ["packages/*/src"]
     },
     "types": ["node"],
+    "importHelpers": true,
     "target": "ES2015", // 编译成什么版本
     "module": "CommonJS", // 当前代码语法
     // "outDir": "./dist/", // 输出目录
@@ -33,10 +34,13 @@
     ],
     "allowJs": false, // 不允许编译javascript文件。
     "lib": [
-      // 编译过程中需要引入的库文件的列表
-      "es6",
-      "dom",
-      "es2017"
+        // 编译过程中需要引入的库文件的列表
+        "es6",
+        "dom",
+        "DOM",
+        "ES2015",
+        "ScriptHost",
+        "es2017"
     ]
   },
   "include": ["packages"],

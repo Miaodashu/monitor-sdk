@@ -1,6 +1,6 @@
 {
     "name": "@monitor-sdk/utils",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "> TODO: description",
     "author": "pengpeng.zhao <pengpeng.zhao@ly.com>",
     "homepage": "",
@@ -20,7 +20,7 @@
         "access": "public"
     },
     "scripts": {
-        "build": "run-p build:bundle build:esm",
+        "build": "run-p build:bundle",
         "build:bundle": "rimraf dist && rollup --config",
         "build:esm": "rimraf esm && tsc -p tsconfig.json"
     },

@@ -2,11 +2,12 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "esm",
-        "target": "ES2015",
         "module": "es6",
+        "target": "ES5",
         "paths": {
             "@monitor-sdk/types": ["../types/src"]
-        }
+        },
+        "allowJs": true
     },
     "include": ["src/**/*"]
 }

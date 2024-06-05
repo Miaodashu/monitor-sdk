@@ -1,5 +1,11 @@
 # @monitor-sdk/utils
 
+## 1.2.3
+
+### Patch Changes
+
+-   使用 babel 转译成 es5 代码
+
 ## 1.2.2
 
 ### Patch Changes

@@ -1,3 +1,4 @@
-import { umdPackage, iifePackage} from '../../rollup.base.config.mjs';
+import { umdPackage, iifePackage, esmPackage } from '../../rollup.base.config.mjs';
 
-export default [umdPackage, iifePackage];
+export default [umdPackage, iifePackage, esmPackage];
+// export default [esmPackage];

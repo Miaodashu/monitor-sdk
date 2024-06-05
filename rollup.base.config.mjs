@@ -7,10 +7,11 @@ import { terser } from 'rollup-plugin-terser';
 import json from '@rollup/plugin-json';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
 import { babel } from '@rollup/plugin-babel';
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath } from 'node:url';
+import typescript from '@rollup/plugin-typescript';
+import dts from 'rollup-plugin-dts';
 
 const currentWorkingDirectory = dirname(fileURLToPath(import.meta.url));
-
 // export default {
 //   ...,
 //   // 为 <currentdir>/src/some-file.js 生成绝对路径
@@ -18,10 +19,9 @@ const currentWorkingDirectory = dirname(fileURLToPath(import.meta.url));
 // };
 const packageDir = process.cwd();
 const packageDirDist = `${packageDir}/dist`;
+const packageDirESM = `${packageDir}/esm`;
 
 const name = path.basename(packageDir);
-
-
 
 // 基础配置
 export const common = {
@@ -30,6 +30,7 @@ export const common = {
         name: `MONITOR_${name.toLocaleUpperCase()}`
     },
     plugins: [
+        commonJs(),
         esbuild({
             // All options are optional
             include: /\.[jt]sx?$/, // default, inferred from `loaders` option
@@ -53,9 +54,11 @@ export const common = {
         resolve({
             preferBuiltins: true
         }),
-        babel({ babelHelpers: 'bundled' }),
+        babel({
+            presets: ['@babel/preset-env'],
+            babelHelpers: 'bundled'
+        }),
         nodePolyfills(),
-        commonJs(),
         json(),
         size()
     ]
@@ -75,12 +78,56 @@ export const umdPackage = {
 export const esmPackage = {
     ...common,
     output: {
-        format: 'esm',
-        dir: `${packageDirDist}`,
-        plugins: [terser()],
-        ...common.output
-    }
+        dir: `${packageDirESM}`,
+        format: 'es',
+        plugins: []
+    },
+    plugins: [
+        commonJs(),
+        resolve({
+            preferBuiltins: true
+        }),
+        babel({
+            presets: [
+                '@babel/preset-env'
+                // [
+                //     '@babel/preset-env',
+                //     {
+                //         targets: {
+                //             // esmodules: true // 根据需要调整
+                //         }
+                //     }
+                // ]
+            ]
+            // plugins: ['@babel/plugin-proposal-private-methods']
+            // include: [`${packageDir}/node_modules/minimatch`]
+        }),
+
+        typescript({
+            tsconfig: `${packageDir}/tsconfig.json`
+        })
+    ]
 };
+
+// {
+//     ...common,
+//     output: {
+//         format: 'es',
+//         dir: `${packageDirESM}`,
+//         plugins: [
+//             // typescript({
+//             //     // removeComments: true,
+//             //     // // 使用声明生成路径配置
+//             //     // useTsconfigDeclarationDir: true
+//             // })
+//             babel({
+//                 babelHelpers: 'bundled'
+//             }),
+//             // nodePolyfills(),
+//             // terser()
+//         ]
+//     }
+// };
 
 // 构建为iife格式的
 export const iifePackage = {
