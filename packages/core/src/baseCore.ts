@@ -51,7 +51,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
                         this.taskQueue.push(datas);
                         return;
                     }
-                    this.nextTick(this.report, this, uploadUrl, { app_id: this.appID, ...datas });
+                    this.nextTick(this.report, this, { app_id: this.appID, ...datas });
                 };
                 pubSub.subscribe(plugin.name, callback);
             } catch (error) {
@@ -112,7 +112,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
     executeTaskQueue() {
         while (this.taskQueue.length) {
             let task = this.taskQueue.shift();
-            this.nextTick(this.report, this, this.context.uploadUrl, { app_id: this.appID, ...task });
+            this.nextTick(this.report, this, { app_id: this.appID, ...task });
         }
     }
 
@@ -129,10 +129,11 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
      * @description: 上报 抽象方法  子类需要自己实现
      * @param {string} url 上报的接口地址
      * @param {IAnyObject} data 上报的数据
+     * @param {boolean} isImmediate 是否立即上报
      * @param {any} type 上报的方式[走接口还是图片], or 请求方式[get/post]  暂定
      * @return {*}
      */
-    abstract report(url: string, data: IAnyObject, type?: any): void;
+    abstract report(data: IAnyObject, isImmediate:boolean, type?: any): void;
 
     // 抽象方法  处理各个端的上报数据
     abstract transform(data: IAnyObject): IAnyObject;

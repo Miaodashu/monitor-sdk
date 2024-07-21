@@ -1,19 +1,18 @@
-import { StackQueueLevel,  StackPushData } from '@monitor-sdk/types';
+import { Recordable } from '@monitor-sdk/types';
+import { generateUUID } from '@monitor-sdk/utils';
 // 创建一个栈结构进行 行为管理
 
 export class Stack {
-    private stacks: StackPushData[];
+    private stacks: Recordable[];
     constructor() {
         this.stacks = [];
     }
 
     // 添加一个任务到栈顶
-    push(data: StackPushData) {
-        if (!data.time) {
-            data.time = new Date().getTime();
-        }
-        if (!data.level) {
-            data.level = StackQueueLevel.INFO;
+    push(data: Recordable) {
+        if (!data._uuid) {
+            // 为每条数据生成唯一的uuid， 避免重复上报
+            data._uuid = generateUUID();
         }
         return this.stacks.push(data);
     }
@@ -24,7 +23,7 @@ export class Stack {
     }
 
     // 返回栈顶的元素，不对栈做任何修改
-    peek(): StackPushData {
+    peek() {
         return this.stacks[this.stacks.length - 1];
     }
 
@@ -41,7 +40,7 @@ export class Stack {
     }
 
     // 获取堆栈存的任务集合
-    getStacks(): StackPushData[] {
+    getStacks() {
         return this.stacks.slice(0);
     }
 }

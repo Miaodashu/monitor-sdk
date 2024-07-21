@@ -25,14 +25,13 @@ console.log('result1, ', result1);
 monitor({
     dsn: {
         reportUrl: 'http://localhost:3000/monitor/server/api/log/upload',
-        projectId: '0d71313f-2a65-4746-b50f-83fe0883434b'
+        projectId: 'c42c223d-d431-4812-b014-4e7e36b58116'
     },
+    debuge: true,
     // userIdentify: {
     //     name: 'access_token',
     //     postion: 'cookie'
     // },
-    enabled: false,
-    debuge: true,
     plugins: [
         ...presets({
             vue: app,
