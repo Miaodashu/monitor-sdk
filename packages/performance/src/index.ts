@@ -43,7 +43,6 @@ export default function performance(options: PerformanceOptions = {}): BasePlugi
         },
         beforeReport(collectedData: CollectedType): ReportDataType<CollectedType> {
             return {
-                id: generateUUID(),
                 time: formatDate(),
                 type: EventTypes.PERFORMANCE,
                 data: {

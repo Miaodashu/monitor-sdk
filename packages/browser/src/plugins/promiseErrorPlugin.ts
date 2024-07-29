@@ -49,7 +49,6 @@ export default function promiseError(): BasePluginType {
             });
             const queueList = (this as any).queue.queueValue();
             return {
-                id,
                 time: formatDate(),
                 type: category,
                 data: {

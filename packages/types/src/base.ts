@@ -53,17 +53,17 @@ export interface BaseOptionsType {
 export interface ClientInfoType {
     deviceInfo: string; // json字符串  平台信息， 包含设备类型，网络，系统等信息
     app_id?: string; // 应用id
+    user_id?: string; // 用户标识
     session_id?: string; // 会话id
     page_title?: string; // 页面标题
     path?: string; // 页面路径
     language?: string; // 语言
-    user_agent?: string; // 用户代理
+    _uuid?: string; // 唯一ID
 }
 
 
 // 事件上报的数据格式  基础的数据格式, 插件上报前钩子中返回的数据格式
 export interface ReportDataType<T> {
-    id: string;
     time: string;
     type: EventTypes; // 时间类型
     data: T; // 消息体

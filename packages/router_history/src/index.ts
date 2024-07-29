@@ -50,7 +50,6 @@ export default function (): BasePluginType {
                 message: `HistoryChange: 从 "${data.from}" 到 "${data.to}"`
               });
               return {
-                id,
                 time: formatDate(),
                 type: EventTypes.ROUTE,
                 data: {

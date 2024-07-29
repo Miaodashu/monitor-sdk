@@ -27,7 +27,6 @@ export default function VueRouterHashPlugin(): BasePluginType {
                 message: `HashChange:  从 "${data.from}" 到 "${data.to}"`
             })
             return {
-                id,
                 time: formatDate(),
                 type: EventTypes.ROUTE,
                 data: {

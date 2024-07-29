@@ -19,8 +19,8 @@ const handleClick2 = () => {
 };
 const handleClick3 = () => {
     // name.value = name;
-    info.value.name = 888
-    return
+    // info.value.name = 888
+    // return
     // var xhr = new XMLHttpRequest();
     // xhr.open('POST', 'http://localhost:3000/api/site/test');
     // xhr.setRequestHeader('Content-Type', 'application/json');

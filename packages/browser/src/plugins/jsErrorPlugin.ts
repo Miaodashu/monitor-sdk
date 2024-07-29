@@ -62,7 +62,6 @@ const errorPlugin: BasePluginType = {
             });
             const queueList = (this as any).queue.queueValue();
             return {
-                id,
                 time,
                 type: category,
                 data: {
@@ -83,7 +82,6 @@ const errorPlugin: BasePluginType = {
         });
         const queueList = (this as any).queue.queueValue();
         return {
-            id,
             time,
             type: category,
             queue: queueList,

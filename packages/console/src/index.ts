@@ -36,7 +36,6 @@ export default function consolePlugin(): BasePluginType {
             //     level
             // });
             return {
-                id,
                 type: EventTypes.CONSOLE,
                 time: formatDate(),
                 data: {

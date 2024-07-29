@@ -36,7 +36,6 @@ class BrowserClient extends Core<BrowserOptionType> {
                 if (document.visibilityState === 'hidden') {
                     this.isReporting = false;
                     this.transfromCatcheData();
-                    this.timer = null;
                     this.task.clear();
                 }
             },
@@ -47,7 +46,7 @@ class BrowserClient extends Core<BrowserOptionType> {
             () => {
                 this.isReporting = false;
                 this.transfromCatcheData();
-                this.timer = null;
+                clearInterval(this.timer);
                 this.task.clear();
             },
             true
@@ -77,7 +76,7 @@ class BrowserClient extends Core<BrowserOptionType> {
     // 开始定期上报
     startPeriodicReporting() {
         if (!this.timer && !this.isReporting) {
-            this.timer = setTimeout(() => {
+            this.timer = setInterval(() => {
                 this.transfromCatcheData();
             }, this.interval);
         }
@@ -89,6 +88,9 @@ class BrowserClient extends Core<BrowserOptionType> {
             const datas = unique(this.task.getStacks() || [], '_uuid');
             this.baseReport(this.context.uploadUrl, datas).then(() => {
                 this.task.clear();
+                this.isReporting = false;
+            }).catch(e => {
+                this.isReporting = false;
             });
         }
     }
@@ -109,19 +111,21 @@ class BrowserClient extends Core<BrowserOptionType> {
      */
     baseReport(url: string, data: IAnyObject | IAnyObject[], type: BrowserReportType = BrowserReportType.BEACON) {
         // promise控制下是否清除缓存数据。上报成功后 再清除，否则不处理
+        console.log(data);
+        
         return new Promise(async (resolve, reject) => {
             if (!data || !data.length) {
                 return resolve(true);
             }
             this.isReporting = true;
             if (type === BrowserReportType.BEACON && !!navigator.sendBeacon) {
-                const result = await beacon(url, data);
+                const result = await beacon(url, {logs: data});
                 this.isReporting = false;
                 return resolve(result);
             }
 
             if (type === BrowserReportType.POST) {
-                return post(url, data)
+                return post(url, {logs: data})
                     .then(() => {
                         return resolve(true);
                     })
@@ -134,16 +138,17 @@ class BrowserClient extends Core<BrowserOptionType> {
             }
 
             if (type === BrowserReportType.IMG || !navigator.sendBeacon) {
-                await imgRequest(url, data);
+                await imgRequest(url, {logs: data});
                 this.isReporting = false;
                 return resolve(true);
             }
 
-            return get(url, data)
+            return get(url, {logs: data})
                 .then(() => {
                     return resolve(true);
                 })
                 .catch((error) => {
+                    this.isReporting = false;
                     return reject(error);
                 })
                 .finally(() => {
@@ -165,6 +170,10 @@ class BrowserClient extends Core<BrowserOptionType> {
         const { href } = window.location;
         let deviceInfo = DeviceInfo.getDeviceInfo();
         let deviceInfoStr = JSON.stringify(deviceInfo);
+        if (!data._uuid) {
+            // 为每条数据生成唯一的uuid， 避免重复上报
+            data._uuid = generateUUID();
+        }
         // 在这里一会进行 公共部分的数据处理
         return {
             session_id: this.sessionID,

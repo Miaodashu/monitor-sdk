@@ -68,7 +68,6 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
                 message: `${action || type} "${href}"`
             });
             return {
-                id,
                 time: formatDate(),
                 type: EventTypes.LIFECYCLE,
                 data: {
