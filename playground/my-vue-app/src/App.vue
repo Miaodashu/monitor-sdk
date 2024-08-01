@@ -9,7 +9,8 @@ onMounted(() => {
 });
 const info = ref();
 const handleClick = () => {
-    name.value = '123';
+    // name.value = '123';
+    name.value = nameNum;
     console.log('handleClick--');
     // name.value = sign;
 };

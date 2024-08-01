@@ -36,7 +36,7 @@ class BrowserClient extends Core<BrowserOptionType> {
                 if (document.visibilityState === 'hidden') {
                     this.isReporting = false;
                     this.transfromCatcheData();
-                    this.task.clear();
+                    // this.task.clear();
                 }
             },
             true
@@ -47,7 +47,7 @@ class BrowserClient extends Core<BrowserOptionType> {
                 this.isReporting = false;
                 this.transfromCatcheData();
                 clearInterval(this.timer);
-                this.task.clear();
+                // this.task.clear();
             },
             true
         );
@@ -66,11 +66,10 @@ class BrowserClient extends Core<BrowserOptionType> {
             return;
         }
         if (isImmediate) {
-            this.baseReport(url, data, type);
+            this.immediateReport(url, data, type);
             return;
         }
-
-        this.nextTick(this.lazyReportCache, this, { ...data }, type);
+        this.lazyReportCache({ ...data }, type)
     }
 
     // 开始定期上报
@@ -86,7 +85,7 @@ class BrowserClient extends Core<BrowserOptionType> {
     transfromCatcheData() {
         if (this.task.size() && !this.isReporting) {
             const datas = unique(this.task.getStacks() || [], '_uuid');
-            this.baseReport(this.context.uploadUrl, datas).then(() => {
+            this.immediateReport(this.context.uploadUrl, datas).then(() => {
                 this.task.clear();
                 this.isReporting = false;
             }).catch(e => {
@@ -109,7 +108,7 @@ class BrowserClient extends Core<BrowserOptionType> {
      * @param data - 上报数据
      * @param type - 上报类型，默认为BEACON
      */
-    baseReport(url: string, data: IAnyObject | IAnyObject[], type: BrowserReportType = BrowserReportType.BEACON) {
+    immediateReport(url: string, data: IAnyObject | IAnyObject[], type: BrowserReportType = BrowserReportType.BEACON) {
         // promise控制下是否清除缓存数据。上报成功后 再清除，否则不处理
         console.log(data);
         

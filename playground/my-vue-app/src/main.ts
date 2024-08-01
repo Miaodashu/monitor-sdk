@@ -3,7 +3,7 @@ import './assets/main.css';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import monitor from '../../../packages/browser/esm';
-// import vuePlugin from '../../../packages/vue/esm'
+import vuePlugin from '../../../packages/vue/esm'
 // // import performancePlugin from '../../../packages/performance/esm'
 // // import hashPlugin from '../../../packages/router_hash/esm'
 // // import historyPlugin from '../../../packages/router_history/esm'
@@ -35,9 +35,9 @@ monitor({
         }),
         // consolePlugin()
         // performancePlugin(),
-        // vuePlugin({
-        //     vue: app
-        // }),
+        vuePlugin({
+            vue: app
+        }),
         // hashPlugin(),
         // historyPlugin(),
         // xhrPlugin(),
