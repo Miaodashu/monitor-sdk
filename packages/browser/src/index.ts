@@ -1,6 +1,6 @@
 import { Core, Queue, Stack } from '@monitor-sdk/core';
 import { BrowserOptionType, BrowserReportPayloadDataType } from './types';
-import { IAnyObject, BrowserReportType, PlatformTypes, BaseOptionsType } from '@monitor-sdk/types';
+import { IAnyObject, BrowserReportType, PlatformTypes, BaseOptionsType, ConsoleTypes } from '@monitor-sdk/types';
 import { beacon, generateUUID, get, imgRequest, post, DeviceInfo } from '@monitor-sdk/utils';
 import { nextTick } from './lib/nextTick';
 import jsErrorPlugin from './plugins/jsErrorPlugin';
@@ -55,18 +55,19 @@ class BrowserClient extends Core<BrowserOptionType> {
     /**
      * 发送报告
      *
-     * @param url - 上报URL
      * @param data - 上报数据
+     * @param isImmediate -是否立即上报
      * @param type - 上报类型，默认为BEACON
      */
     report(data: IAnyObject, isImmediate: boolean = false, type: BrowserReportType = BrowserReportType.BEACON) {
+        this.log(data)
         const { uploadUrl: url } = this.context;
         if (!url) {
-            this.log(`上报URL 不能为空！！！`);
+            this.log(`上报URL 不能为空！！！`, ConsoleTypes.ERROR);
             return;
         }
         if (isImmediate) {
-            this.immediateReport(url, data, type);
+            this.immediateReport(url, [data], type);
             return;
         }
         this.lazyReportCache({ ...data }, type)
@@ -94,8 +95,9 @@ class BrowserClient extends Core<BrowserOptionType> {
         }
     }
 
-    lazyReportCache(data: IAnyObject, type: BrowserReportType, timeout = 3000) {
+    lazyReportCache(data: IAnyObject, type: BrowserReportType) {
         this.task.push(data);
+        this.log(this.task.size())
         if (this.task.size() >= this.batchSize) {
             this.transfromCatcheData();
         }
@@ -110,7 +112,7 @@ class BrowserClient extends Core<BrowserOptionType> {
      */
     immediateReport(url: string, data: IAnyObject | IAnyObject[], type: BrowserReportType = BrowserReportType.BEACON) {
         // promise控制下是否清除缓存数据。上报成功后 再清除，否则不处理
-        console.log(data);
+        this.log(data);
         
         return new Promise(async (resolve, reject) => {
             if (!data || !data.length) {

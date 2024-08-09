@@ -1,6 +1,5 @@
-import { IAnyObject, BaseOptionsType, CoreContextType, ConsoleTypes, BasePluginType } from '@monitor-sdk/types';
+import { IAnyObject, BaseOptionsType, CoreContextType, ConsoleTypes, BasePluginType ,TAG } from '@monitor-sdk/types';
 import { hasConsole } from '@monitor-sdk/utils';
-import { TAG } from './lib/globalConfig';
 import { PubSub } from './lib/subscribe';
 import { Queue } from './lib/queue';
 
@@ -76,11 +75,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         if (typeof fn !== 'function') {
             throw Error('console type 不被支持');
         }
-        // fn(TAG + 'start');
-        // console.group(TAG);
         fn(TAG, message);
-        // fn(TAG + 'end');
-        // console.groupEnd();
     }
 
     // 初始化配置项
@@ -127,7 +122,6 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
 
     /**
      * @description: 上报 抽象方法  子类需要自己实现
-     * @param {string} url 上报的接口地址
      * @param {IAnyObject} data 上报的数据
      * @param {boolean} isImmediate 是否立即上报
      * @param {any} type 上报的方式[走接口还是图片], or 请求方式[get/post]  暂定

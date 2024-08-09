@@ -28,6 +28,8 @@ const errorPlugin: BasePluginType = {
             'error',
             (e) => {
                 e.preventDefault();
+                this.log(e, EventTypes.ERROR);
+                
                 publish({
                     category: EventTypes.ERROR,
                     data: e
