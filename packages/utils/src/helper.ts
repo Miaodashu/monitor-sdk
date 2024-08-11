@@ -34,8 +34,7 @@ export const formatDate = (format = 'YYYY-MM-DD hh:mm:ss', timestamp: number = D
         mm: formatNumber(date.getMinutes()),
         ss: formatNumber(date.getSeconds())
     };
-    
-    
+
     const res = (format || 'YYYY-MM-DD hh:mm:ss')
         .replace('YYYY', dateInfo.YYYY)
         .replace('MM', dateInfo.MM)
@@ -43,7 +42,7 @@ export const formatDate = (format = 'YYYY-MM-DD hh:mm:ss', timestamp: number = D
         .replace('hh', dateInfo.hh)
         .replace('mm', dateInfo.mm)
         .replace('ss', dateInfo.ss);
-    
+
     return res;
 };
 
@@ -87,7 +86,26 @@ export function formatDecimal(num: number, decimal: number): number {
     return parseFloat(str);
 }
 
-
 export function minimatchFn(p: string, pattern: string, options?: MinimatchOptions) {
     return minimatch(p, pattern, options);
+}
+
+/**
+ * 函数节流
+ *
+ * @export
+ * @param {Function} fn 需要节流的函数
+ * @param {number} delay 节流的时间间隔
+ * @return {*}  {Function} 返回一个包含节流功能的函数
+ */
+export function throttle(fn: Function, delay: number): Function {
+    let canRun = true;
+    return function (...args: any) {
+        if (!canRun) return;
+        fn.apply(this, args);
+        canRun = false;
+        setTimeout(() => {
+            canRun = true;
+        }, delay);
+    };
 }

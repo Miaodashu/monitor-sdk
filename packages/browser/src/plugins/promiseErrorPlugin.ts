@@ -40,14 +40,6 @@ export default function promiseError(): BasePluginType {
                 message = reason.stack;
             }
             const id = generateUUID();
-            this.queue.enqueue({
-                eventId: id,
-                type: BrowserStackTypes.UNHANDLEDREJECTION,
-                message: message,
-                level: StackQueueLevel.ERROR,
-                time: formatDate()
-            });
-            const queueList = (this as any).queue.queueValue();
             return {
                 id,
                 time: formatDate(),
@@ -56,7 +48,6 @@ export default function promiseError(): BasePluginType {
                     sub_type: BrowserErrorTypes.UNHANDLEDREJECTION,
                     message
                 },
-                queue: queueList
             };
         }
     };

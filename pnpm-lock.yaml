@@ -114,6 +114,15 @@ importers:
         specifier: workspace:^
         version: link:../utils
 
+  packages/dom:
+    dependencies:
+      '@monitor-sdk/types':
+        specifier: workspace:^
+        version: link:../types
+      '@monitor-sdk/utils':
+        specifier: workspace:^
+        version: link:../utils
+
   packages/fetch:
     dependencies:
       '@monitor-sdk/types':

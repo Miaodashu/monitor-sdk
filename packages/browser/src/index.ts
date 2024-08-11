@@ -65,12 +65,19 @@ class BrowserClient extends Core<BrowserOptionType> {
         let deviceInfoStr = JSON.stringify(deviceInfo);
         // 在这里一会进行 公共部分的数据处理
         return {
-            session_id: this.sessionID,
-            user_id: this.userID,
-            page_title: title,
-            path: href,
-            deviceInfo: deviceInfoStr,
-            ...data
+            logData: {
+                session_id: this.sessionID,
+                user_id: this.userID,
+                page_title: title,
+                path: href,
+                deviceInfo: deviceInfoStr,
+                ...data
+            },
+            filterTwo: this.userID, // 过滤2 默认为用户ID, 取配置的userIdentify
+            filterOne: this.sessionID, // 过滤1 // 设置为 会话ID
+            subCategory: data.data.sub_type, // 设置为subType，有subType的话
+            category: data.type, // 大类 设置为type
+            module: this.context.app?.name // 项目名称
         };
     }
 }
@@ -83,7 +90,6 @@ const init = (options: BrowserOptionType) => {
     } catch (error) {
         console.debug('===@monitor-sdk error===', error);
     }
-    
 };
 
 export default init;

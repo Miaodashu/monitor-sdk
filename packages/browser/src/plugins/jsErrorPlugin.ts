@@ -1,12 +1,10 @@
 import {
     BasePluginType,
-    ConsoleTypes,
     EventTypes,
     ReportDataType,
     BrowserErrorTypes,
-    BrowserStackTypes,
-    StackQueueLevel,
-    ReportDataMsgType
+    ReportDataMsgType,
+    ConsoleTypes
 } from '@monitor-sdk/types';
 import { formatDate, generateUUID } from '@monitor-sdk/utils';
 
@@ -20,13 +18,13 @@ interface ResourceTarget {
     localName?: string;
 }
 
-
 const errorPlugin: BasePluginType = {
     name: 'jsErrorPlugin',
     monitor(publish: (data: CollectedType) => void) {
         window.addEventListener(
             'error',
             (e) => {
+                this.log(e, ConsoleTypes.ERROR)
                 e.preventDefault();
                 publish({
                     category: EventTypes.ERROR,
@@ -39,9 +37,7 @@ const errorPlugin: BasePluginType = {
     beforeReport(collectedData: CollectedType): ReportDataType<ReportDataMsgType> {
         const { category, data } = collectedData;
         var isElementTarget =
-            data.target instanceof HTMLScriptElement ||
-            data.target instanceof HTMLLinkElement ||
-            data.target instanceof HTMLImageElement;
+            data.target instanceof HTMLScriptElement || data.target instanceof HTMLLinkElement || data.target instanceof HTMLImageElement;
         const id = generateUUID();
         const time = formatDate();
         // 判断是否是资源类型报错
@@ -53,14 +49,6 @@ const errorPlugin: BasePluginType = {
                 message: `加载 ${localName} 资源错误, 地址："${src || currentSrc} "`,
                 src: src || currentSrc
             };
-            this.queue.enqueue({
-                eventId: id,
-                type: BrowserStackTypes.RESOURCE,
-                message: `加载 ${resourceData.source_type} 资源错误, 地址："${resourceData.src || '--'} "`,
-                level: StackQueueLevel.ERROR,
-                time
-            });
-            const queueList = (this as any).queue.queueValue();
             return {
                 id,
                 time,
@@ -68,25 +56,15 @@ const errorPlugin: BasePluginType = {
                 data: {
                     sub_type: BrowserErrorTypes.RESOURCEERROR,
                     ...resourceData
-                },
-                queue: queueList
+                }
             };
         }
         // 代码错误
         const { message, lineno, colno, filename, error } = data as ErrorEvent;
-        // 上报用户行为栈
-        (this as any).queue.enqueue({
-            eventId: id,
-            type: BrowserStackTypes.CODE_ERROR,
-            level: StackQueueLevel.ERROR,
-            message
-        });
-        const queueList = (this as any).queue.queueValue();
         return {
             id,
             time,
             type: category,
-            queue: queueList,
             data: {
                 sub_type: BrowserErrorTypes.CODEERROR,
                 message,
@@ -97,5 +75,5 @@ const errorPlugin: BasePluginType = {
             }
         };
     }
-}
+};
 export default errorPlugin;

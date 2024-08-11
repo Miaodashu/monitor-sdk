@@ -23,7 +23,7 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
             window.addEventListener('load', () => {
                 const user_id = getStoreUserId(userIdentify) || '';
                 if (userPath && userPosi && !user_id) {
-                    this.log(`${userPath} does not exist on ${userPosi}`);
+                    this.log(`${userPath} 不存在于 ${userPosi}`);
                 }
                 this.userID = user_id
                 publish({
@@ -37,7 +37,7 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
             window.addEventListener('unload', () => {
                 const user_id = getStoreUserId(userIdentify) || '';
                 if (userPath && userPosi && !user_id) {
-                    this.log(`${userPath} does not exist on ${userPosi}`);
+                    this.log(`${userPath} 不存在于 ${userPosi}`);
                 }
                 publish({
                     type: PageLifeType.UNLOAD,
@@ -62,17 +62,13 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
                 default:
                     break;
             }
-            this.queue.enqueue({
-                eventId: id,
-                type: BrowserStackTypes.LIFECYCLE,
-                message: `${action || type} "${href}"`
-            });
             return {
                 id,
                 time: formatDate(),
                 type: EventTypes.LIFECYCLE,
                 data: {
                     sub_type: type,
+                    message: `${action || type} "${href}"`,
                     ...data
                 }
             };

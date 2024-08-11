@@ -1,6 +1,13 @@
-import { HttpCollectDataType, HttpCollectType, BasePluginType, IAnyObject, ReportDataType, StackQueueLevel, BrowserStackTypes, EventTypes, HttpTypes } from '@monitor-sdk/types';
+import {
+    HttpCollectDataType,
+    HttpCollectType,
+    BasePluginType,
+    IAnyObject,
+    ReportDataType,
+    EventTypes,
+    HttpTypes
+} from '@monitor-sdk/types';
 import { formatDate, generateUUID, getUrlPath, replaceOld, minimatchFn } from '@monitor-sdk/utils';
-
 
 interface RequestOptions {
     ignoreUrls?: string[]; // 忽略的请求
@@ -33,30 +40,30 @@ export default function XHRPlugin(options: RequestOptions = {}): BasePluginType 
                 };
             });
             replaceOld(originalXhrProto, 'send', (originFn) => {
-                return function(this, ...args: any[]) {
-                    const { request } = this.httpCollect
-                    const { url } = request
-                    this.addEventListener("loadend", function(this) {
-                        // const isHasIgnore = ignore.includes(getUrlPath(url));
+                return function (this, ...args: any[]) {
+                    const { request } = this.httpCollect;
+                    const { url } = request;
+                    this.addEventListener('loadend', function (this) {
                         const isHasIgnore = ignore.some((ignoreUrl) => {
                             let result = minimatchFn(getUrlPath(url), ignoreUrl);
                             return result;
                         });
                         if (isHasIgnore) return;
-                        this.httpCollect.response.status = this.status
+                        this.httpCollect.response.status = this.status;
                         request.data = args[0];
                         if (reportResponds) {
-                            this.httpCollect.response.data = typeof this.response === 'object' ? JSON.stringify(this.response) : this.response;
+                            this.httpCollect.response.data =
+                                typeof this.response === 'object' ? JSON.stringify(this.response) : this.response;
                         }
                         const eTime = Date.now();
 
                         this.httpCollect.elapsedTime = eTime - this.httpCollect.time;
-                        publish(this.httpCollect)
+                        publish(this.httpCollect);
                     });
-                    
+
                     originFn.apply(this, args);
-                }
-            })
+                };
+            });
         },
         beforeReport(collectData: HttpCollectDataType): ReportDataType<HttpCollectType> {
             const id = generateUUID();
@@ -64,22 +71,17 @@ export default function XHRPlugin(options: RequestOptions = {}): BasePluginType 
                 request: { method, url },
                 elapsedTime = 0,
                 response: { status }
-              } = collectData;
-            this.queue.enqueue({
-                eventId: id,
-                type: BrowserStackTypes.XHR,
-                level: status != 200 ? StackQueueLevel.WARN : StackQueueLevel.INFO,
-                message: `${method} "${url}" 耗时 ${elapsedTime / 1000} 秒`
-            })
+            } = collectData;
             return {
                 id,
                 type: EventTypes.API,
                 time: formatDate(),
                 data: {
                     ...collectData,
+                    message: `${method} "${url}" 耗时 ${elapsedTime / 1000} 秒`,
                     sub_type: HttpTypes.XHR
                 }
-            }
+            };
         }
     };
 }

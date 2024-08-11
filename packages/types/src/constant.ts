@@ -119,3 +119,7 @@ export enum PlatformTypes {
     NODE = 'nodejs', // node
     WECHAT = 'wechat' // 小程序
 }
+
+export enum DomTypes {
+    CLICK = 'click'
+}

@@ -9,8 +9,10 @@ onMounted(() => {
 });
 const info = ref();
 const handleClick = () => {
-    name.value = '123';
+    // name.value = '123';
     console.log('handleClick--');
+    let a = 12;
+    a = b + a;
     // name.value = sign;
 };
 const handleClick2 = () => {
@@ -21,35 +23,6 @@ const handleClick3 = () => {
     // name.value = name;
     info.value.name = 888
     return
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('POST', 'http://localhost:3000/api/site/test');
-    // xhr.setRequestHeader('Content-Type', 'application/json');
-    // xhr.send(JSON.stringify({name:'张三',age:12}));
-
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //         // 获取服务器响应的数据
-    //         console.log(xhr.responseText);
-    //     }
-    // };
-    fetch('http://localhost:3000/api/site/test')
-    fetch('//crm-hd.elong.com/workbenchapi/form/list-field-v2', {
-        method: 'POST',
-        body: JSON.stringify({
-            timestamp: new Date().getTime(),
-            caller: 'inter.platform.web',
-            params: {
-                corpusPackageId: 'cp_6da30efe8c0c437d8da0639cfe491704',
-                projectId: 'project_9080858e198746ffa2e9667a0e316512',
-                corpusIds: [],
-                targetLanguages: ['zh-cn', 'en-us']
-            }
-        }),
-        headers: {
-            'Content-Type': 'application/json',
-            Cookie: '__tctmu=102596417.0.0; __tctmz=102596417.1705541473410.35.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); __tctrack=0; longKey=1707026539695527; businessLine=15f444cf8755447ea4fd58a7a6ac0a93; route=d8e740f212b6a2469f16a4ee9e17745a; prod_apitable_xsrf_token=6d7fcabe-5c54-4822-a268-99563a3b1c20; lang=zh-CN; prod_apitable_token=MDRmYWMyMGMtMzAxOC00OGIzLTlkMGEtYThiNGJmNzlkNTMy; __tctmc=102596417.93733272; __tctmd=102596417.128401801; __tctma=102596417.1707026539695527.1707026539774.1712557365956.1712902450502.19; __tccgd=102596417.0; access_token=e19e116b512de0ef8f6a60a5f463d8c8'
-        }
-    });
 };
 const handleClick4 = async () => {
     const res = await fetch('https://crm-hd.elong.com/workbenchapi/notice/unReadCount', {
@@ -98,6 +71,7 @@ const handleClick4 = async () => {
             <!-- <img src="./aaa.png" alt="ddddd" /> -->
             <HelloWorld msg="You did it!" />
             {{ name }}
+            <div class="green red">eeeeeeeee</div>
             <nav>
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/about">About</RouterLink>

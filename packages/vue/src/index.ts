@@ -7,12 +7,13 @@ export default function vuePlugin(options: VueOptions = {}): BasePluginType {
         name: "vuePlugin",
         monitor(publish: (data: VueReportDataType) => void) {
             let { vue:vm} = options;
-            let { debug } = this.context
+            let { debuge } = this.context
             if (!vm) {
                 this.log('vuePlugin: 请传入vue实例');
                 return;
             }
             const { errorHandler, silent } = vm.config;
+            let that = this;
             vm.config.errorHandler = function (err, vm, info) {
                 const { name, message, stack = '' } = err;
                 publish({
@@ -23,33 +24,22 @@ export default function vuePlugin(options: VueOptions = {}): BasePluginType {
                     sub_type: VueTypes.ERROR,
                     ...parseStack(stack)
                   });
-                  if (debug) {
+                  if (debuge) {
                     if (typeof errorHandler === 'function') {
                       (errorHandler as CallBack).call(this.vm, err, vm, info);
                     } else if (!silent) {
                       const message = `Error in ${info}: "${stack && stack.toString()}"`;
-                      this.log(message, ConsoleTypes.ERROR);
+                      that.log(message, ConsoleTypes.ERROR);
                     }
                   }
               }
         },
         beforeReport(data: VueReportDataType): ReportDataType<VueReportDataType> {
             const id = generateUUID();
-            // 添加用户行为栈
-            const { hook, stack } = data;
-            this.queue.enqueue({
-                eventId: id,
-                type: BrowserStackTypes.FRAMEWORK,
-                level: StackQueueLevel.FATAL,
-                message: `Error in Vue/n${hook}: "${stack && stack.toString()}"`
-            })
-            const queueList = this.queue.queueValue();
-
             return {
                 id,
                 time: formatDate(),
                 type: EventTypes.VUE,
-                queue: queueList,
                 data
             };
         },

@@ -1,18 +1,13 @@
 {
-    "name": "@monitor-sdk/core",
-    "version": "1.1.8",
-    "type": "module",
-    "main": "dist/core.umd.js",
+    "name": "@monitor-sdk/dom",
+    "version": "0.0.0",
+    "description": "> TODO: description",
+    "author": "peng <847880603@qq.com>",
+    "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
+    "license": "ISC",
+    "main": "dist/dom.umd.js",
     "module": "esm/index.js",
     "types": "esm/index.d.ts",
-    "description": "@monitor-sdk/core",
-    "keywords": [
-        "monitor",
-        "sdk"
-    ],
-    "author": "pengpeng.zhao <pengpeng.zhao@ly.com>",
-    "homepage": "",
-    "license": "ISC",
     "directories": {
         "lib": "lib",
         "test": "__tests__"
@@ -21,17 +16,24 @@
         "dist",
         "esm"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://Miaodashu@github.com/Miaodashu/monitor-sdk.git"
+    },
     "scripts": {
         "dev": "rimraf dist && rollup -w -c rollup.config.dev.mjs",
         "build": "run-p build:esm build:bundle",
         "build:bundle": "rimraf dist && rollup -c rollup.config.mjs",
         "build:esm": "rimraf esm && tsc -p tsconfig.json"
     },
-    "dependencies": {
+    "bugs": {
+        "url": "https://github.com/Miaodashu/monitor-sdk/issues"
+    },
+    "devDependencies": {
         "@monitor-sdk/types": "workspace:^",
         "@monitor-sdk/utils": "workspace:^"
-    },
-    "publishConfig": {
-        "access": "public"
     }
 }

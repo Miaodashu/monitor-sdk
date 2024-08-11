@@ -83,18 +83,13 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                 elapsedTime = 0,
                 response: { status }
             } = collectData;
-            this.queue.enqueue({
-                eventId: id,
-                type: BrowserStackTypes.FETCH,
-                level: status != 200 ? StackQueueLevel.WARN : StackQueueLevel.INFO,
-                message: `${method} "${url}" 耗时 ${elapsedTime / 1000} 秒`
-            });
             return {
                 id,
                 type: EventTypes.API,
                 time: formatDate(),
                 data: {
                     ...collectData,
+                    message: `${method} "${url}" 耗时 ${elapsedTime / 1000} 秒`,
                     sub_type: HttpTypes.FETCH
                 }
             };
