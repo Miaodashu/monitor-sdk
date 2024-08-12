@@ -1,10 +1,10 @@
-import xhrPlugin from '@monitor-sdk/xhr';
-import historyPlugin from '@monitor-sdk/router-history';
-import hashPlugin from '@monitor-sdk/router-hash';
-import vuePlugin from '@monitor-sdk/vue';
-import fetchPlugin from '@monitor-sdk/fetch';
-import performancePlugin from '@monitor-sdk/performance';
-import { VueInstance } from '@monitor-sdk/types';
+import xhrPlugin from '@tc-track/xhr';
+import historyPlugin from '@tc-track/router-history';
+import hashPlugin from '@tc-track/router-hash';
+import vuePlugin from '@tc-track/vue';
+import fetchPlugin from '@tc-track/fetch';
+import performancePlugin from '@tc-track/performance';
+import { VueInstance } from '@tc-track/types';
 
 export enum PerformanceFeat {
     BASIC = 'basic',

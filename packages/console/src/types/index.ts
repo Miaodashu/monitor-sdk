@@ -1,4 +1,4 @@
-import { ReportDataMsgType } from '@monitor-sdk/types';
+import { ReportDataMsgType } from '@tc-track/types';
 
 export interface ConsoleDataMsgType {
   args: any[];

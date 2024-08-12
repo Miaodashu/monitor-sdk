@@ -1,11 +1,11 @@
 {
-    "name": "@monitor-sdk/core",
-    "version": "1.1.8",
+    "name": "@tc-track/core",
+    "version": "0.0.0",
     "type": "module",
     "main": "dist/core.umd.js",
     "module": "esm/index.js",
     "types": "esm/index.d.ts",
-    "description": "@monitor-sdk/core",
+    "description": "@tc-track/core",
     "keywords": [
         "monitor",
         "sdk"
@@ -28,8 +28,8 @@
         "build:esm": "rimraf esm && tsc -p tsconfig.json"
     },
     "dependencies": {
-        "@monitor-sdk/types": "workspace:^",
-        "@monitor-sdk/utils": "workspace:^"
+        "@tc-track/types": "workspace:^",
+        "@tc-track/utils": "workspace:^"
     },
     "publishConfig": {
         "access": "public"

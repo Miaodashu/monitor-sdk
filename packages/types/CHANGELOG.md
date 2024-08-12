@@ -1,4 +1,4 @@
-# @monitor-sdk/types
+# @tc-track/types
 
 ## 1.1.5
 

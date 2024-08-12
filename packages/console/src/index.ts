@@ -1,6 +1,6 @@
-import { formatDate, generateUUID, replaceOld } from '@monitor-sdk/utils';
+import { formatDate, generateUUID, replaceOld } from '@tc-track/utils';
 import { ConsoleDataMsgType, ConsoleMsgType } from './types/index';
-import { BasePluginType, BrowserStackTypes, EventTypes, ReportDataType } from '@monitor-sdk/types';
+import { BasePluginType, BrowserStackTypes, EventTypes, ReportDataType } from '@tc-track/types';
 
 export default function consolePlugin(): BasePluginType {
     // 不监听console.debug的输出， 因为sdk内部log方法使用的时候console.debug， 监控ta的话会死循环

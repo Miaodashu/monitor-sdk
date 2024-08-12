@@ -1,4 +1,4 @@
-# @monitor-sdk/vue
+# @tc-track/vue
 
 [English](./README_en.md)
 
@@ -36,8 +36,8 @@
 ### npm
 
 ```js
-import monitor from "@monitor-sdk/browser";
-import vuePlugin from "@monitor-sdk/vue";
+import monitor from "@tc-track/browser";
+import vuePlugin from "@tc-track/vue";
 monitor({
     dsn: {
         host: 'localhost:8888',

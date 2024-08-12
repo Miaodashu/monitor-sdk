@@ -1,6 +1,6 @@
 {
-    "name": "@monitor-sdk/utils",
-    "version": "1.2.3",
+    "name": "@tc-track/utils",
+    "version": "0.0.0",
     "description": "> TODO: description",
     "author": "pengpeng.zhao <pengpeng.zhao@ly.com>",
     "homepage": "",
@@ -25,7 +25,7 @@
         "build:esm": "rimraf esm && tsc -p tsconfig.json"
     },
     "dependencies": {
-        "@monitor-sdk/types": "workspace:^",
+        "@tc-track/types": "workspace:^",
         "minimatch": "^8.0.4"
     }
 }

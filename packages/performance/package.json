@@ -1,6 +1,6 @@
 {
-  "name": "@monitor-sdk/performance",
-  "version": "0.1.8",
+  "name": "@tc-track/performance",
+  "version": "0.0.0",
   "description": "性能监控",
   "author": "peng <847880603@qq.com>",
   "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
@@ -33,7 +33,7 @@
     "url": "https://github.com/Miaodashu/monitor-sdk/issues"
   },
   "dependencies": {
-    "@monitor-sdk/utils": "workspace:^",
-    "@monitor-sdk/types": "workspace:^"
+    "@tc-track/utils": "workspace:^",
+    "@tc-track/types": "workspace:^"
   }
 }

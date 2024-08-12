@@ -1,6 +1,6 @@
 {
-    "name": "@monitor-sdk/console",
-    "version": "0.0.5",
+    "name": "@tc-track/console",
+    "version": "0.0.0",
     "description": "console日志输出监控",
     "keywords": [
         "console"
@@ -32,7 +32,7 @@
         "url": "https://github.com/Miaodashu/monitor-sdk/issues"
     },
     "dependencies": {
-        "@monitor-sdk/types": "workspace:^",
-        "@monitor-sdk/utils": "workspace:^"
+        "@tc-track/types": "workspace:^",
+        "@tc-track/utils": "workspace:^"
     }
 }

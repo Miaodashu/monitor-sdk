@@ -1,11 +1,11 @@
-# `@monitor-sdk/router-history`
+# `@tc-track/router-history`
 
 > TODO: description
 
 ## Usage
 
 ```
-const routerHistory = require('@monitor-sdk/router-history');
+const routerHistory = require('@tc-track/router-history');
 
 // TODO: DEMONSTRATE API
 ```

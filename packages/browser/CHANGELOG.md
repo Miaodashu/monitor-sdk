@@ -1,4 +1,4 @@
-# @monitor-sdk/browser
+# @tc-track/browser
 
 ## 1.1.10
 
@@ -6,15 +6,15 @@
 
 -   更改 enabled 作用权限， 设置为 false 则不进行收集和上报
 -   Updated dependencies
-    -   @monitor-sdk/core@1.1.8
+    -   @tc-track/core@1.1.8
 
 ## 1.1.9
 
 ### Patch Changes
 
 -   Updated dependencies
-    -   @monitor-sdk/utils@1.2.3
-    -   @monitor-sdk/core@1.1.7
+    -   @tc-track/utils@1.2.3
+    -   @tc-track/core@1.1.7
 
 ## 1.1.8
 
@@ -22,9 +22,9 @@
 
 -   变更编译 es 版本 。es2015
 -   Updated dependencies
-    -   @monitor-sdk/core@1.1.6
-    -   @monitor-sdk/types@1.1.5
-    -   @monitor-sdk/utils@1.2.2
+    -   @tc-track/core@1.1.6
+    -   @tc-track/types@1.1.5
+    -   @tc-track/utils@1.2.2
 
 ## 1.1.7
 
@@ -32,17 +32,17 @@
 
 -   调整编译版本
 -   Updated dependencies
-    -   @monitor-sdk/core@1.1.5
-    -   @monitor-sdk/types@1.1.4
-    -   @monitor-sdk/utils@1.2.1
+    -   @tc-track/core@1.1.5
+    -   @tc-track/types@1.1.4
+    -   @tc-track/utils@1.2.1
 
 ## 1.1.6
 
 ### Patch Changes
 
 -   Updated dependencies
-    -   @monitor-sdk/utils@1.2.0
-    -   @monitor-sdk/core@1.1.4
+    -   @tc-track/utils@1.2.0
+    -   @tc-track/core@1.1.4
 
 ## 1.1.5
 
@@ -50,9 +50,9 @@
 
 -   增强 fetch 和 xhr 的忽略匹配模式以及新增 console 插件
 -   Updated dependencies
-    -   @monitor-sdk/core@1.1.3
-    -   @monitor-sdk/types@1.1.3
-    -   @monitor-sdk/utils@1.1.3
+    -   @tc-track/core@1.1.3
+    -   @tc-track/types@1.1.3
+    -   @tc-track/utils@1.1.3
 
 ## 1.1.4
 
@@ -72,9 +72,9 @@
 
 -   1. jserror 新增报错堆栈；2.resource 新增类型；3.promiseErrorPlugin 的异常修复
 -   Updated dependencies
-    -   @monitor-sdk/core@1.1.2
-    -   @monitor-sdk/types@1.1.2
-    -   @monitor-sdk/utils@1.1.2
+    -   @tc-track/core@1.1.2
+    -   @tc-track/types@1.1.2
+    -   @tc-track/utils@1.1.2
 
 ## 1.1.1
 
@@ -84,9 +84,9 @@
 -   异常机制处理和预设包 bug 处理
 -   Updated dependencies
 -   Updated dependencies
-    -   @monitor-sdk/core@1.1.1
-    -   @monitor-sdk/types@1.1.1
-    -   @monitor-sdk/utils@1.1.1
+    -   @tc-track/core@1.1.1
+    -   @tc-track/types@1.1.1
+    -   @tc-track/utils@1.1.1
 
 ## 1.1.0
 
@@ -97,9 +97,9 @@
 ### Patch Changes
 
 -   Updated dependencies
-    -   @monitor-sdk/core@1.1.0
-    -   @monitor-sdk/types@1.1.0
-    -   @monitor-sdk/utils@1.1.0
+    -   @tc-track/core@1.1.0
+    -   @tc-track/types@1.1.0
+    -   @tc-track/utils@1.1.0
 
 ## 1.0.7
 
@@ -107,9 +107,9 @@
 
 -   packages 变更 files 字段配置
 -   Updated dependencies
-    -   @monitor-sdk/core@1.0.6
-    -   @monitor-sdk/types@1.0.3
-    -   @monitor-sdk/utils@1.0.4
+    -   @tc-track/core@1.0.6
+    -   @tc-track/types@1.0.3
+    -   @tc-track/utils@1.0.4
 
 ## 1.0.6
 
@@ -117,9 +117,9 @@
 
 -   功能调整
 -   Updated dependencies
-    -   @monitor-sdk/core@1.0.5
-    -   @monitor-sdk/types@1.0.2
-    -   @monitor-sdk/utils@1.0.3
+    -   @tc-track/core@1.0.5
+    -   @tc-track/types@1.0.2
+    -   @tc-track/utils@1.0.3
 
 ## 1.0.5
 
@@ -132,8 +132,8 @@
 ### Patch Changes
 
 -   Updated dependencies
-    -   @monitor-sdk/utils@1.0.2
-    -   @monitor-sdk/core@1.0.4
+    -   @tc-track/utils@1.0.2
+    -   @tc-track/core@1.0.4
 
 ## 1.0.3
 
@@ -141,9 +141,9 @@
 
 -   新增 xhr，fetch，performance 以及 core ，browser，router 包的 bug 修复
 -   Updated dependencies
-    -   @monitor-sdk/core@1.0.3
-    -   @monitor-sdk/types@1.0.1
-    -   @monitor-sdk/utils@1.0.1
+    -   @tc-track/core@1.0.3
+    -   @tc-track/types@1.0.1
+    -   @tc-track/utils@1.0.1
 
 ## 1.0.2
 
@@ -151,7 +151,7 @@
 
 -   变更版本
 -   Updated dependencies
-    -   @monitor-sdk/core@1.0.2
+    -   @tc-track/core@1.0.2
 
 ## 1.0.0
 
@@ -162,7 +162,7 @@
 ### Patch Changes
 
 -   Updated dependencies [d9825b4]
-    -   @monitor-sdk/core@1.0.0
+    -   @tc-track/core@1.0.0
 
 ## 1.0.0-alpha.0
 
@@ -173,11 +173,11 @@
 ### Patch Changes
 
 -   Updated dependencies [d9825b4]
-    -   @monitor-sdk/core@1.0.0-alpha.0
+    -   @tc-track/core@1.0.0-alpha.0
 
 ### Patch Changes
 
 -   Updated dependencies
-    -   @monitor-sdk/core@1.0.0
-    -   @monitor-sdk/types@1.0.0
-    -   @monitor-sdk/utils@1.0.0
+    -   @tc-track/core@1.0.0
+    -   @tc-track/types@1.0.0
+    -   @tc-track/utils@1.0.0

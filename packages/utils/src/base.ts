@@ -1,4 +1,4 @@
-import { IAnyObject, TAG } from '@monitor-sdk/types';
+import { IAnyObject, TAG } from '@tc-track/types';
 
 /**
  * 判断当前环境是否支持console

@@ -1,4 +1,4 @@
-import { DomTypes } from '@monitor-sdk/types';
+import { DomTypes } from '@tc-track/types';
 
 export interface DomCollectedType {
     category: DomTypes;

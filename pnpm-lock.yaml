@@ -86,100 +86,103 @@ importers:
 
   packages/browser:
     dependencies:
-      '@monitor-sdk/core':
+      '@tc-track/core':
         specifier: workspace:^
         version: link:../core
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/console:
     dependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/core:
     dependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/dom:
-    dependencies:
-      '@monitor-sdk/types':
+    devDependencies:
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/fetch:
     dependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/performance:
     dependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/presets:
     dependencies:
-      '@monitor-sdk/fetch':
+      '@tc-track/dom':
+        specifier: workspace:^
+        version: link:../dom
+      '@tc-track/fetch':
         specifier: workspace:^
         version: link:../fetch
-      '@monitor-sdk/performance':
+      '@tc-track/performance':
         specifier: workspace:^
         version: link:../performance
-      '@monitor-sdk/router-hash':
+      '@tc-track/router-hash':
         specifier: workspace:^
         version: link:../router_hash
-      '@monitor-sdk/router-history':
+      '@tc-track/router-history':
         specifier: workspace:^
         version: link:../router_history
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/vue':
+      '@tc-track/vue':
         specifier: workspace:^
         version: link:../vue
-      '@monitor-sdk/xhr':
+      '@tc-track/xhr':
         specifier: workspace:^
         version: link:../xhr
 
   packages/router_hash:
     dependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
   packages/router_history:
     dependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
@@ -187,7 +190,7 @@ importers:
 
   packages/utils:
     dependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
       minimatch:
@@ -196,10 +199,10 @@ importers:
 
   packages/vue:
     devDependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
@@ -211,10 +214,10 @@ importers:
 
   packages/xhr:
     dependencies:
-      '@monitor-sdk/types':
+      '@tc-track/types':
         specifier: workspace:^
         version: link:../types
-      '@monitor-sdk/utils':
+      '@tc-track/utils':
         specifier: workspace:^
         version: link:../utils
 
@@ -230,12 +233,6 @@ importers:
         specifier: ^4.2.5
         version: 4.3.0(vue@3.4.21)
     devDependencies:
-      '@monitor-sdk/browser':
-        specifier: workspace:^
-        version: link:../../packages/browser
-      '@monitor-sdk/presets':
-        specifier: workspace:^
-        version: link:../../packages/presets
       '@tsconfig/node20':
         specifier: ^20.1.2
         version: 20.1.2
@@ -321,7 +318,7 @@ packages:
       '@babel/traverse': 7.23.9
       '@babel/types': 7.23.9
       convert-source-map: 2.0.0
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -344,7 +341,7 @@ packages:
       '@babel/traverse': 7.24.6
       '@babel/types': 7.24.6
       convert-source-map: 2.0.0
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -471,7 +468,7 @@ packages:
       '@babel/core': 7.24.6
       '@babel/helper-compilation-targets': 7.24.6
       '@babel/helper-plugin-utils': 7.24.6
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       lodash.debounce: 4.0.8
       resolve: 1.22.8
     transitivePeerDependencies:
@@ -1708,7 +1705,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.9
       '@babel/types': 7.23.9
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -1726,7 +1723,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.24.6
       '@babel/parser': 7.24.6
       '@babel/types': 7.24.6
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -3630,7 +3627,7 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3639,7 +3636,7 @@ packages:
     resolution: {integrity: sha512-o/zjMZRhJxny7OyEF+Op8X+efiELC7k7yOjMzgfzVqOzXqkBkWI79YoTdOtsuWd5BWhAGAuOY/Xa6xpiaWXiNg==}
     engines: {node: '>= 14'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3842,16 +3839,6 @@ packages:
 
   /aws4@1.12.0:
     resolution: {integrity: sha512-NmWvPnx0F1SfrQbYwOi7OeaNGokp9XhzNioJ/CSBs8Qa4vxug81mhJEAVZwxXuBmYB5KDRfMq/F3RR0BIU7sWg==}
-
-  /axios@1.6.7:
-    resolution: {integrity: sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==}
-    dependencies:
-      follow-redirects: 1.15.5
-      form-data: 4.0.0
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
-    dev: true
 
   /axios@1.6.7(debug@4.3.4):
     resolution: {integrity: sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==}
@@ -4566,18 +4553,6 @@ packages:
       supports-color: 8.1.1
     dev: true
 
-  /debug@4.3.4:
-    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.1.2
-    dev: true
-
   /debug@4.3.4(supports-color@8.1.1):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
@@ -5164,16 +5139,6 @@ packages:
     hasBin: true
     dev: true
 
-  /follow-redirects@1.15.5:
-    resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dev: true
-
   /follow-redirects@1.15.5(debug@4.3.4):
     resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
     engines: {node: '>=4.0'}
@@ -5672,7 +5637,7 @@ packages:
     dependencies:
       '@tootallnate/once': 2.0.0
       agent-base: 6.0.2
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5682,7 +5647,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5710,7 +5675,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5720,7 +5685,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7226,7 +7191,7 @@ packages:
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.46
       '@zkochan/js-yaml': 0.0.6
-      axios: 1.6.7
+      axios: 1.6.7(debug@4.3.4)
       chalk: 4.1.0
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
@@ -8121,7 +8086,7 @@ packages:
       rollup: ^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.12.0)
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       es-module-lexer: 1.4.1
       esbuild: 0.20.1
       get-tsconfig: 4.7.2
@@ -8445,7 +8410,7 @@ packages:
     engines: {node: '>= 10'}
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       socks: 2.7.3
     transitivePeerDependencies:
       - supports-color
@@ -8456,7 +8421,7 @@ packages:
     engines: {node: '>= 14'}
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       socks: 2.7.3
     transitivePeerDependencies:
       - supports-color
@@ -8930,7 +8895,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       '@tufjs/models': 1.0.4
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       make-fetch-happen: 11.1.1
     transitivePeerDependencies:
       - supports-color
@@ -8941,7 +8906,7 @@ packages:
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
       '@tufjs/models': 2.0.0
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       make-fetch-happen: 13.0.0
     transitivePeerDependencies:
       - supports-color

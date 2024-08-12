@@ -16,11 +16,7 @@ import domPlugin from '../../../packages/dom/esm';
 // import presets from "@monitor-sdk/presets";
 import App from './App.vue';
 import router from './router';
-import { minimatchFn } from './text';
 const app = createApp(App);
-const result = minimatchFn('//crm-hd.elong.com/workbenchapi/form/list-field-v2', '**/workbenchapi/**');
-const result1 = minimatchFn('//crm-hd.elong.com/workbenchapi/form/list-field-v2', '//crm-hd.elong.com/workbenchapi/form/list-field-v2');
-console.log('result1, ', result1);
 
 let trackClass = monitor({
     dsn: {

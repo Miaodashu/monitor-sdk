@@ -1,4 +1,4 @@
-# @monitor-sdk/hash
+# @tc-track/hash
 
 > 捕获路由中的hash更改
 
@@ -25,8 +25,8 @@
 ### npm
 
 ```js
-import monitor from "@monitor-sdk/browser";
-import hashPlugin from "@monitor-sdk/router-hash";
+import monitor from "@tc-track/browser";
+import hashPlugin from "@tc-track/router-hash";
 monitor({
     dsn: {
         projectID: 'dsdsdsdsdd5d5s5ds5ds5',

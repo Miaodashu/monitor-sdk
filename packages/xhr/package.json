@@ -1,6 +1,6 @@
 {
-  "name": "@monitor-sdk/xhr",
-  "version": "0.2.3",
+  "name": "@tc-track/xhr",
+  "version": "0.0.0",
   "description": "> TODO: description",
   "author": "peng <847880603@qq.com>",
   "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
@@ -33,7 +33,7 @@
     "url": "https://github.com/Miaodashu/monitor-sdk/issues"
   },
   "dependencies": {
-    "@monitor-sdk/types": "workspace:^",
-    "@monitor-sdk/utils": "workspace:^"
+    "@tc-track/types": "workspace:^",
+    "@tc-track/utils": "workspace:^"
   }
 }

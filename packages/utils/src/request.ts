@@ -1,4 +1,4 @@
-import { IAnyObject, MethodTypes } from '@monitor-sdk/types';
+import { IAnyObject, MethodTypes } from '@tc-track/types';
 import { obj2query } from './base';
 
 

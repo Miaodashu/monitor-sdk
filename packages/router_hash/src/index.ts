@@ -1,6 +1,6 @@
 
-import { BasePluginType, EventTypes, RouteMsgType, ReportDataType, RouteDataMsgType, RouteTypes, BrowserStackTypes, StackQueueLevel } from '@monitor-sdk/types'
-import { formatDate, generateUUID } from '@monitor-sdk/utils';
+import { BasePluginType, EventTypes, RouteMsgType, ReportDataType, RouteDataMsgType, RouteTypes, BrowserStackTypes, StackQueueLevel } from '@tc-track/types'
+import { formatDate, generateUUID } from '@tc-track/utils';
 
 export default function VueRouterHashPlugin(): BasePluginType {
     return {

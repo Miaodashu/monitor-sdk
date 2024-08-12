@@ -1,4 +1,4 @@
-# `@monitor-sdk/presets`
+# `@tc-track/presets`
 
 插件预设包， 把基本要使用的插件 集合到一起， 方便用户使用。
 

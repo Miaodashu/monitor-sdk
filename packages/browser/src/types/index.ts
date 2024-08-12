@@ -1,4 +1,4 @@
-import { Recordable, BaseOptionsType, ClientInfoType, CustomerOptionType, EventTypes, PageLifeType } from '@monitor-sdk/types';
+import { Recordable, BaseOptionsType, ClientInfoType, CustomerOptionType, EventTypes, PageLifeType } from '@tc-track/types';
 
 export interface LifecycleOptions {
     /**

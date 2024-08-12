@@ -8,9 +8,9 @@ import {
     BrowserStackTypes,
     EventTypes,
     BrowserErrorTypes
-} from '@monitor-sdk/types';
+} from '@tc-track/types';
 import { CollectedType, LifecycleDataType, LifecycleOptions } from '../types';
-import { formatDate, generateUUID, getCookie, getDeepPropByDot, getStore } from '@monitor-sdk/utils';
+import { formatDate, generateUUID, getCookie, getDeepPropByDot, getStore } from '@tc-track/utils';
 
 export default function lifecycle(options: LifecycleOptions = {}): BasePluginType {
     const { userIdentify = {} } = options;

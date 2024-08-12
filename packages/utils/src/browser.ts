@@ -1,4 +1,4 @@
-import { StoreType, StoreTypes, TAG } from '@monitor-sdk/types';
+import { StoreType, StoreTypes, TAG } from '@tc-track/types';
 
 function getStoreIns(type: StoreTypes) {
   let store;

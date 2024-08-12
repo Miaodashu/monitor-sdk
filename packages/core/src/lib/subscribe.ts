@@ -1,4 +1,4 @@
-import { CallBack } from '@monitor-sdk/types'
+import { CallBack } from '@tc-track/types'
 export class PubSub {
     private events: Map<string, CallBack[]> = new Map();
 

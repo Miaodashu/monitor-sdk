@@ -5,8 +5,8 @@ import {
     BrowserErrorTypes,
     ReportDataMsgType,
     ConsoleTypes
-} from '@monitor-sdk/types';
-import { formatDate, generateUUID } from '@monitor-sdk/utils';
+} from '@tc-track/types';
+import { formatDate, generateUUID } from '@tc-track/utils';
 
 interface CollectedType {
     category: EventTypes;

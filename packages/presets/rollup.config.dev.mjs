@@ -19,36 +19,40 @@ iifePackage.plugins = [
   alias({
     entries: [
       {
-        find: '@monitor-sdk/utils',
+        find: '@tc-track/utils',
         replacement: path.join(utilsPath, 'src')
       },
       {
-        find: '@monitor-sdk/types',
+        find: '@tc-track/types',
         replacement: path.join(typePath, 'src')
       },
       {
-        find: '@monitor-sdk/xhr',
+        find: '@tc-track/xhr',
         replacement: path.join(__dirname, '../xhr/src')
       },
       {
-        find: '@monitor-sdk/fetch',
+        find: '@tc-track/fetch',
         replacement: path.join(__dirname, '../xhr/src')
       },
       {
-        find: '@monitor-sdk/router-history',
+        find: '@tc-track/router-history',
         replacement: path.join(__dirname, '../router_history/src')
       },
       {
-        find: '@monitor-sdk/router-hash',
+        find: '@tc-track/router-hash',
         replacement: path.join(__dirname, '../router_hash/src')
       },
       {
-        find: '@monitor-sdk/performance',
+        find: '@tc-track/performance',
         replacement: path.join(__dirname, '../performance/src')
       },
       {
-        find: '@monitor-sdk/vue',
+        find: '@tc-track/vue',
         replacement: path.join(__dirname, '../vue/src')
+      },
+      {
+        find: '@tc-track/dom',
+        replacement: path.join(__dirname, '../dom/src')
       }
     ],
     customResolver: nodeResolve({ extensions: ['.tsx', '.ts'] })

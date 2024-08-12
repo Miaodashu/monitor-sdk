@@ -6,8 +6,8 @@ import {
     RouteDataMsgType,
     RouteMsgType,
     RouteTypes
-} from '@monitor-sdk/types';
-import { formatDate, generateUUID, replaceOld } from '@monitor-sdk/utils';
+} from '@tc-track/types';
+import { formatDate, generateUUID, replaceOld } from '@tc-track/utils';
 
 export default function (): BasePluginType {
     return {

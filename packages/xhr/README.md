@@ -1,4 +1,4 @@
-# `@monitor-sdk/xhr`
+# `@tc-track/xhr`
 
 > TODO: 捕获xhr的请求信息  请求，上报请求头、响应、请求耗时
 
@@ -35,8 +35,8 @@
 ### npm
 
 ```js
-import monitor from "@monitor-sdk/browser";
-import xhrPlugin from "@monitor-sdk/xhr";
+import monitor from "@tc-track/browser";
+import xhrPlugin from "@tc-track/xhr";
 monitor({
     dsn: {
         host: 'localhost:8888',

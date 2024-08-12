@@ -6,8 +6,8 @@ import {
     ReportDataType,
     EventTypes,
     HttpTypes
-} from '@monitor-sdk/types';
-import { formatDate, generateUUID, getUrlPath, replaceOld, minimatchFn } from '@monitor-sdk/utils';
+} from '@tc-track/types';
+import { formatDate, generateUUID, getUrlPath, replaceOld, minimatchFn } from '@tc-track/utils';
 
 interface RequestOptions {
     ignoreUrls?: string[]; // 忽略的请求

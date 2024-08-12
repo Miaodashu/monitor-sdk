@@ -1,4 +1,4 @@
-import { StackQueueLevel,  StackPushData } from '@monitor-sdk/types';
+import { StackQueueLevel,  StackPushData } from '@tc-track/types';
 // 创建一个栈结构进行 行为管理
 
 export class Stack {

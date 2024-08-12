@@ -5,7 +5,7 @@
         "module": "es6",
         "target": "ES5",
         "paths": {
-            "@monitor-sdk/types": ["../types/src"]
+            "@tc-track/types": ["../types/src"]
         },
         "allowJs": true
     },

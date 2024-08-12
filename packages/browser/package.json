@@ -1,6 +1,6 @@
 {
-  "name": "@monitor-sdk/browser",
-  "version": "1.1.10",
+  "name": "@tc-track/browser",
+  "version": "0.0.0",
   "description": "> TODO: description",
   "author": "pengpeng.zhao <pengpeng.zhao@ly.com>",
   "homepage": "",
@@ -26,8 +26,8 @@
     "build:esm": "rimraf esm && tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@monitor-sdk/core": "workspace:^",
-    "@monitor-sdk/utils": "workspace:^",
-    "@monitor-sdk/types": "workspace:^"
+    "@tc-track/core": "workspace:^",
+    "@tc-track/utils": "workspace:^",
+    "@tc-track/types": "workspace:^"
   }
 }

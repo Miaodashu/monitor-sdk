@@ -1,6 +1,6 @@
 // 创建一个队列结构进行 行为管理
 
-import { BaseOptionsType, QueueData, Recordable } from "@monitor-sdk/types";
+import { BaseOptionsType, QueueData, Recordable } from "@tc-track/types";
 
 export class Queue<O extends BaseOptionsType> {
     private readonly maxQueueLength: number

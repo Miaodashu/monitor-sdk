@@ -1,5 +1,5 @@
 
-import { VueInstance } from '@monitor-sdk/types'
+import { VueInstance } from '@tc-track/types'
 export enum VueTypes {
     ERROR = 'error'
   }

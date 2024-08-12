@@ -1,5 +1,5 @@
 export enum SDK {
-    NAME = '@monitor-sdk'
+    NAME = '@tc-track'
 }
 
 export const TAG = `===${SDK.NAME}=== `;

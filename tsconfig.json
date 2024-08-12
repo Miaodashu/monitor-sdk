@@ -18,7 +18,7 @@
     "removeComments": true, // 是否移除注释
     "forceConsistentCasingInFileNames": true, //禁止对同一个文件的不一致的引用。
     "paths": {
-      "@monitor-sdk/*": ["packages/*/src"]
+      "@tc-track/*": ["packages/*/src"]
     },
     "types": ["node"],
     "importHelpers": true,

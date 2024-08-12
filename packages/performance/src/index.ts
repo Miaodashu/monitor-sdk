@@ -9,8 +9,8 @@ import {
     BrowserStackTypes,
     StackQueueLevel,
     ReportDataMsgType
-} from '@monitor-sdk/types';
-import { formatDate, generateUUID, formatDecimal } from '@monitor-sdk/utils';
+} from '@tc-track/types';
+import { formatDate, generateUUID, formatDecimal } from '@tc-track/utils';
 import getBasic from './lib/basic';
 import getResources from './lib/resources';
 

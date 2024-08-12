@@ -1,4 +1,4 @@
-import { formatDecimal } from "@monitor-sdk/utils";
+import { formatDecimal } from "@tc-track/utils";
 
 interface responseStatusType {
   responseStatus?: number

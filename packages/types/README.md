@@ -1,11 +1,11 @@
-# `@monitor-sdk/types`
+# `@tc-track/types`
 
 > TODO: description
 
 ## Usage
 
 ```
-const types = require('@monitor-sdk/types');
+const types = require('@tc-track/types');
 
 // TODO: DEMONSTRATE API
 ```

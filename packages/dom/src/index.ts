@@ -1,7 +1,7 @@
 import { DomCollectedType } from './types/index';
-import { BasePluginType, DomTypes, EventTypes, ReportDataMsgType, ReportDataType } from '@monitor-sdk/types';
+import { BasePluginType, DomTypes, EventTypes, ReportDataMsgType, ReportDataType } from '@tc-track/types';
 import { DomOptions } from './types';
-import { formatDate, generateUUID, throttle } from '@monitor-sdk/utils';
+import { formatDate, generateUUID, throttle } from '@tc-track/utils';
 import { createDomRules } from './utils';
 
 export default function domPlugin(options: DomOptions = {}): BasePluginType {

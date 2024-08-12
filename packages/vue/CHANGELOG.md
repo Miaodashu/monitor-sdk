@@ -1,4 +1,4 @@
-# @monitor-sdk/vue
+# @tc-track/vue
 
 ## 1.1.5
 

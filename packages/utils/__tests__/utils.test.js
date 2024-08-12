@@ -2,6 +2,6 @@
 
 const utils = require('..');
 
-describe('@monitor-sdk/utils', () => {
+describe('@tc-track/utils', () => {
     it('needs tests');
 });

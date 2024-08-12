@@ -1,4 +1,4 @@
-# @monitor-sdk/performance
+# @tc-track/performance
 
 [English](./README_en.md)
 
@@ -63,8 +63,8 @@
 ### npm
 
 ```js
-import monitor from "@monitor-sdk/browser";
-import performancePlugin from "@monitor-sdk/performance";
+import monitor from "@tc-track/browser";
+import performancePlugin from "@tc-track/performance";
 monitor({
     dsn: {
         host: 'localhost:8888',

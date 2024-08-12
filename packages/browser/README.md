@@ -1,4 +1,4 @@
-# `@monitor-sdk/utils`
+# `@tc-track/utils`
 
 > 浏览器监控基座， 内置了错误手机捕获以及页面load和unload钩子捕获
 
@@ -83,7 +83,7 @@
 ### npm
 
 ```js
-import monitor from "@monitor-sdk/browser";
+import monitor from "@tc-track/browser";
 monitor({
     dsn: {
         projectId: 'dsdsdsdsdd5d5s5ds5ds5',

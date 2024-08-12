@@ -1,4 +1,4 @@
-# @monitor-sdk/webpack-plugin-sourcemap-upload
+# @tc-track/webpack-plugin-sourcemap-upload
 
 ## 1.1.5
 

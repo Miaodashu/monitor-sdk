@@ -1,6 +1,6 @@
-import { Core, Queue } from '@monitor-sdk/core';
+import { Core, Queue } from '@tc-track/core';
 import { BrowserOptionType, BrowserReportPayloadDataType } from './types';
-import { IAnyObject, BaseOptionsType, ReportDataType } from '@monitor-sdk/types';
+import { IAnyObject, BaseOptionsType, ReportDataType } from '@tc-track/types';
 import { nextTick } from './lib/nextTick';
 import jsErrorPlugin from './plugins/jsErrorPlugin';
 import promiseErrorPlugin from './plugins/promiseErrorPlugin';
@@ -101,7 +101,7 @@ const init = (options: BrowserOptionType) => {
         client.use([jsErrorPlugin, promiseErrorPlugin.call(client), lifecyclePlugin.call(client, options), ...plugins]);
         return client;
     } catch (error) {
-        console.debug('===@monitor-sdk error===', error);
+        console.debug('===@tc-track error===', error);
     }
 };
 

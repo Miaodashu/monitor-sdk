@@ -4,14 +4,15 @@
     "module": "es6",
     "outDir": "esm",
     "paths": {
-      "@monitor-sdk/types": ["../types/src"],
-      "@monitor-sdk/utils": ["../utils/src"],
-      "@monitor-sdk/vue": ["../vue/src"],
-      "@monitor-sdk/xhr": ["../xhr/src"],
-      "@monitor-sdk/fetch": ["../fetch/src"],
-      "@monitor-sdk/performance": ["../performance/src"],
-      "@monitor-sdk/router-hash": ["../router_hash/src"],
-      "@monitor-sdk/router-history": ["../router_history/src"],
+      "@tc-track/types": ["../types/src"],
+      "@tc-track/utils": ["../utils/src"],
+      "@tc-track/vue": ["../vue/src"],
+      "@tc-track/dom": ["../dom/src"],
+      "@tc-track/xhr": ["../xhr/src"],
+      "@tc-track/fetch": ["../fetch/src"],
+      "@tc-track/performance": ["../performance/src"],
+      "@tc-track/router-hash": ["../router_hash/src"],
+      "@tc-track/router-history": ["../router_history/src"],
     }
   },
   "include": ["src/**/*"]

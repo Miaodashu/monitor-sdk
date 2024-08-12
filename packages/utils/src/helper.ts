@@ -1,4 +1,4 @@
-import { Recordable } from '@monitor-sdk/types';
+import { Recordable } from '@tc-track/types';
 import { MinimatchOptions, minimatch } from 'minimatch';
 
 /**

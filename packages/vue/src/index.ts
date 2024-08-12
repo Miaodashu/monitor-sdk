@@ -1,6 +1,6 @@
-import { BasePluginType, BrowserStackTypes, CallBack, ConsoleTypes, EventTypes, ReportDataType, StackQueueLevel, VueReportDataType } from "@monitor-sdk/types";
+import { BasePluginType, BrowserStackTypes, CallBack, ConsoleTypes, EventTypes, ReportDataType, StackQueueLevel, VueReportDataType } from "@tc-track/types";
 import { VueOptions, VueTypes } from "./types";
-import { generateUUID, formatDate } from "@monitor-sdk/utils";
+import { generateUUID, formatDate } from "@tc-track/utils";
 
 export default function vuePlugin(options: VueOptions = {}): BasePluginType {
     return {

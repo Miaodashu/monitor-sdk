@@ -23,15 +23,15 @@ iifePackage.plugins = [
   alias({
     entries: [
       {
-        find: '@monitor-sdk/core',
+        find: '@tc-track/core',
         replacement: path.join(corePath, 'src')
       },
       {
-        find: '@monitor-sdk/utils',
+        find: '@tc-track/utils',
         replacement: path.join(utilsPath, 'src')
       },
       {
-        find: '@monitor-sdk/types',
+        find: '@tc-track/types',
         replacement: path.join(typePath, 'src')
       }
     ],

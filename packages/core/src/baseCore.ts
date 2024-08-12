@@ -1,15 +1,13 @@
-import { IAnyObject, BaseOptionsType, CoreContextType, ConsoleTypes, BasePluginType, DSN } from '@monitor-sdk/types';
-import { hasConsole } from '@monitor-sdk/utils';
+import { IAnyObject, BaseOptionsType, CoreContextType, ConsoleTypes, BasePluginType } from '@tc-track/types';
+import { hasConsole } from '@tc-track/utils';
 import { TAG } from './lib/globalConfig';
 import { PubSub } from './lib/subscribe';
-import { Queue } from './lib/queue';
 
 export abstract class Core<OptionsType extends BaseOptionsType> {
     private readonly options: OptionsType;
     public context: CoreContextType;
     protected appID: string;
     // 任务队列, 先进先出
-    // protected readonly taskQueue: Queue<BaseOptionsType>;
     // 前期先用数组方便些, 后面改成队列
     protected readonly taskQueue: Array<IAnyObject>;
     // 是否准备好, 做个开关判断, 当为true的时候 才能执行上报

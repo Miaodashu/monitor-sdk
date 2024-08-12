@@ -1,5 +1,5 @@
 {
-    "name": "@monitor-sdk/dom",
+    "name": "@tc-track/dom",
     "version": "0.0.0",
     "description": "> TODO: description",
     "author": "peng <847880603@qq.com>",
@@ -33,7 +33,7 @@
         "url": "https://github.com/Miaodashu/monitor-sdk/issues"
     },
     "devDependencies": {
-        "@monitor-sdk/types": "workspace:^",
-        "@monitor-sdk/utils": "workspace:^"
+        "@tc-track/types": "workspace:^",
+        "@tc-track/utils": "workspace:^"
     }
 }

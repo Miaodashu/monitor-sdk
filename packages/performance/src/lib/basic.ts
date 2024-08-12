@@ -1,5 +1,5 @@
 // 获取基础性能数据
-import { formatDecimal } from '@monitor-sdk/utils';
+import { formatDecimal } from '@tc-track/utils';
 
 interface BasicType {
     dnsSearch: number; // DNS 解析耗时

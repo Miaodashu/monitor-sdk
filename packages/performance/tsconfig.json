@@ -4,8 +4,8 @@
     "module": "es6",
     "outDir": "esm",
     "paths": {
-      "@monitor-sdk/types": ["../types/src"],
-      "@monitor-sdk/utils": ["../utils/src"],
+      "@tc-track/types": ["../types/src"],
+      "@tc-track/utils": ["../utils/src"],
     }
   },
   "include": ["src/**/*", "global.d.ts"]
