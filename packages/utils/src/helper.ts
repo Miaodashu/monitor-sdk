@@ -2,7 +2,7 @@ import { Recordable } from '@tc-track/types';
 import { MinimatchOptions, minimatch } from 'minimatch';
 
 /**
- * 生成UUID
+ * 生成UUID 唯一标识
  * @return {string}  {string}
  */
 export function generateUUID(): string {

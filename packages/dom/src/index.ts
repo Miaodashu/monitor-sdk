@@ -4,6 +4,7 @@ import { DomOptions } from './types';
 import { formatDate, generateUUID, throttle } from '@tc-track/utils';
 import { createDomRules } from './utils';
 
+// dom 点击 事件  插件
 export default function domPlugin(options: DomOptions = {}): BasePluginType {
     return {
         name: 'domPlugin',

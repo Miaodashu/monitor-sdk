@@ -1,6 +1,5 @@
 import {
     BasePluginType,
-    BrowserStackTypes,
     EventTypes,
     ReportDataType,
     RouteDataMsgType,

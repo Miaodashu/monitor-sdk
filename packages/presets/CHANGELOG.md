@@ -1,5 +1,29 @@
 # @tc-track/presets
 
+## 2.0.0
+
+### Major Changes
+
+-   新增 domPlugin
+
+## 1.0.0
+
+### Major Changes
+
+-   项目初始化
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @tc-track/router-history@1.0.0
+    -   @tc-track/performance@1.0.0
+    -   @tc-track/router-hash@1.0.0
+    -   @tc-track/fetch@1.0.0
+    -   @tc-track/types@1.0.0
+    -   @tc-track/dom@1.0.0
+    -   @tc-track/vue@1.0.0
+    -   @tc-track/xhr@1.0.0
+
 ## 0.1.9
 
 ### Patch Changes

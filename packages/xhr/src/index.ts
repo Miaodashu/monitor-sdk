@@ -10,7 +10,7 @@ import {
 import { formatDate, generateUUID, getUrlPath, replaceOld, minimatchFn } from '@tc-track/utils';
 
 interface RequestOptions {
-    ignoreUrls?: string[]; // 忽略的请求
+    ignoreUrls?: string[]; // 忽略的请求，支持glob模式匹配
     reportResponds?: boolean; // 是否上报返回值
 }
 

@@ -5,13 +5,11 @@ import vuePlugin from '@tc-track/vue';
 import fetchPlugin from '@tc-track/fetch';
 import performancePlugin from '@tc-track/performance';
 import { VueInstance } from '@tc-track/types';
+import domPlugin from '@tc-track/dom';
 
 export enum PerformanceFeat {
     BASIC = 'basic',
     RESOURCE = 'resource',
-    FMP = 'fmp',
-    FPS = 'fps',
-    VITALS = 'vitals'
 }
 
 interface presetsOption {
@@ -27,6 +25,7 @@ export default function (options: presetsOption = {}) {
         performancePlugin({
             performancOff: performancOff
         }),
+        domPlugin(),
         hashPlugin(),
         historyPlugin(),
         xhrPlugin({

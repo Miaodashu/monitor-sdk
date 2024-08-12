@@ -1,5 +1,11 @@
 # @tc-track/types
 
+## 1.0.0
+
+### Major Changes
+
+-   项目初始化
+
 ## 1.1.5
 
 ### Patch Changes

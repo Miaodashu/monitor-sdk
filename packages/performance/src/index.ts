@@ -2,13 +2,8 @@ import { PerformanceFeat, PerformanceOptions } from './types/index';
 import {
     BasePluginType,
     PerTypes,
-    ConsoleTypes,
     EventTypes,
     ReportDataType,
-    BrowserErrorTypes,
-    BrowserStackTypes,
-    StackQueueLevel,
-    ReportDataMsgType
 } from '@tc-track/types';
 import { formatDate, generateUUID, formatDecimal } from '@tc-track/utils';
 import getBasic from './lib/basic';

@@ -5,8 +5,6 @@ import {
     HttpCollectDataType,
     HttpCollectType,
     MethodTypes,
-    BrowserStackTypes,
-    StackQueueLevel,
     EventTypes,
     HttpTypes
 } from '@tc-track/types';

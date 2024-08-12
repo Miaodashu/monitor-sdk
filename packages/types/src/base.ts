@@ -8,22 +8,6 @@ export interface AppInfoType {
     desc?: string;
 }
 
-// export interface DSN {
-//     /**
-//      * 上报的域名地址
-//      */
-//     // host: string;
-//     // /**
-//     //  * 应用初始化接口地址
-//     //  */
-//     // initUrl: string;
-//     /**
-//      * 信息上报接口地址
-//      */
-//     reportUrl: string;
-//     projectId: string;
-// }
-
 export interface DSN {
     _openid?: string;
     _unionid?: string;

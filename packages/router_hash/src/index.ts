@@ -1,5 +1,5 @@
 
-import { BasePluginType, EventTypes, RouteMsgType, ReportDataType, RouteDataMsgType, RouteTypes, BrowserStackTypes, StackQueueLevel } from '@tc-track/types'
+import { BasePluginType, EventTypes, RouteMsgType, ReportDataType, RouteDataMsgType, RouteTypes } from '@tc-track/types'
 import { formatDate, generateUUID } from '@tc-track/utils';
 
 export default function VueRouterHashPlugin(): BasePluginType {

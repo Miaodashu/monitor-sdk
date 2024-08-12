@@ -8,7 +8,6 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
     public context: CoreContextType;
     protected appID: string;
     // 任务队列, 先进先出
-    // 前期先用数组方便些, 后面改成队列
     protected readonly taskQueue: Array<IAnyObject>;
     // 是否准备好, 做个开关判断, 当为true的时候 才能执行上报
     protected isReady: Boolean;

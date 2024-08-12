@@ -5,7 +5,7 @@
     "build": "lerna run --stream --sort build",
     "release": "run-s build releaseOnly",
     "releaseOnly": "changeset publish",
-    "publish": "changeset publish --registry=https://registry.npmjs.com/",
+    "publish": "changeset publish --registry=http://nexus.17usoft.com/repository/npm-tcwl/",
     "install": "pnpm install"
   },
   "devDependencies": {

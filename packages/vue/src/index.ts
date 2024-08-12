@@ -1,4 +1,4 @@
-import { BasePluginType, BrowserStackTypes, CallBack, ConsoleTypes, EventTypes, ReportDataType, StackQueueLevel, VueReportDataType } from "@tc-track/types";
+import { BasePluginType, CallBack, ConsoleTypes, EventTypes, ReportDataType, VueReportDataType } from "@tc-track/types";
 import { VueOptions, VueTypes } from "./types";
 import { generateUUID, formatDate } from "@tc-track/utils";
 
