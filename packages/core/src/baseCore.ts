@@ -1,4 +1,4 @@
-import { IAnyObject, BaseOptionsType, CoreContextType, ConsoleTypes, BasePluginType } from '@monitor-sdk/types';
+import { IAnyObject, BaseOptionsType, CoreContextType, ConsoleTypes, BasePluginType, DSN } from '@monitor-sdk/types';
 import { hasConsole } from '@monitor-sdk/utils';
 import { TAG } from './lib/globalConfig';
 import { PubSub } from './lib/subscribe';
@@ -21,14 +21,16 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         this.taskQueue = [];
         this.bindOptions();
         // 开始执行上报
-        this.isReady = true;
-        this.executeTaskQueue();
+        this.initAPP().then(() => {
+            this.isReady = true;
+            this.executeTaskQueue();
+        });
     }
 
 
     // 引用插件
     use(plugins: BasePluginType[]) {
-        let { uploadUrl, enabled } = this.context;
+        let { enabled } = this.context;
         if (!enabled) {
             return;
         }
@@ -51,7 +53,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
                         this.taskQueue.push(datas);
                         return;
                     }
-                    this.nextTick(this.report, this, uploadUrl, { app_id: this.appID, ...datas });
+                    this.nextTick(this.report, this, { ...datas });
                 };
                 pubSub.subscribe(plugin.name, callback);
             } catch (error) {
@@ -89,17 +91,11 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         if (!dsn) {
             this.log('配置项: dsn 必须配置');
         }
-        const { reportUrl = '', projectId } = dsn;
-        if (!projectId) {
-            this.log('配置项: projectId 必须配置');
-        }
         // 这里可以设置一些参数初始化得东西
-        const uploadUrl = reportUrl; // 上传的地址
-        this.appID = projectId;
         this.context = {
-            uploadUrl,
             debuge,
             enabled,
+            dsn,
             app
         };
     }
@@ -113,9 +109,15 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
     executeTaskQueue() {
         while (this.taskQueue.length) {
             let task = this.taskQueue.shift();
-            this.nextTick(this.report, this, this.context.uploadUrl, { app_id: this.appID, ...task });
+            this.nextTick(this.report, this, { ...task });
         }
     }
+
+    /**
+     * 抽象方法，注册/初始化应用
+     * @return {any} 
+     */
+    abstract initAPP(): Promise<any>;
 
     /**
      * @description: 抽象方法，nextTick
@@ -128,12 +130,10 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
 
     /**
      * @description: 上报 抽象方法  子类需要自己实现
-     * @param {string} url 上报的接口地址
      * @param {IAnyObject} data 上报的数据
-     * @param {any} type 上报的方式[走接口还是图片], or 请求方式[get/post]  暂定
      * @return {*}
      */
-    abstract report(url: string, data: IAnyObject, type?: any): void;
+    abstract report(data: IAnyObject): void;
 
     // 抽象方法  处理各个端的上报数据
     abstract transform(data: IAnyObject): IAnyObject;

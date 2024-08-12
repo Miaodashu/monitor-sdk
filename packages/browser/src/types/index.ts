@@ -12,13 +12,6 @@ export interface BrowserOptionType extends LifecycleOptions, BaseOptionsType {}
 
 export type LogData = ClientInfoType | Recordable
 export interface BrowserReportPayloadDataType extends ClientInfoType {
-    logData: LogData;
-    filterTwo: string;
-    filterOne: string;
-    subCategory: string;
-    category: string;
-    module: string;
-    [key: string]: any;
 }
 
 export interface LifecycleDataType {

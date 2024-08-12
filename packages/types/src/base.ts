@@ -8,27 +8,32 @@ export interface AppInfoType {
     desc?: string;
 }
 
-export interface DSN {
-    /**
-     * 上报的域名地址
-     */
-    // host: string;
-    // /**
-    //  * 应用初始化接口地址
-    //  */
-    // initUrl: string;
-    /**
-     * 信息上报接口地址
-     */
-    reportUrl: string;
-    projectId: string;
-}
+// export interface DSN {
+//     /**
+//      * 上报的域名地址
+//      */
+//     // host: string;
+//     // /**
+//     //  * 应用初始化接口地址
+//     //  */
+//     // initUrl: string;
+//     /**
+//      * 信息上报接口地址
+//      */
+//     reportUrl: string;
+//     projectId: string;
+// }
 
+export interface DSN {
+    _openid?: string;
+    _unionid?: string;
+    _userId?: string;
+    _vrcode?: string;
+}
 // 供基类和子类获取核心配置使用， 也可直接使用 option: BaseOptionsType
 export interface CoreContextType {
     app?: AppInfoType;
-    uploadUrl: string;
-    initUrl?: string;
+    dsn: DSN;
     debuge: boolean;
     enabled: boolean;
 }

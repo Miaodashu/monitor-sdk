@@ -20,6 +20,7 @@ const handleClick2 = () => {
     Promise.reject('Some error occurred');
 };
 const handleClick3 = () => {
+    window.zpp_userId = 88888888888
     // name.value = name;
     info.value.name = 888
     return
