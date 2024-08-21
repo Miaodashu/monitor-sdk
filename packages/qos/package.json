@@ -1,0 +1,29 @@
+{
+  "name": "tc-qos",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "peng <847880603@qq.com>",
+  "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
+  "license": "ISC",
+  "main": "lib/qos.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://nexus.17usoft.com/repository/npm-all/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Miaodashu@github.com/Miaodashu/monitor-sdk.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/qos.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Miaodashu/monitor-sdk/issues"
+  }
+}

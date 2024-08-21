@@ -28,13 +28,9 @@ class BrowserClient extends Core<BrowserOptionType> {
                 // @ts-ignore
                 window._timediff = new Date().getTime() - window._tcopentime;
             }
-            // @ts-ignore
             window._tcq.push(['_openid', params._openid]); //必填
-            // @ts-ignore
             window._tcq.push(['_unionid', params._unionid]); //必填
-            // @ts-ignore
             window._tcq.push(['_userId', params._userId]); //必填，传入访问者中登录的会员ID，未登录的为0，不同平台的读取方法不同，项目自己读取会员ID
-            // @ts-ignore
             window._tcq.push(['_vrcode', params._vrcode]); //产品号解释见说明，最后一位默认为0，写成其他的统计不到，此条代码最重要
             resolve(true);
         });
@@ -51,19 +47,16 @@ class BrowserClient extends Core<BrowserOptionType> {
         this.appendTrack(data.type, data.data.sub_type, '', encodeURIComponent(JSON.stringify(data)));
     }
 
-    appendTrack(category = '', action = '', label = '', value = '') {
+    appendTrack(category = '', action = '', label = '', value = '',  eventid ='') {
         try {
             label = label || '';
-            // @ts-ignore
             if (!window._tcTraObj) {
                 setTimeout(() => {
-                    // @ts-ignore
-                    window?._tcTraObj._tcTrackEvent(category, action, label, value);
+                    window._tcTraObj && window._tcTraObj._tcTrackEventNew(category, action, label, value, eventid);
                 }, 1000);
                 return;
             }
-            // @ts-ignore
-            window._tcTraObj && window._tcTraObj._tcTrackEvent(category, action, label, value);
+            window._tcTraObj && window._tcTraObj._tcTrackEventNew(category, action, label, value, eventid);
         } catch (err) {
             console.log(err);
         }

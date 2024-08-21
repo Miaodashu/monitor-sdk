@@ -1,5 +1,11 @@
 # @tc-track/presets
 
+## 1.0.1
+
+### Patch Changes
+
+-   新增 domPlugin 插件内容
+
 ## 2.0.0
 
 ### Major Changes
