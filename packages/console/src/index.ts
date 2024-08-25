@@ -29,16 +29,9 @@ export default function consolePlugin(): BasePluginType {
             });
         },
         beforeReport(collectedData: ConsoleDataMsgType): ReportDataType<ConsoleMsgType> {
-            const id = generateUUID();
-            // this.queue.enqueue({
-            //     eventId: id,
-            //     type: BrowserStackTypes.CONSOLE,
-            //     level
-            // });
             return {
-                id,
                 type: EventTypes.CONSOLE,
-                time: formatDate(),
+                st: formatDate(),
                 data: {
                     sub_type: collectedData.level,
                     ...collectedData

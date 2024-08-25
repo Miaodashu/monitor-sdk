@@ -2,7 +2,6 @@ import { IAnyObject, BaseOptionsType, CoreContextType, ConsoleTypes, BasePluginT
 import { hasConsole } from '@monitor-sdk/utils';
 import { TAG } from './lib/globalConfig';
 import { PubSub } from './lib/subscribe';
-import { Queue } from './lib/queue';
 
 export abstract class Core<OptionsType extends BaseOptionsType> {
     private readonly options: OptionsType;
@@ -89,15 +88,14 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
         if (!dsn) {
             this.log('配置项: dsn 必须配置');
         }
-        const { reportUrl = '', projectId } = dsn;
-        if (!projectId) {
-            this.log('配置项: projectId 必须配置');
-        }
+        const { reportUrl = '', project } = dsn;
+        // if (!project) {
+        //     this.log('配置项: projectId 必须配置');
+        // }
         // 这里可以设置一些参数初始化得东西
-        const uploadUrl = reportUrl; // 上传的地址
-        this.appID = projectId;
+        this.appID = project;
         this.context = {
-            uploadUrl,
+            uploadUrl: reportUrl,
             debuge,
             enabled
         };

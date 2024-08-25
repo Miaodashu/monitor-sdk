@@ -19,7 +19,6 @@ interface CollectedType {
     value: any;
 }
 
-
 export default function performance(options: PerformanceOptions = {}): BasePluginType {
     const { performancOff = [] } = options;
     return {
@@ -38,18 +37,27 @@ export default function performance(options: PerformanceOptions = {}): BasePlugi
                         value: getResources()
                     });
                 }
-                
             });
         },
         beforeReport(collectedData: CollectedType): ReportDataType<CollectedType> {
-            return {
-                id: generateUUID(),
-                time: formatDate(),
-                type: EventTypes.PERFORMANCE,
-                data: {
-                  ...collectedData
-                }
-              };
+            if (collectedData.sub_type === PerTypes.RESOURCE) {
+                return {
+                    st: formatDate(),
+                    type: EventTypes.PERFORMANCE,
+                    datas: collectedData.value,
+                    data: {
+                        ...collectedData
+                    }
+                };
+            } else {
+                return {
+                    st: formatDate(),
+                    type: EventTypes.PERFORMANCE,
+                    data: {
+                        ...collectedData
+                    }
+                };
+            }
         }
     };
 }

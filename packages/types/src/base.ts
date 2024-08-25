@@ -4,7 +4,7 @@ import { QueueData } from './queue';
 
 export interface AppInfoType {
     name: string; // 项目名称
-    leader: string;
+    owner: string;
     desc?: string;
 }
 
@@ -21,7 +21,7 @@ export interface DSN {
      * 信息上报接口地址
      */
     reportUrl: string;
-    projectId: string;
+    project: string;
 }
 
 // 供基类和子类获取核心配置使用， 也可直接使用 option: BaseOptionsType
@@ -63,11 +63,12 @@ export interface ClientInfoType {
 
 // 事件上报的数据格式  基础的数据格式, 插件上报前钩子中返回的数据格式
 export interface ReportDataType<T> {
-    id: string;
-    time: string;
-    type: EventTypes; // 时间类型
+    st: string; // 时间
+    type: EventTypes; // 事件类型
     data: T; // 消息体
+    datas?: any[]; // 消息体数据
     queue?: QueueData[]; // 队列数据
+    [key: string]: any;
 }
 
 

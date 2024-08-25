@@ -50,7 +50,7 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
         },
         beforeReport: (data: LifecycleDataType): ReportDataType<ReportDataMsgType> => {
             const id = generateUUID();
-            const { type, href } = data;
+            const { type, href, time } = data;
             let action;
             switch (type) {
                 case PageLifeType.LOAD:
@@ -68,8 +68,7 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
                 message: `${action || type} "${href}"`
             });
             return {
-                id,
-                time: formatDate(),
+                st: time,
                 type: EventTypes.LIFECYCLE,
                 data: {
                     sub_type: type,

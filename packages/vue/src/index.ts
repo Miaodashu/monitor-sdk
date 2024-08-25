@@ -47,8 +47,7 @@ export default function vuePlugin(options: VueOptions = {}): BasePluginType {
             const queueList = this.queue.queueValue();
 
             return {
-                id,
-                time: formatDate(),
+                st: formatDate(),
                 type: EventTypes.VUE,
                 queue: queueList,
                 data

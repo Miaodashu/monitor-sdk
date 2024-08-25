@@ -63,8 +63,7 @@ const errorPlugin: BasePluginType = {
             });
             const queueList = (this as any).queue.queueValue();
             return {
-                id,
-                time,
+                st: time,
                 type: category,
                 data: {
                     sub_type: BrowserErrorTypes.RESOURCEERROR,
@@ -84,8 +83,7 @@ const errorPlugin: BasePluginType = {
         });
         const queueList = (this as any).queue.queueValue();
         return {
-            id,
-            time,
+            st: time,
             type: category,
             queue: queueList,
             data: {

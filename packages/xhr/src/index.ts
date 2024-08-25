@@ -72,9 +72,8 @@ export default function XHRPlugin(options: RequestOptions = {}): BasePluginType 
                 message: `${method} "${url}" 耗时 ${elapsedTime / 1000} 秒`
             })
             return {
-                id,
                 type: EventTypes.API,
-                time: formatDate(),
+                st: formatDate(),
                 data: {
                     ...collectData,
                     sub_type: HttpTypes.XHR

@@ -66,7 +66,7 @@ class BrowserClient extends Core<BrowserOptionType> {
         // 在这里一会进行 公共部分的数据处理
         return {
             session_id: this.sessionID,
-            user_id: this.userID,
+            uid: this.userID,
             page_title: title,
             path: href,
             deviceInfo: deviceInfoStr,

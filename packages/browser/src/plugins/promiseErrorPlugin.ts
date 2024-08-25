@@ -49,8 +49,7 @@ export default function promiseError(): BasePluginType {
             });
             const queueList = (this as any).queue.queueValue();
             return {
-                id,
-                time: formatDate(),
+                st: formatDate(),
                 type: category,
                 data: {
                     sub_type: BrowserErrorTypes.UNHANDLEDREJECTION,

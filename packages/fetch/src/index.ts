@@ -90,9 +90,8 @@ export default function fetchPlugin(options: RequestOptions = {}): BasePluginTyp
                 message: `${method} "${url}" 耗时 ${elapsedTime / 1000} 秒`
             });
             return {
-                id,
                 type: EventTypes.API,
-                time: formatDate(),
+                st: formatDate(),
                 data: {
                     ...collectData,
                     sub_type: HttpTypes.FETCH

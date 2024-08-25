@@ -17,7 +17,7 @@
 |名称|类型|描述|可选值|
 |-|-|-|-|
 |name|String|应用名称|-|
-|leader|String|负责人|-|
+|owner|String|负责人|-|
 |desc|String|应用描述|-|
 
 ### userIdentify
@@ -38,7 +38,7 @@
         },
         app: {
             name: 'playgroundAPP',
-            leader: 'test',
+            owner: 'test',
             desc: 'test proj'
         },
         userIdentify: {
@@ -62,7 +62,7 @@
             },
             app: {
                 name: 'playgroundAPP',
-                leader: 'test',
+                owner: 'test',
                 desc: 'test proj'
             },
             userIdentify: {
@@ -91,7 +91,7 @@ monitor({
     },
     app: {
         name: 'playgroundAPP',
-        leader: 'test',
+        owner: 'test',
         desc: 'test project'
     },
     userIdentify: {

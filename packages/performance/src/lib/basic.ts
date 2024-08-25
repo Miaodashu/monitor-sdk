@@ -74,6 +74,6 @@ export default function getBasic(): BasicType {
         // 渲染出第一个像素点，白屏时间
         fp: formatDecimal(fp, 3),
         // 渲染出第一个内容，首屏结束时间
-        fcp: formatDecimal(fcp, 3)
+        fcp: formatDecimal(fcp, 3),
     };
 }
