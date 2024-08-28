@@ -17,15 +17,15 @@ class BrowserClient extends Core<BrowserOptionType> {
         this.queue = new Queue(options);
     }
     // 初始化应用， 后期看是否需要， 因为许多参数都是传进来的， 没必要初始化， 先留个口
-    async initApp() {
-        const { uploadUrl } = this.context;
-        const params = {
-            id: generateUUID(),
-            createTime: new Date().getTime()
-        };
-        const { data = {} } = await this.report(uploadUrl, params, BrowserReportType.GET);
-        return data.id;
-    }
+    // async initApp() {
+    //     const { uploadUrl } = this.context;
+    //     const params = {
+    //         id: generateUUID(),
+    //         createTime: new Date().getTime()
+    //     };
+    //     const { data = {} } = await this.report(uploadUrl, params, BrowserReportType.GET);
+    //     return data.id;
+    // }
     /**
      * 发送报告
      *
@@ -39,14 +39,15 @@ class BrowserClient extends Core<BrowserOptionType> {
             beacon(url, data);
             return;
         }
-        if (type === BrowserReportType.IMG || !navigator.sendBeacon) {
-            imgRequest(url, data);
-            return;
-        }
         if (type === BrowserReportType.POST) {
             post(url, data);
             return;
         }
+        if (type === BrowserReportType.IMG || !navigator.sendBeacon) {
+            imgRequest(url, data);
+            return;
+        }
+        
         return get(url, data);
     }
 
