@@ -1,4 +1,4 @@
-import { Recordable, BaseOptionsType, ClientInfoType, CustomerOptionType, EventTypes, PageLifeType } from '@tc-track/types';
+import { Recordable, BaseOptionsType, ClientInfoType, CustomerOptionType, EventTypes, PageLifeType, AppInfoType } from '@tc-track/types';
 
 export interface LifecycleOptions {
     /**
@@ -12,6 +12,8 @@ export interface BrowserOptionType extends LifecycleOptions, BaseOptionsType {}
 
 export type LogData = ClientInfoType | Recordable
 export interface BrowserReportPayloadDataType extends ClientInfoType {
+    appInfo: AppInfoType;
+    extendInfo?: any;
 }
 
 export interface LifecycleDataType {

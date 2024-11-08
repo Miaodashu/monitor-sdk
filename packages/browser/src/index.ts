@@ -81,6 +81,8 @@ class BrowserClient extends Core<BrowserOptionType> {
             user_id: this.userID,
             page_title: title,
             path: href,
+            appInfo: this.context?.app,
+            extendInfo: JSON.stringify(this.context?.extendInfo || {}),
             // deviceInfo: deviceInfoStr,
             ...data
         };

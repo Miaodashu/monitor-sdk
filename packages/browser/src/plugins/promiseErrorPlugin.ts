@@ -20,7 +20,7 @@ export default function promiseError(): BasePluginType {
         name: 'promiseErrorPlugin',
         monitor (notify: (data: CollectedType) => void) {
             window.addEventListener('unhandledrejection', (e: PromiseRejectionEvent) => {
-                e.preventDefault();
+                // e.preventDefault();
                 this.log(e, ConsoleTypes.ERROR);
                 notify({
                     category: EventTypes.ERROR,

@@ -1,5 +1,20 @@
 # @tc-track/presets
 
+## 1.0.2
+
+### Patch Changes
+
+-   报错抛出用户端以及新增 extendnfo 拓展数据
+-   Updated dependencies
+    -   @tc-track/router-history@1.0.1
+    -   @tc-track/performance@1.0.1
+    -   @tc-track/router-hash@1.0.1
+    -   @tc-track/fetch@1.0.1
+    -   @tc-track/types@1.0.1
+    -   @tc-track/dom@1.0.1
+    -   @tc-track/vue@1.0.1
+    -   @tc-track/xhr@1.0.1
+
 ## 1.0.1
 
 ### Patch Changes

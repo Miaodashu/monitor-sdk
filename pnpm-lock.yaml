@@ -168,6 +168,8 @@ importers:
         specifier: workspace:^
         version: link:../xhr
 
+  packages/qos: {}
+
   packages/router_hash:
     dependencies:
       '@tc-track/types':

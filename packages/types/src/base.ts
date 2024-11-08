@@ -1,10 +1,13 @@
+import { Recordable } from './common'
 import { BrowserSubTypes, EventTypes, PlatformTypes } from './constant';
 import { BasePluginType } from './plugin';
 import { QueueData } from './queue';
 
 export interface AppInfoType {
     name: string; // 项目名称
-    leader: string;
+    leader?: string;
+    uk: string;
+    owner: string;
     desc?: string;
 }
 
@@ -20,6 +23,7 @@ export interface CoreContextType {
     dsn: DSN;
     debuge: boolean;
     enabled: boolean;
+    extendInfo?: Recordable;
 }
 
 // sdk基础配置项  初始化传入
@@ -36,6 +40,8 @@ export interface BaseOptionsType {
     plugins?: BasePluginType[];
     // 队列最大层级
     maxQueueLength?: number;
+    // 扩展数据
+    extendInfo?: Recordable;
 }
 
 // 事件上报的数据格式  客户端 浏览器端会上报的格式，

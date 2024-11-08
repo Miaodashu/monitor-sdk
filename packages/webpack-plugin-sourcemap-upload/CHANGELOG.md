@@ -1,5 +1,11 @@
 # @tc-track/webpack-plugin-sourcemap-upload
 
+## 1.0.1
+
+### Patch Changes
+
+-   报错抛出用户端以及新增 extendnfo 拓展数据
+
 ## 1.0.0
 
 ### Major Changes

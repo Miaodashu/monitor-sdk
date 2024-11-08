@@ -84,7 +84,7 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
 
     // 初始化配置项
     private bindOptions() {
-        const { debuge = false, enabled = true, dsn, app } = this.options;
+        const { debuge = false, enabled = true, dsn, app, extendInfo = {} } = this.options;
         if (!dsn) {
             this.log('配置项: dsn 必须配置');
         }
@@ -93,7 +93,8 @@ export abstract class Core<OptionsType extends BaseOptionsType> {
             debuge,
             enabled,
             dsn,
-            app
+            app,
+            extendInfo
         };
     }
 
