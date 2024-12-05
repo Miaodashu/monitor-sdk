@@ -1,5 +1,13 @@
 # @tc-track/utils
 
+## 1.0.2
+
+### Patch Changes
+
+-   扩展字段支持函数以及优化用户标识上报逻辑
+-   Updated dependencies
+    -   @tc-track/types@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

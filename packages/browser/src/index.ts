@@ -5,13 +5,16 @@ import { nextTick } from './lib/nextTick';
 import jsErrorPlugin from './plugins/jsErrorPlugin';
 import promiseErrorPlugin from './plugins/promiseErrorPlugin';
 import lifecyclePlugin from './plugins/lifecyclePlugin';
+import { getExtendsInfo, getStoreUserId } from './lib/utils';
 
 class BrowserClient extends Core<BrowserOptionType> {
     private readonly queue: Queue<BaseOptionsType>;
     protected sessionID: string;
     protected userID: string;
+    protected coreOptions: BrowserOptionType;
     constructor(options) {
         super(options);
+        this.coreOptions = options;
         // 初始化队列, 用于储存上报数据结构
         this.queue = new Queue(options);
     }
@@ -47,7 +50,7 @@ class BrowserClient extends Core<BrowserOptionType> {
         this.appendTrack(data.type, data.data.sub_type, '', encodeURIComponent(JSON.stringify(data)));
     }
 
-    appendTrack(category = '', action = '', label = '', value = '',  eventid ='') {
+    appendTrack(category = '', action = '', label = '', value = '', eventid = '') {
         try {
             label = label || '';
             if (!window._tcTraObj) {
@@ -76,13 +79,19 @@ class BrowserClient extends Core<BrowserOptionType> {
         // let deviceInfo = DeviceInfo.getDeviceInfo();
         // let deviceInfoStr = JSON.stringify(deviceInfo);
         // 在这里一会进行 公共部分的数据处理
+        const { userIdentify = {} } = this.coreOptions;
+        const { name: userPath, postion: userPosi } = userIdentify;
+        const user_id = getStoreUserId(userIdentify) || '';
+        if (userPath && userPosi && user_id) {
+            this.userID = user_id;
+        }
         return {
             session_id: this.sessionID,
             user_id: this.userID,
             page_title: title,
             path: href,
             appInfo: this.context?.app,
-            extendInfo: JSON.stringify(this.context?.extendInfo || {}),
+            extendInfo: getExtendsInfo(this.context?.extendInfo || {}),
             // deviceInfo: deviceInfoStr,
             ...data
         };

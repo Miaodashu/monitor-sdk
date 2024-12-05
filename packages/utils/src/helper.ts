@@ -109,3 +109,36 @@ export function throttle(fn: Function, delay: number): Function {
         }, delay);
     };
 }
+
+
+export function isFunction(func: any) {
+    return this.type(func) === "Function";
+}
+
+export function isArray(list: any) {
+    return this.type(list) === 'Array';
+}
+
+/**
+ * 是否为null
+ * @param {String} str 
+ */
+export function isNull(str: any) {
+    return str == undefined || str == '' || str == null;
+}
+
+/**
+ * 对象是否为空
+ * @param {*} obj 
+ */
+export function objectIsNull(obj: any) {
+    return JSON.stringify(obj) === "{}";
+}
+
+/**
+ * 是否是对象
+ * @param {*} obj 
+ */
+export function isObject(obj: any){
+    return this.type(obj) === "Object";
+}

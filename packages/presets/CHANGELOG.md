@@ -1,5 +1,20 @@
 # @tc-track/presets
 
+## 1.0.3
+
+### Patch Changes
+
+-   扩展字段支持函数以及优化用户标识上报逻辑
+-   Updated dependencies
+    -   @tc-track/router-history@1.0.2
+    -   @tc-track/performance@1.0.2
+    -   @tc-track/router-hash@1.0.2
+    -   @tc-track/fetch@1.0.2
+    -   @tc-track/types@1.0.2
+    -   @tc-track/dom@1.0.2
+    -   @tc-track/vue@1.0.2
+    -   @tc-track/xhr@1.0.2
+
 ## 1.0.2
 
 ### Patch Changes
