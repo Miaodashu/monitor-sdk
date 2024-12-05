@@ -1,5 +1,11 @@
 # tc-qos
 
+## 0.0.3
+
+### Patch Changes
+
+-   修复打印日志错误使用 this 的问题
+
 ## 0.0.2
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @tc-track/router-history
 
+## 1.0.3
+
+### Patch Changes
+
+-   修复打印日志错误使用 this 的问题
+-   Updated dependencies
+    -   @tc-track/types@1.0.3
+    -   @tc-track/utils@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@tc-track/core",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "type": "module",
     "main": "dist/core.umd.js",
     "module": "esm/index.js",
