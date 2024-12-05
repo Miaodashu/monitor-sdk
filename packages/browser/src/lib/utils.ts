@@ -39,7 +39,7 @@ export function getExtendsInfo(data: any){
        }
        return ret;
    } catch (error) {
-       this.log('call getExtendsInfo error',error); 
+    //    console.log('call getExtendsInfo error',error); 
    }
    return null;
 }
