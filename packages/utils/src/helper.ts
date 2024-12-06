@@ -109,14 +109,16 @@ export function throttle(fn: Function, delay: number): Function {
         }, delay);
     };
 }
-
+export function getType(obj) {
+    return Object.prototype.toString.call(obj).replace(/\[object\s|\]/g, '');
+}
 
 export function isFunction(func: any) {
-    return this.type(func) === "Function";
+    return getType(func) === "Function";
 }
 
 export function isArray(list: any) {
-    return this.type(list) === 'Array';
+    return getType(list) === 'Array';
 }
 
 /**
@@ -140,5 +142,5 @@ export function objectIsNull(obj: any) {
  * @param {*} obj 
  */
 export function isObject(obj: any){
-    return this.type(obj) === "Object";
+    return getType(obj) === "Object";
 }

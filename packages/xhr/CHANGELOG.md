@@ -1,5 +1,14 @@
 # @tc-track/xhr
 
+## 1.0.4
+
+### Patch Changes
+
+-   修复 utils 函数报错问题
+-   Updated dependencies
+    -   @tc-track/types@1.0.4
+    -   @tc-track/utils@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

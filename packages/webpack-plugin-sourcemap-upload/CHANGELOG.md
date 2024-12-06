@@ -1,5 +1,11 @@
 # @tc-track/webpack-plugin-sourcemap-upload
 
+## 1.0.4
+
+### Patch Changes
+
+-   修复 utils 函数报错问题
+
 ## 1.0.3
 
 ### Patch Changes

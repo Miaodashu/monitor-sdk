@@ -28,7 +28,7 @@ export function getExtendsInfo(data: any){
            dynamicParams = extendsInfo.getDynamic();   //获取动态参数
        }
        //判断动态方法返回的参数是否是对象
-       if(isObject(dynamicParams)){
+       if(dynamicParams && isObject(dynamicParams)){
            extendsInfo = {...extendsInfo,...dynamicParams};
        }
        //遍历扩展信息，排除动态方法
@@ -39,7 +39,7 @@ export function getExtendsInfo(data: any){
        }
        return ret;
    } catch (error) {
-    //    console.log('call getExtendsInfo error',error); 
+       console.log('call getExtendsInfo error',error);
    }
    return null;
 }

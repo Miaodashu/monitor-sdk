@@ -1,5 +1,20 @@
 # @tc-track/presets
 
+## 1.0.5
+
+### Patch Changes
+
+-   修复 utils 函数报错问题
+-   Updated dependencies
+    -   @tc-track/router-history@1.0.4
+    -   @tc-track/performance@1.0.4
+    -   @tc-track/router-hash@1.0.4
+    -   @tc-track/fetch@1.0.4
+    -   @tc-track/types@1.0.4
+    -   @tc-track/dom@1.0.4
+    -   @tc-track/vue@1.0.4
+    -   @tc-track/xhr@1.0.4
+
 ## 1.0.4
 
 ### Patch Changes

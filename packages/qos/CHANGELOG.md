@@ -1,5 +1,11 @@
 # tc-qos
 
+## 0.0.4
+
+### Patch Changes
+
+-   修复 utils 函数报错问题
+
 ## 0.0.3
 
 ### Patch Changes
