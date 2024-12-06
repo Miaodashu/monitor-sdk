@@ -1,5 +1,11 @@
 # @tc-track/dom
 
+## 1.0.5
+
+### Patch Changes
+
+-   优化获取 userid 的逻辑，增加是否解析配置，支持本地存储是字符串的问题
+
 ## 1.0.4
 
 ### Patch Changes

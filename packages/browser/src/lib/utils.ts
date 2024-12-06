@@ -3,11 +3,11 @@ import { getCookie, getDeepPropByDot, getStore, isFunction, isObject } from "@tc
 
 
 export function getStoreUserId(userIdentify: CustomerOptionType = {}) {
-    const { name = '', postion = '' } = userIdentify;
+    const { name = '', postion = '', needParse = true } = userIdentify;
     switch (postion) {
         case StoreType.LOCAL:
         case StoreType.SESSION:
-            return getStore(postion, name);
+            return getStore(postion, name, needParse);
         case StoreType.COOKIE:
             return getCookie(name);
         case StoreType.GLOBAL:

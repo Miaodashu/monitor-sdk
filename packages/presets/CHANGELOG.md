@@ -1,5 +1,20 @@
 # @tc-track/presets
 
+## 1.0.6
+
+### Patch Changes
+
+-   优化获取 userid 的逻辑，增加是否解析配置，支持本地存储是字符串的问题
+-   Updated dependencies
+    -   @tc-track/router-history@1.0.5
+    -   @tc-track/performance@1.0.5
+    -   @tc-track/router-hash@1.0.5
+    -   @tc-track/fetch@1.0.5
+    -   @tc-track/types@1.0.5
+    -   @tc-track/dom@1.0.5
+    -   @tc-track/vue@1.0.5
+    -   @tc-track/xhr@1.0.5
+
 ## 1.0.5
 
 ### Patch Changes

@@ -11,6 +11,7 @@ import {
 } from '@tc-track/types';
 import { CollectedType, LifecycleDataType, LifecycleOptions } from '../types';
 import { formatDate, generateUUID, getCookie, getDeepPropByDot, getStore } from '@tc-track/utils';
+import { getStoreUserId } from '../lib/utils'
 
 export default function lifecycle(options: LifecycleOptions = {}): BasePluginType {
     const { userIdentify = {} } = options;
@@ -74,19 +75,4 @@ export default function lifecycle(options: LifecycleOptions = {}): BasePluginTyp
             };
         }
     };
-}
-
-function getStoreUserId(userIdentify: CustomerOptionType = {}) {
-    const { name = '', postion = '' } = userIdentify;
-    switch (postion) {
-        case StoreType.LOCAL:
-        case StoreType.SESSION:
-            return getStore(postion, name);
-        case StoreType.COOKIE:
-            return getCookie(name);
-        case StoreType.GLOBAL:
-            return getDeepPropByDot(name, window);
-        default:
-            break;
-    }
 }

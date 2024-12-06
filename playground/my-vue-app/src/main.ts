@@ -27,11 +27,13 @@ let trackClass = monitor({
     },
     app: {
         name: 'test-vue-app',
-        leader: '张三'
+        uk: '123456789',
+        owner: '李四',
     },
     userIdentify: {
         name: 'access_token',
-        postion: 'cookie'
+        postion: 'local',
+        needParse: false
     },
     // enabled: false,
     debuge: true,
@@ -40,7 +42,7 @@ let trackClass = monitor({
         //     vue: app,
         //     ignoreUrls: ['**/workbenchapi/**']
         // }),
-        consolePlugin(),
+        // consolePlugin(),
         domPlugin(),
         performancePlugin(),
         vuePlugin({

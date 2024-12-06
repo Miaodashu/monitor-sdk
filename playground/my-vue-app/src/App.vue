@@ -6,6 +6,9 @@ let name = ref('hello');
 onMounted(() => {
     // throw new Error('示例错误：这是一个未被捕获的错误！');
     console.log('组件 mounted周期');
+    setTimeout(() => {
+        localStorage.setItem('access_token', '哈哈哈');
+    }, 5000)
 });
 const info = ref();
 const handleClick = () => {
