@@ -1,5 +1,11 @@
 # @monitor-sdk/types
 
+## 1.1.6
+
+### Patch Changes
+
+-   新增行为录制插件
+
 ## 1.1.5
 
 ### Patch Changes

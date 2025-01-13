@@ -1,5 +1,13 @@
 # @monitor-sdk/utils
 
+## 1.2.4
+
+### Patch Changes
+
+-   新增行为录制插件
+-   Updated dependencies
+    -   @monitor-sdk/types@1.1.6
+
 ## 1.2.3
 
 ### Patch Changes

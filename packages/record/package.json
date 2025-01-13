@@ -1,11 +1,11 @@
 {
-  "name": "@monitor-sdk/types",
-  "version": "1.1.6",
+  "name": "@monitor-sdk/record",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "peng <847880603@qq.com>",
   "homepage": "https://github.com/Miaodashu/monitor-sdk#readme",
   "license": "ISC",
-  "main": "esm/index.js",
+  "main": "dist/record.umd.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
   "directories": {
@@ -13,19 +13,27 @@
     "test": "__tests__"
   },
   "files": [
-    "esm"
+    "lib"
   ],
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://Miaodashu@github.com/Miaodashu/monitor-sdk.git"
+    "url": "git+https://github.com/Miaodashu/monitor-sdk.git"
   },
   "scripts": {
-    "build": "rimraf esm && tsc -p tsconfig.json"
+    "build": "run-p build:bundle build:esm",
+    "build:bundle": "rimraf dist && rollup --config",
+    "build:esm": "rimraf esm && tsc -p tsconfig.json"
   },
   "bugs": {
     "url": "https://github.com/Miaodashu/monitor-sdk/issues"
+  },
+  "dependencies": {
+    "@monitor-sdk/types": "workspace:^",
+    "@monitor-sdk/utils": "workspace:^",
+    "@rrweb/types": "^2.0.0-alpha.8",
+    "rrweb": "^2.0.0-alpha.4"
   }
 }

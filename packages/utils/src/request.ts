@@ -25,15 +25,15 @@ export function imgRequest(url: string, data: IAnyObject): void {
  */
 export function beacon(url: string, data: IAnyObject): boolean {
     const formData = new FormData();
-    Object.keys(data).forEach((key) => {
-        // 这里做下判断，  formData.append的第二个参数只能接受string或者blob
-        let value = data[key];
-        if (typeof value !== 'string') {
-            value = JSON.stringify(value);
-        }
-        formData.append(key, value);
-    });
-    
+    // Object.keys(data).forEach((key) => {
+    //     // 这里做下判断，  formData.append的第二个参数只能接受string或者blob
+    //     let value = data[key];
+    //     if (typeof value !== 'string') {
+    //         value = JSON.stringify(value);
+    //     }
+    //     formData.append(key, value);
+    // });
+    formData.append('value', JSON.stringify(data));
     return navigator.sendBeacon(url, formData);
 }
 

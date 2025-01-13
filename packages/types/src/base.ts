@@ -1,11 +1,16 @@
 import { BrowserSubTypes, EventTypes, PlatformTypes } from './constant';
 import { BasePluginType } from './plugin';
 import { QueueData } from './queue';
+import { Recordable } from './common';
 
 export interface AppInfoType {
     name: string; // 项目名称
     leader: string;
     desc?: string;
+}
+
+export interface ReportDataMsgType {
+    sub_type: BrowserSubTypes | string;
 }
 
 export interface DSN {
@@ -31,6 +36,7 @@ export interface CoreContextType {
     initUrl?: string;
     debuge: boolean;
     enabled: boolean;
+    extendInfo?: Recordable;
 }
 
 // sdk基础配置项  初始化传入
@@ -47,11 +53,13 @@ export interface BaseOptionsType {
     plugins?: BasePluginType[];
     // 队列最大层级
     maxQueueLength?: number;
+    // 扩展数据
+    extendInfo?: Recordable;
 }
 
 // 事件上报的数据格式  客户端 浏览器端会上报的格式，
 export interface ClientInfoType {
-    deviceInfo: string; // json字符串  平台信息， 包含设备类型，网络，系统等信息
+    deviceInfo?: string; // json字符串  平台信息， 包含设备类型，网络，系统等信息
     app_id?: string; // 应用id
     session_id?: string; // 会话id
     page_title?: string; // 页面标题

@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { nextTick, onMounted, ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
+// import rrwebPlayer from 'rrweb-player';
+// import 'rrweb-player/dist/style.css';
 let name = ref('hello');
+let list = ref<any[]>([]);
 onMounted(() => {
     // throw new Error('示例错误：这是一个未被捕获的错误！');
-    console.log('组件 mounted周期');
 });
 const info = ref();
 const handleClick = () => {
@@ -13,71 +15,110 @@ const handleClick = () => {
     console.log('handleClick--');
     // name.value = sign;
 };
+/**
+ * 解析rrweb events，解码文本内容
+ * @param events 
+ * @returns 
+ */
+const decodeRecordEvents = (events: any[]) => {
+  const deepTrans = (node: any) => {
+    if (node.childNodes && node.childNodes.length) {
+      node.childNodes.forEach(deepTrans);
+    } else if (node.textContent) {
+      node.textContent = decodeURIComponent(node.textContent);
+    }
+  };
+  return events.map((e) => {
+    const { type, data = {} } = e;
+    if (type === 2) {
+      const { node } = data;
+      deepTrans(node);
+    }
+    return e;
+  });
+};
+const handleClickRecord = (item) => {
+    let events = item.data.events;
+    nextTick(() => {
+        new rrwebPlayer({
+            target: document.getElementById('sessionPlayWrap'),
+            // 配置项
+            props: {
+                events: decodeRecordEvents(events),
+                width: 800,
+                height: 450
+            }
+        });
+    });
+};
+
 const handleClick2 = () => {
     console.log('handleClick2--');
     Promise.reject('Some error occurred');
 };
 const handleClick3 = () => {
     // name.value = name;
-    info.value.name = 888
-    return
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('POST', 'http://localhost:3000/api/site/test');
-    // xhr.setRequestHeader('Content-Type', 'application/json');
-    // xhr.send(JSON.stringify({name:'张三',age:12}));
-
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //         // 获取服务器响应的数据
-    //         console.log(xhr.responseText);
-    //     }
-    // };
-    fetch('http://localhost:3000/api/site/test')
-    fetch('//crm-hd.elong.com/workbenchapi/form/list-field-v2', {
-        method: 'POST',
-        body: JSON.stringify({
-            timestamp: new Date().getTime(),
-            caller: 'inter.platform.web',
-            params: {
-                corpusPackageId: 'cp_6da30efe8c0c437d8da0639cfe491704',
-                projectId: 'project_9080858e198746ffa2e9667a0e316512',
-                corpusIds: [],
-                targetLanguages: ['zh-cn', 'en-us']
-            }
-        }),
-        headers: {
-            'Content-Type': 'application/json',
-            Cookie: '__tctmu=102596417.0.0; __tctmz=102596417.1705541473410.35.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); __tctrack=0; longKey=1707026539695527; businessLine=15f444cf8755447ea4fd58a7a6ac0a93; route=d8e740f212b6a2469f16a4ee9e17745a; prod_apitable_xsrf_token=6d7fcabe-5c54-4822-a268-99563a3b1c20; lang=zh-CN; prod_apitable_token=MDRmYWMyMGMtMzAxOC00OGIzLTlkMGEtYThiNGJmNzlkNTMy; __tctmc=102596417.93733272; __tctmd=102596417.128401801; __tctma=102596417.1707026539695527.1707026539774.1712557365956.1712902450502.19; __tccgd=102596417.0; access_token=e19e116b512de0ef8f6a60a5f463d8c8'
-        }
-    });
+    info.value.name = 888;
+    return;
 };
 const handleClick4 = async () => {
-    const res = await fetch('https://crm-hd.elong.com/workbenchapi/notice/unReadCount', {
-        method: 'POST',
-        body: JSON.stringify({
-            timestamp: new Date().getTime(),
-            caller: 'inter.platform.web',
-            params: {
-                corpusPackageId: 'cp_6da30efe8c0c437d8da0639cfe491704',
-                projectId: 'project_9080858e198746ffa2e9667a0e316512',
-                corpusIds: [],
-                targetLanguages: ['zh-cn', 'en-us']
-            }
-        }),
-        headers: {
-            'Content-Type': 'application/json',
-            Cookie: '__tctmu=102596417.0.0; __tctmz=102596417.1705541473410.35.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); __tctrack=0; longKey=1707026539695527; businessLine=15f444cf8755447ea4fd58a7a6ac0a93; route=d8e740f212b6a2469f16a4ee9e17745a; prod_apitable_xsrf_token=6d7fcabe-5c54-4822-a268-99563a3b1c20; lang=zh-CN; prod_apitable_token=MDRmYWMyMGMtMzAxOC00OGIzLTlkMGEtYThiNGJmNzlkNTMy; __tctmc=102596417.93733272; __tctmd=102596417.128401801; __tctma=102596417.1707026539695527.1707026539774.1712557365956.1712902450502.19; __tccgd=102596417.0; access_token=e19e116b512de0ef8f6a60a5f463d8c8'
-        }
-    });
-
-    console.log('res???', res);
-
-    // fetch('http://localhost:3000/api/site/demo', {
-    //         method: 'GET',
-    //         headers: {
-    //             'name': 'hello'
+    // const res = await fetch('https://crm-hd.elong.com/workbenchapi/notice/unReadCount', {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         timestamp: new Date().getTime(),
+    //         caller: 'inter.platform.web',
+    //         params: {
+    //             corpusPackageId: 'cp_6da30efe8c0c437d8da0639cfe491704',
+    //             projectId: 'project_9080858e198746ffa2e9667a0e316512',
+    //             corpusIds: [],
+    //             targetLanguages: ['zh-cn', 'en-us']
     //         }
-    //     })
+    //     }),
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         Cookie: '__tctmu=102596417.0.0; __tctmz=102596417.1705541473410.35.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); __tctrack=0; longKey=1707026539695527; businessLine=15f444cf8755447ea4fd58a7a6ac0a93; route=d8e740f212b6a2469f16a4ee9e17745a; prod_apitable_xsrf_token=6d7fcabe-5c54-4822-a268-99563a3b1c20; lang=zh-CN; prod_apitable_token=MDRmYWMyMGMtMzAxOC00OGIzLTlkMGEtYThiNGJmNzlkNTMy; __tctmc=102596417.93733272; __tctmd=102596417.128401801; __tctma=102596417.1707026539695527.1707026539774.1712557365956.1712902450502.19; __tccgd=102596417.0; access_token=e19e116b512de0ef8f6a60a5f463d8c8'
+    //     }
+    // });
+
+    // console.log('res???', res);
+
+    fetch('https://tcwlservice.qa.17usoft.com/livechat/route/out/api/testMaiDian/get', {
+        method: 'GET'
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json(); // 解析 JSON 格式的响应体
+        })
+        .then((data) => {
+            list.value = data.data.map((item: any) => {
+                if (item.pointValue) {
+                    return item.pointValue;
+                }
+            });
+            try {
+                list.value = list.value.map((item: any): any[] => {
+                    // 返回item 是字符串 且里面包含record的item
+                    if (typeof item === 'string' && item.includes('record')) {
+                        return JSON.parse(item);
+                    }
+                });
+                // list 去空
+                list.value = list.value.filter((item: any) => {
+                    return item !== undefined;
+                });
+                let nodeArr = []
+                list.value.filter(el => {
+                    if (el.data.events) {
+                        nodeArr.concat(el.data.events.filter(el => el.data.node));
+                    }
+                })
+                console.log(nodeArr);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
     //     // fetch('http://localhost:3000/api/site/demo22', {
     //     //     method: 'GET',
     //     //     headers: {
@@ -103,6 +144,11 @@ const handleClick4 = async () => {
                 <RouterLink to="/about">About</RouterLink>
             </nav>
         </div>
+        <ul>
+            <li v-for="item in list" :key="item.id" @click="handleClickRecord(item)">{{ item.app_id }}： {{ item.time }} -- {{ item.type }}</li>
+        </ul>
+        <!-- <iframe width="375" height="667" src="http://10.22.38.42:9001/?p=3&sourceType=16&openid=oOCyauG9ag5v3AJ7PdVc2Vc0Oe-M&#/" frameborder="0"></iframe> -->
+        <div id="sessionPlayWrap"></div>
     </header>
 </template>
 

@@ -91,3 +91,74 @@ export function formatDecimal(num: number, decimal: number): number {
 export function minimatchFn(p: string, pattern: string, options?: MinimatchOptions) {
     return minimatch(p, pattern, options);
 }
+
+/**
+ * 计算字符串大小
+ * @param str
+ * @returns 字节
+ */
+export function countBytes(str: string): number {
+    const encoder = new TextEncoder();
+    return encoder.encode(str).length;
+  }
+  
+  /**
+   * 根据字节大小拆分字符串
+   * @param str 
+   * @param maxBytes 最大字节数
+   * @returns
+   */
+  export function splitStringByBytes(str: string, maxBytes: number): Array<string> {
+    const encoder = new TextEncoder();
+    const bytes = encoder.encode(str);
+    const decoder = new TextDecoder();
+    const chunks = [];
+    let start = 0;
+    while (start < bytes.length) {
+      let end = start + maxBytes;
+      while (end > start && (bytes[end] & 0xc0) === 0x80) {
+        end--;
+      }
+      chunks.push(decoder.decode(bytes.subarray(start, end)));
+      start = end;
+    }
+    return chunks;
+  }
+
+
+export function getType(obj: any) {
+    return Object.prototype.toString.call(obj).replace(/\[object\s|\]/g, '');
+}
+
+export function isFunction(func: any) {
+    return getType(func) === "Function";
+}
+
+export function isArray(list: any) {
+    return getType(list) === 'Array';
+}
+
+/**
+ * 是否为null
+ * @param {String} str 
+ */
+export function isNull(str: any) {
+    return str == undefined || str == '' || str == null;
+}
+
+/**
+ * 对象是否为空
+ * @param {*} obj 
+ */
+export function objectIsNull(obj: any) {
+    return JSON.stringify(obj) === "{}";
+}
+
+/**
+ * 是否是对象
+ * @param {*} obj 
+ */
+export function isObject(obj: any){
+    return getType(obj) === "Object";
+}
+  

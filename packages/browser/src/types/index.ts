@@ -8,11 +8,17 @@ export interface LifecycleOptions {
 }
 
 // 浏览器端配置
-export interface BrowserOptionType extends LifecycleOptions, BaseOptionsType {}
+export interface BrowserOptionType extends LifecycleOptions, BaseOptionsType {
+  // 是否加载基础插件 errorPlugin promiseErrorPlugin
+  enabledBasePlugins?: boolean;
+  // 是否需要设备信息数据
+  enabledDeviceInfo?: boolean;
+}
 
 
 // 浏览器端上报数据类型
 export interface BrowserReportPayloadDataType extends ClientInfoType {
+    extendInfo?: any;
     [key: string]: any;
 }
 

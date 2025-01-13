@@ -1,5 +1,15 @@
 # @monitor-sdk/browser
 
+## 1.1.11
+
+### Patch Changes
+
+-   新增行为录制插件
+-   Updated dependencies
+    -   @monitor-sdk/types@1.1.6
+    -   @monitor-sdk/utils@1.2.4
+    -   @monitor-sdk/core@1.1.9
+
 ## 1.1.10
 
 ### Patch Changes

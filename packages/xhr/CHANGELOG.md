@@ -1,5 +1,13 @@
 # @monitor-sdk/xhr
 
+## 0.2.4
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @monitor-sdk/types@1.1.6
+    -   @monitor-sdk/utils@1.2.4
+
 ## 0.2.3
 
 ### Patch Changes
