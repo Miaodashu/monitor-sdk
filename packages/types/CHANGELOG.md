@@ -1,5 +1,11 @@
 # @monitor-sdk/types
 
+## 1.1.7
+
+### Patch Changes
+
+-   更新 umd
+
 ## 1.1.6
 
 ### Patch Changes

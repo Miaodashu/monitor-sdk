@@ -1,5 +1,15 @@
 # @monitor-sdk/browser
 
+## 1.1.12
+
+### Patch Changes
+
+-   更新 umd
+-   Updated dependencies
+    -   @monitor-sdk/core@1.1.10
+    -   @monitor-sdk/types@1.1.7
+    -   @monitor-sdk/utils@1.2.5
+
 ## 1.1.11
 
 ### Patch Changes

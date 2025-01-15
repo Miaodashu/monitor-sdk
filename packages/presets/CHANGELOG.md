@@ -1,5 +1,19 @@
 # @monitor-sdk/presets
 
+## 0.1.11
+
+### Patch Changes
+
+-   更新 umd
+-   Updated dependencies
+    -   @monitor-sdk/fetch@0.2.5
+    -   @monitor-sdk/performance@0.1.10
+    -   @monitor-sdk/router-hash@1.1.9
+    -   @monitor-sdk/router-history@1.1.9
+    -   @monitor-sdk/types@1.1.7
+    -   @monitor-sdk/vue@1.1.6
+    -   @monitor-sdk/xhr@0.2.5
+
 ## 0.1.10
 
 ### Patch Changes

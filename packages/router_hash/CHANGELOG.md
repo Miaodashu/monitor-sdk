@@ -1,5 +1,14 @@
 # @monitor-sdk/router-hash
 
+## 1.1.9
+
+### Patch Changes
+
+-   更新 umd
+-   Updated dependencies
+    -   @monitor-sdk/types@1.1.7
+    -   @monitor-sdk/utils@1.2.5
+
 ## 1.1.8
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @monitor-sdk/utils
 
+## 1.2.5
+
+### Patch Changes
+
+-   更新 umd
+-   Updated dependencies
+    -   @monitor-sdk/types@1.1.7
+
 ## 1.2.4
 
 ### Patch Changes

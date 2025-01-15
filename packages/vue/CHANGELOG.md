@@ -1,5 +1,11 @@
 # @monitor-sdk/vue
 
+## 1.1.6
+
+### Patch Changes
+
+-   更新 umd
+
 ## 1.1.5
 
 ### Patch Changes
